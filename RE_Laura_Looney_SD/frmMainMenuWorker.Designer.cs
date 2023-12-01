@@ -37,12 +37,13 @@
             // 
             // mnuMainW
             // 
+            this.mnuMainW.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuMainW.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuExit,
             this.mnuHomePage});
             this.mnuMainW.Location = new System.Drawing.Point(0, 0);
             this.mnuMainW.Name = "mnuMainW";
-            this.mnuMainW.Size = new System.Drawing.Size(800, 24);
+            this.mnuMainW.Size = new System.Drawing.Size(901, 28);
             this.mnuMainW.TabIndex = 4;
             this.mnuMainW.Text = "menuStrip1";
             // 
@@ -50,34 +51,36 @@
             // 
             this.mnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(38, 20);
+            this.mnuExit.Size = new System.Drawing.Size(47, 24);
             this.mnuExit.Text = "Exit";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // mnuHomePage
             // 
             this.mnuHomePage.Name = "mnuHomePage";
-            this.mnuHomePage.Size = new System.Drawing.Size(81, 20);
+            this.mnuHomePage.Size = new System.Drawing.Size(100, 24);
             this.mnuHomePage.Text = "Home Page";
             this.mnuHomePage.Click += new System.EventHandler(this.mnuHomePage_Click);
             // 
             // btnOrder
             // 
             this.btnOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrder.Location = new System.Drawing.Point(312, 171);
-            this.btnOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOrder.Location = new System.Drawing.Point(349, 179);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(148, 79);
+            this.btnOrder.Size = new System.Drawing.Size(197, 97);
             this.btnOrder.TabIndex = 1;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
             // 
             // frmMainMenuWorker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(901, 420);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.mnuMainW);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMainMenuWorker";
             this.Text = "Looney\'s Liquer - [Main Menu]";
             this.mnuMainW.ResumeLayout(false);

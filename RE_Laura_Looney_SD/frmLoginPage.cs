@@ -12,11 +12,10 @@ namespace RE_Laura_Looney_SD
 {
     public partial class frmLoginPage : Form
     {
-        public frmLoginPage(frmHomePage frmHomePage)
+        public frmLoginPage(Form frmHomePage)
         {
             InitializeComponent();
         }
-
         private void mnuExit_Click(object sender, EventArgs e)
         {
             DialogResult Result = (MessageBox.Show("Are you sure you want to exit?", "Exit Looney's Liquer", MessageBoxButtons.YesNo, MessageBoxIcon.Question));

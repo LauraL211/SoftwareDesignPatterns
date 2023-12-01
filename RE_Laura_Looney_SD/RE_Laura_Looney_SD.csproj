@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCustomerMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomerMenu.Designer.cs">
+      <DependentUpon>frmCustomerMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     <Compile Include="frmMainMenuWorker.Designer.cs">
       <DependentUpon>frmMainMenuWorker.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOrderMenuCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrderMenuCustomer.Designer.cs">
+      <DependentUpon>frmOrderMenuCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegisterCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCustomerMenu.resx">
+      <DependentUpon>frmCustomerMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHomePage.resx">
       <DependentUpon>frmHomePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainMenuWorker.resx">
       <DependentUpon>frmMainMenuWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrderMenuCustomer.resx">
+      <DependentUpon>frmOrderMenuCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegisterCustomer.resx">
       <DependentUpon>frmRegisterCustomer.cs</DependentUpon>

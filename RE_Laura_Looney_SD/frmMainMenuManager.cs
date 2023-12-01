@@ -23,5 +23,17 @@ namespace RE_Laura_Looney_SD
             frmHomePage frm = (frmHomePage)Application.OpenForms["frmHomePage"];
             frm.Show();
         }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            DialogResult Result = (MessageBox.Show("Are you sure you want to exit?", "Exit Looney's Liquer", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+
+            if (Result == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+        }
     }
 }
