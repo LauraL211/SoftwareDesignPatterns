@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RE_Laura_Looney_SD
 {
-    public partial class frmMainMenuCustomer : Form
+    public partial class MainMenuManager : Form
     {
-        public frmMainMenuCustomer(Form frmLoginPage)
+        public MainMenuManager()
         {
             InitializeComponent();
         }
@@ -36,10 +36,10 @@ namespace RE_Laura_Looney_SD
             }
         }
 
-        private void btnOrder_Click(object sender, EventArgs e)
+        private void btnStock_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmOrderMenuCustomer frm = (frmOrderMenuCustomer)Application.OpenForms["frmOrderMenuCustomer"];
+            frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
             if (frm != null)
             {
                 // The form is already open, so just bring it to the front
@@ -48,15 +48,15 @@ namespace RE_Laura_Looney_SD
             else
             {
                 // The form is not open, create a new instance and show it
-                frm = new frmOrderMenuCustomer(this);
+                frm = new frmStockMenu(this);
                 frm.Show();
             }
         }
 
-        private void btnCustomer_Click(object sender, EventArgs e)
+        private void btnAdmin_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmCustomerMenu frm = (frmCustomerMenu)Application.OpenForms["frmCustomerMenu"];
+            frmAdminMenu frm = (frmAdminMenu)Application.OpenForms["frmAdminMenu"];
             if (frm != null)
             {
                 // The form is already open, so just bring it to the front
@@ -65,10 +65,9 @@ namespace RE_Laura_Looney_SD
             else
             {
                 // The form is not open, create a new instance and show it
-                frm = new frmCustomerMenu();
+                frm = new frmAdminMenu(this);
                 frm.Show();
             }
-        }
         }
     }
-
+}

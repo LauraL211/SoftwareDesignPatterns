@@ -65,13 +65,14 @@
             // btnOrder
             // 
             this.btnOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrder.Location = new System.Drawing.Point(349, 179);
+            this.btnOrder.Location = new System.Drawing.Point(346, 155);
             this.btnOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(197, 97);
             this.btnOrder.TabIndex = 1;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // frmMainMenuWorker
             // 
@@ -80,7 +81,7 @@
             this.ClientSize = new System.Drawing.Size(901, 420);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.mnuMainW);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMainMenuWorker";
             this.Text = "Looney\'s Liquer - [Main Menu]";
             this.mnuMainW.ResumeLayout(false);

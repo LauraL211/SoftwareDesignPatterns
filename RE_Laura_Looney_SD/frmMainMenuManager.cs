@@ -12,7 +12,7 @@ namespace RE_Laura_Looney_SD
 {
     public partial class frmMainMenuManager : Form
     {
-        public frmMainMenuManager(frmLoginPage frmLoginPage)
+        public frmMainMenuManager(Form frmLoginPage)
         {
             InitializeComponent();
         }
@@ -33,6 +33,40 @@ namespace RE_Laura_Looney_SD
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+            }
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmStockMenu(this);
+                frm.Show();
+            }
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmAdminMenu frm = (frmAdminMenu)Application.OpenForms["frmAdminMenu"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmAdminMenu(this);
+                frm.Show();
             }
         }
     }

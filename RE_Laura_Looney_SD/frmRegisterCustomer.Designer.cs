@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.mnuRegisterCustomer = new System.Windows.Forms.MenuStrip();
+            this.mnuHomePage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRegisterCustomer = new System.Windows.Forms.Button();
@@ -45,26 +46,33 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.cboPassword = new System.Windows.Forms.TextBox();
             this.cboUsername = new System.Windows.Forms.TextBox();
-            this.mnuHomePage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRegisterCustomer.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuRegisterCustomer
             // 
+            this.mnuRegisterCustomer.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuRegisterCustomer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHomePage,
             this.mnuLogin,
             this.mnuExit});
             this.mnuRegisterCustomer.Location = new System.Drawing.Point(0, 0);
             this.mnuRegisterCustomer.Name = "mnuRegisterCustomer";
-            this.mnuRegisterCustomer.Size = new System.Drawing.Size(800, 24);
+            this.mnuRegisterCustomer.Size = new System.Drawing.Size(1067, 28);
             this.mnuRegisterCustomer.TabIndex = 0;
             this.mnuRegisterCustomer.Text = "menuStrip1";
+            // 
+            // mnuHomePage
+            // 
+            this.mnuHomePage.Name = "mnuHomePage";
+            this.mnuHomePage.Size = new System.Drawing.Size(100, 24);
+            this.mnuHomePage.Text = "Home Page";
+            this.mnuHomePage.Click += new System.EventHandler(this.mnuHomePage_Click);
             // 
             // mnuLogin
             // 
             this.mnuLogin.Name = "mnuLogin";
-            this.mnuLogin.Size = new System.Drawing.Size(49, 20);
+            this.mnuLogin.Size = new System.Drawing.Size(60, 24);
             this.mnuLogin.Text = "Login";
             this.mnuLogin.Click += new System.EventHandler(this.mnuLogin_Click);
             // 
@@ -72,17 +80,17 @@
             // 
             this.mnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(38, 20);
+            this.mnuExit.Size = new System.Drawing.Size(47, 24);
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // btnRegisterCustomer
             // 
             this.btnRegisterCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.btnRegisterCustomer.Location = new System.Drawing.Point(345, 302);
-            this.btnRegisterCustomer.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegisterCustomer.Location = new System.Drawing.Point(460, 372);
+            this.btnRegisterCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegisterCustomer.Name = "btnRegisterCustomer";
-            this.btnRegisterCustomer.Size = new System.Drawing.Size(112, 54);
+            this.btnRegisterCustomer.Size = new System.Drawing.Size(149, 66);
             this.btnRegisterCustomer.TabIndex = 25;
             this.btnRegisterCustomer.Text = "Register Customer";
             this.btnRegisterCustomer.UseVisualStyleBackColor = true;
@@ -90,39 +98,38 @@
             // 
             // cboSurname
             // 
-            this.cboSurname.Location = new System.Drawing.Point(570, 192);
-            this.cboSurname.Margin = new System.Windows.Forms.Padding(2);
+            this.cboSurname.Location = new System.Drawing.Point(760, 236);
+            this.cboSurname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboSurname.MaxLength = 20;
             this.cboSurname.Name = "cboSurname";
-            this.cboSurname.Size = new System.Drawing.Size(112, 20);
+            this.cboSurname.Size = new System.Drawing.Size(148, 22);
             this.cboSurname.TabIndex = 21;
             // 
             // cboPhone
             // 
-            this.cboPhone.Location = new System.Drawing.Point(570, 224);
-            this.cboPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.cboPhone.Location = new System.Drawing.Point(760, 276);
+            this.cboPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboPhone.MaxLength = 10;
             this.cboPhone.Name = "cboPhone";
-            this.cboPhone.Size = new System.Drawing.Size(78, 20);
+            this.cboPhone.Size = new System.Drawing.Size(103, 22);
             this.cboPhone.TabIndex = 23;
             // 
             // cboForename
             // 
-            this.cboForename.Location = new System.Drawing.Point(570, 161);
-            this.cboForename.Margin = new System.Windows.Forms.Padding(2);
+            this.cboForename.Location = new System.Drawing.Point(760, 198);
+            this.cboForename.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboForename.MaxLength = 20;
             this.cboForename.Name = "cboForename";
-            this.cboForename.Size = new System.Drawing.Size(109, 20);
+            this.cboForename.Size = new System.Drawing.Size(144, 22);
             this.cboForename.TabIndex = 19;
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(486, 224);
-            this.lblPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPhone.Location = new System.Drawing.Point(648, 276);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(55, 18);
+            this.lblPhone.Size = new System.Drawing.Size(67, 22);
             this.lblPhone.TabIndex = 24;
             this.lblPhone.Text = "Phone:";
             // 
@@ -130,10 +137,9 @@
             // 
             this.lblSurname.AutoSize = true;
             this.lblSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSurname.Location = new System.Drawing.Point(486, 192);
-            this.lblSurname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSurname.Location = new System.Drawing.Point(648, 236);
             this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(72, 18);
+            this.lblSurname.Size = new System.Drawing.Size(87, 22);
             this.lblSurname.TabIndex = 22;
             this.lblSurname.Text = "Surname:";
             // 
@@ -141,10 +147,9 @@
             // 
             this.lblForename.AutoSize = true;
             this.lblForename.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblForename.Location = new System.Drawing.Point(486, 161);
-            this.lblForename.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblForename.Location = new System.Drawing.Point(648, 198);
             this.lblForename.Name = "lblForename";
-            this.lblForename.Size = new System.Drawing.Size(80, 18);
+            this.lblForename.Size = new System.Drawing.Size(96, 22);
             this.lblForename.TabIndex = 20;
             this.lblForename.Text = "Forename:";
             // 
@@ -152,10 +157,9 @@
             // 
             this.lblInput_Information.AutoSize = true;
             this.lblInput_Information.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblInput_Information.Location = new System.Drawing.Point(496, 126);
-            this.lblInput_Information.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInput_Information.Location = new System.Drawing.Point(661, 155);
             this.lblInput_Information.Name = "lblInput_Information";
-            this.lblInput_Information.Size = new System.Drawing.Size(196, 20);
+            this.lblInput_Information.Size = new System.Drawing.Size(236, 25);
             this.lblInput_Information.TabIndex = 27;
             this.lblInput_Information.Text = "Input General Information:";
             // 
@@ -164,10 +168,9 @@
             this.lblRegisterCustomer.AutoSize = true;
             this.lblRegisterCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegisterCustomer.Location = new System.Drawing.Point(254, 54);
-            this.lblRegisterCustomer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRegisterCustomer.Location = new System.Drawing.Point(339, 66);
             this.lblRegisterCustomer.Name = "lblRegisterCustomer";
-            this.lblRegisterCustomer.Size = new System.Drawing.Size(278, 36);
+            this.lblRegisterCustomer.Size = new System.Drawing.Size(345, 42);
             this.lblRegisterCustomer.TabIndex = 26;
             this.lblRegisterCustomer.Text = "Register Customer";
             // 
@@ -175,10 +178,9 @@
             // 
             this.lblLoginDetails.AutoSize = true;
             this.lblLoginDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblLoginDetails.Location = new System.Drawing.Point(64, 126);
-            this.lblLoginDetails.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLoginDetails.Location = new System.Drawing.Point(85, 155);
             this.lblLoginDetails.Name = "lblLoginDetails";
-            this.lblLoginDetails.Size = new System.Drawing.Size(247, 20);
+            this.lblLoginDetails.Size = new System.Drawing.Size(304, 25);
             this.lblLoginDetails.TabIndex = 28;
             this.lblLoginDetails.Text = "Enter a Username and Password:";
             // 
@@ -186,10 +188,9 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblPassword.Location = new System.Drawing.Point(71, 192);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPassword.Location = new System.Drawing.Point(95, 236);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(79, 18);
+            this.lblPassword.Size = new System.Drawing.Size(94, 22);
             this.lblPassword.TabIndex = 31;
             this.lblPassword.Text = "Password:";
             // 
@@ -197,43 +198,35 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblUsername.Location = new System.Drawing.Point(68, 161);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsername.Location = new System.Drawing.Point(91, 198);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(81, 18);
+            this.lblUsername.Size = new System.Drawing.Size(97, 22);
             this.lblUsername.TabIndex = 29;
             this.lblUsername.Text = "Username:";
             // 
             // cboPassword
             // 
-            this.cboPassword.Location = new System.Drawing.Point(145, 192);
-            this.cboPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.cboPassword.Location = new System.Drawing.Point(195, 236);
+            this.cboPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboPassword.MaxLength = 20;
             this.cboPassword.Name = "cboPassword";
-            this.cboPassword.Size = new System.Drawing.Size(149, 20);
+            this.cboPassword.Size = new System.Drawing.Size(197, 22);
             this.cboPassword.TabIndex = 2;
             // 
             // cboUsername
             // 
-            this.cboUsername.Location = new System.Drawing.Point(145, 161);
-            this.cboUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.cboUsername.Location = new System.Drawing.Point(194, 198);
+            this.cboUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboUsername.MaxLength = 20;
             this.cboUsername.Name = "cboUsername";
-            this.cboUsername.Size = new System.Drawing.Size(149, 20);
+            this.cboUsername.Size = new System.Drawing.Size(197, 22);
             this.cboUsername.TabIndex = 1;
-            // 
-            // mnuHomePage
-            // 
-            this.mnuHomePage.Name = "mnuHomePage";
-            this.mnuHomePage.Size = new System.Drawing.Size(81, 20);
-            this.mnuHomePage.Text = "Home Page";
-            this.mnuHomePage.Click += new System.EventHandler(this.mnuHomePage_Click);
             // 
             // frmRegisterCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.lblLoginDetails);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
@@ -250,6 +243,7 @@
             this.Controls.Add(this.lblRegisterCustomer);
             this.Controls.Add(this.mnuRegisterCustomer);
             this.MainMenuStrip = this.mnuRegisterCustomer;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmRegisterCustomer";
             this.Text = "Looney\'s Liquer - [Register Customer]";
             this.mnuRegisterCustomer.ResumeLayout(false);

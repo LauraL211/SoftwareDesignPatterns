@@ -59,7 +59,7 @@ namespace RE_Laura_Looney_SD
                 if (Result == DialogResult.Yes)
                 {
 
-                    MessageBox.Show("The following Customer has been registered to the system "
+                    MessageBox.Show("Hello " + cboForename.Text + " " +cboSurname.Text + ",\n Welcome to Looney's Liquer"
                                     , "Customer Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -178,7 +178,7 @@ namespace RE_Laura_Looney_SD
             {
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                Application.Exit();
             }
         }
 

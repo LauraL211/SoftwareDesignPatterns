@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RE_Laura_Looney_SD
 {
-    public partial class frmCustomerMenu : Form
+    public partial class frmDeRegisterCustomer : Form
     {
-        public frmCustomerMenu()
+        public frmDeRegisterCustomer(frmCustomerMenu frmCustomerMenu)
         {
             InitializeComponent();
         }
@@ -29,8 +29,8 @@ namespace RE_Laura_Looney_SD
             else
             {
                 // The form is not open, create a new instance and show it
-               frm = new frmMainMenuCustomer(this);
-               frm.Show();
+                frm = new frmMainMenuCustomer(this);
+                frm.Show();
             }
         }
 
@@ -46,10 +46,10 @@ namespace RE_Laura_Looney_SD
             }
         }
 
-        private void mnuOrderMenu_Click(object sender, EventArgs e)
+        private void mnuCustomerMenu_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmOrderMenuCustomer frm = (frmOrderMenuCustomer)Application.OpenForms["frmOrderMenuCustomer"];
+            frmCustomerMenu frm = (frmCustomerMenu)Application.OpenForms["frmCustomerMenu"];
             if (frm != null)
             {
                 // The form is already open, so just bring it to the front
@@ -58,43 +58,34 @@ namespace RE_Laura_Looney_SD
             else
             {
                 // The form is not open, create a new instance and show it
-                frm = new frmOrderMenuCustomer(this);
-                frm.Show();
-            }
-        }
-
-        private void btnUpdateCustomer_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmUpdateCustomer frm = (frmUpdateCustomer)Application.OpenForms["frmUpdateCustomer"];
-            if (frm != null)
-            {
-                // The form is already open, so just bring it to the front
-                frm.BringToFront();
-            }
-            else
-            {
-                // The form is not open, create a new instance and show it
-                frm = new frmUpdateCustomer(this);
+                frm = new frmCustomerMenu();
                 frm.Show();
             }
         }
 
         private void btnDeRegisterCustomer_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmDeRegisterCustomer frm = (frmDeRegisterCustomer)Application.OpenForms["frmDeRegisterCustomer"];
-            if (frm != null)
+            DialogResult Result = (MessageBox.Show("Are you sure you want to De-register your account?", "De-Register  Account", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+
+            if (Result == DialogResult.Yes)
             {
-                // The form is already open, so just bring it to the front
-                frm.BringToFront();
+
+                MessageBox.Show(cboForename.Text + " " + cboSurname.Text + ", your account has been deregistered within our System "
+                                , "Customer De-Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                //Refreshing the page
+                //cboForename.Clear();
+                //cboSurname.Clear();
+                //cboPhone.Clear();
             }
-            else
+
+            if (Result == DialogResult.No)
             {
-                // The form is not open, create a new instance and show it
-                frm = new frmDeRegisterCustomer(this);
-                frm.Show();
+                MessageBox.Show("The Customer has not been removed from the system", "De-Registration Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
+
         }
     }
 }

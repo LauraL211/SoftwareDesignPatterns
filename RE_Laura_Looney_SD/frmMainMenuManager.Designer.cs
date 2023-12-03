@@ -73,6 +73,7 @@
             this.btnAdmin.TabIndex = 2;
             this.btnAdmin.Text = "Admin";
             this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // btnStock
             // 
@@ -84,6 +85,7 @@
             this.btnStock.TabIndex = 1;
             this.btnStock.Text = "Stock";
             this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // frmMainMenuManager
             // 
@@ -93,7 +95,7 @@
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnStock);
             this.Controls.Add(this.mnuMainM);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMainMenuManager";
             this.Text = "Looney\'s Liquer - [Main Menu]";
             this.mnuMainM.ResumeLayout(false);

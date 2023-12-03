@@ -10,28 +10,11 @@ using System.Windows.Forms;
 
 namespace RE_Laura_Looney_SD
 {
-    public partial class frmCustomerMenu : Form
+    public partial class frmAdminMenu : Form
     {
-        public frmCustomerMenu()
+        public frmAdminMenu(Form mainMenuManager)
         {
             InitializeComponent();
-        }
-
-        private void mnuMainMenu_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmMainMenuCustomer frm = (frmMainMenuCustomer)Application.OpenForms["frmMainMenuCustomer"];
-            if (frm != null)
-            {
-                // The form is already open, so just bring it to the front
-                frm.BringToFront();
-            }
-            else
-            {
-                // The form is not open, create a new instance and show it
-               frm = new frmMainMenuCustomer(this);
-               frm.Show();
-            }
         }
 
         private void mnuExxit_Click(object sender, EventArgs e)
@@ -46,10 +29,11 @@ namespace RE_Laura_Looney_SD
             }
         }
 
-        private void mnuOrderMenu_Click(object sender, EventArgs e)
+
+        private void mnuStockMenu_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmOrderMenuCustomer frm = (frmOrderMenuCustomer)Application.OpenForms["frmOrderMenuCustomer"];
+            frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
             if (frm != null)
             {
                 // The form is already open, so just bring it to the front
@@ -58,15 +42,15 @@ namespace RE_Laura_Looney_SD
             else
             {
                 // The form is not open, create a new instance and show it
-                frm = new frmOrderMenuCustomer(this);
+                frm = new frmStockMenu(this);
                 frm.Show();
             }
         }
 
-        private void btnUpdateCustomer_Click(object sender, EventArgs e)
+        private void mnuMainMenu_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmUpdateCustomer frm = (frmUpdateCustomer)Application.OpenForms["frmUpdateCustomer"];
+            frmMainMenuManager frm = (frmMainMenuManager)Application.OpenForms["frmMainMenuManager"];
             if (frm != null)
             {
                 // The form is already open, so just bring it to the front
@@ -75,15 +59,15 @@ namespace RE_Laura_Looney_SD
             else
             {
                 // The form is not open, create a new instance and show it
-                frm = new frmUpdateCustomer(this);
+                frm = new frmMainMenuManager(this);
                 frm.Show();
             }
         }
 
-        private void btnDeRegisterCustomer_Click(object sender, EventArgs e)
+        private void btnStockSalesAnalysis_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmDeRegisterCustomer frm = (frmDeRegisterCustomer)Application.OpenForms["frmDeRegisterCustomer"];
+            frmAdminStock frm = (frmAdminStock)Application.OpenForms["frmAdminStock"];
             if (frm != null)
             {
                 // The form is already open, so just bring it to the front
@@ -92,7 +76,24 @@ namespace RE_Laura_Looney_SD
             else
             {
                 // The form is not open, create a new instance and show it
-                frm = new frmDeRegisterCustomer(this);
+                frm = new frmAdminStock(this);
+                frm.Show();
+            }
+        }
+
+        private void btnRevAnalysis_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmAdminRevenue frm = (frmAdminRevenue)Application.OpenForms["frmAdminRevenue"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmAdminRevenue(this);
                 frm.Show();
             }
         }

@@ -17,7 +17,7 @@ namespace RE_Laura_Looney_SD
             InitializeComponent();
         }
 
-        private void mnuExxit_Click(object sender, EventArgs e)
+        private void mnuExit_Click(object sender, EventArgs e)
         {
             DialogResult Result = (MessageBox.Show("Are you sure you want to exit?", "Exit Looney's Liquer", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
 
@@ -25,7 +25,8 @@ namespace RE_Laura_Looney_SD
             {
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                //this.Close();
+                Application.Exit();
             }
         }
 
@@ -48,7 +49,19 @@ namespace RE_Laura_Looney_SD
 
         private void btnCancelOrder_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            frmCancelOrder frm = (frmCancelOrder)Application.OpenForms["frmCancelOrder"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmCancelOrder();
+                frm.Show();
+            }
         }
 
         private void mnuCustomerMenu_Click(object sender, EventArgs e)
@@ -63,7 +76,29 @@ namespace RE_Laura_Looney_SD
             else
             {
                 // The form is not open, create a new instance and show it
-                frm = new frmCustomerMenu(this);
+                frm = new frmCustomerMenu();
+                frm.Show();
+            }
+        }
+
+        private void frmOrderMenuCustomer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void btnPlaceOrder_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPlaceOrder frm = (frmPlaceOrder)Application.OpenForms["frmPlaceOrder"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmPlaceOrder();
                 frm.Show();
             }
         }

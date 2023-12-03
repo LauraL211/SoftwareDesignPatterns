@@ -24,7 +24,7 @@ namespace RE_Laura_Looney_SD
             {
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                Application.Exit();
             }
         }
 
