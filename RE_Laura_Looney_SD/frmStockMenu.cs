@@ -62,5 +62,90 @@ namespace RE_Laura_Looney_SD
                 frm.Show();
             }
         }
+
+        private void btnAddStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmAddStock frm = (frmAddStock)Application.OpenForms["frmAddStock"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmAddStock(this);
+                frm.Show();
+            }
+        }
+
+        private void btnUpdateStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmUpdateStock frm = (frmUpdateStock)Application.OpenForms["frmUpdateStock"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmUpdateStock(this);
+                frm.Show();
+            }
+        }
+
+        private void btnDeleteStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmDeleteStock frm = (frmDeleteStock)Application.OpenForms["frmDeleteStock"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmDeleteStock(this);
+                frm.Show();
+            }
+        }
+
+        private void btnCheck_Stock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmCheckStock frm = (frmCheckStock)Application.OpenForms["frmCheckStock"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmCheckStock(this);
+                frm.Show();
+            }
+        }
+
+        private void btnReplenishStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmReplenishStock frm = (frmReplenishStock)Application.OpenForms["frmReplenishStock"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmReplenishStock(this);
+                frm.Show();
+            }
+        }
     }
 }

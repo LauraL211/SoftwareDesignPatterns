@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddStock.Designer.cs">
+      <DependentUpon>frmAddStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     <Compile Include="frmCancelOrder.Designer.cs">
       <DependentUpon>frmCancelOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCheckStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCheckStock.Designer.cs">
+      <DependentUpon>frmCheckStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCollectOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +93,12 @@
     </Compile>
     <Compile Include="frmCustomerMenu.Designer.cs">
       <DependentUpon>frmCustomerMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeleteStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteStock.Designer.cs">
+      <DependentUpon>frmDeleteStock.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDeRegisterCustomer.cs">
       <SubType>Form</SubType>
@@ -142,6 +160,12 @@
     <Compile Include="frmRegisterCustomer.Designer.cs">
       <DependentUpon>frmRegisterCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReplenishStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReplenishStock.Designer.cs">
+      <DependentUpon>frmReplenishStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStockMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +178,12 @@
     <Compile Include="frmUpdateCustomer.Designer.cs">
       <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUpdateStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateStock.Designer.cs">
+      <DependentUpon>frmUpdateStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenuManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +192,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAddStock.resx">
+      <DependentUpon>frmAddStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdminMenu.resx">
       <DependentUpon>frmAdminMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,11 +207,17 @@
     <EmbeddedResource Include="frmCancelOrder.resx">
       <DependentUpon>frmCancelOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCheckStock.resx">
+      <DependentUpon>frmCheckStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCollectOrder.resx">
       <DependentUpon>frmCollectOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerMenu.resx">
       <DependentUpon>frmCustomerMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeleteStock.resx">
+      <DependentUpon>frmDeleteStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDeRegisterCustomer.resx">
       <DependentUpon>frmDeRegisterCustomer.cs</DependentUpon>
@@ -210,11 +249,17 @@
     <EmbeddedResource Include="frmRegisterCustomer.resx">
       <DependentUpon>frmRegisterCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReplenishStock.resx">
+      <DependentUpon>frmReplenishStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStockMenu.resx">
       <DependentUpon>frmStockMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateCustomer.resx">
       <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateStock.resx">
+      <DependentUpon>frmUpdateStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuManager.resx">
       <DependentUpon>MainMenuManager.cs</DependentUpon>
