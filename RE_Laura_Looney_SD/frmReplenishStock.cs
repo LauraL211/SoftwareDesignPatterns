@@ -303,12 +303,408 @@ namespace RE_Laura_Looney_SD
 
         private void cboSearch_TextChanged(object sender, EventArgs e)
         {
-            
+            if (cboLowStock.Checked == true && cboSearch.Text.Equals(""))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("A") || cboLowStock.Checked == true && cboSearch.Text.Equals("a"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("B") || cboLowStock.Checked == true && cboSearch.Text.Equals("b"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("C") || cboLowStock.Checked == true && cboSearch.Text.Equals("c"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("G") || cboLowStock.Checked == true && cboSearch.Text.Equals("g"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("S") || cboLowStock.Checked == true && cboSearch.Text.Equals("s"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("J") || cboLowStock.Checked == true && cboSearch.Text.Equals("j"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals(""))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("A") || cboLowStock.Checked == true && cboSearch.Text.Equals("a"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("B") || cboLowStock.Checked == true && cboSearch.Text.Equals("b"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("C") || cboLowStock.Checked == true && cboSearch.Text.Equals("c"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("G") || cboLowStock.Checked == true && cboSearch.Text.Equals("g"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("S") || cboLowStock.Checked == true && cboSearch.Text.Equals("s"))
+            {
+
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("J") || cboLowStock.Checked == true && cboSearch.Text.Equals("j"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+            }
+            else if (cboSearch.Text.Equals("A") || cboSearch.Text.Equals("a"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+            }
+
+            else if (cboSearch.Text.Equals("B") || cboSearch.Text.Equals("b"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+            }
+
+            else if (cboSearch.Text.Equals("C") || cboSearch.Text.Equals("c"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+            }
+
+            else if (cboSearch.Text.Equals("G") || cboSearch.Text.Equals("g"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+            }
+
+            else if (cboSearch.Text.Equals("S") || cboSearch.Text.Equals("s"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+            }
+
+            else if (cboSearch.Text.Equals("J") || cboSearch.Text.Equals("j"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+            }
+
+
+            else
+            {
+
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+
+
+
+            }
         }
 
         private void cboLowStock_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (cboLowStock.Checked == true && cboSearch.Text.Equals(""))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("A") || cboLowStock.Checked == true && cboSearch.Text.Equals("a"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("B") || cboLowStock.Checked == true && cboSearch.Text.Equals("b"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("C") || cboLowStock.Checked == true && cboSearch.Text.Equals("c"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("G") || cboLowStock.Checked == true && cboSearch.Text.Equals("g"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("S") || cboLowStock.Checked == true && cboSearch.Text.Equals("s"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("J") || cboLowStock.Checked == true && cboSearch.Text.Equals("j"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals(""))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("A") || cboLowStock.Checked == true && cboSearch.Text.Equals("a"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("B") || cboLowStock.Checked == true && cboSearch.Text.Equals("b"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("C") || cboLowStock.Checked == true && cboSearch.Text.Equals("c"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("G") || cboLowStock.Checked == true && cboSearch.Text.Equals("g"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("S") || cboLowStock.Checked == true && cboSearch.Text.Equals("s"))
+            {
+
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("J") || cboLowStock.Checked == true && cboSearch.Text.Equals("j"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+            }
+            else if (cboSearch.Text.Equals("A") || cboSearch.Text.Equals("a"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+            }
+
+            else if (cboSearch.Text.Equals("B") || cboSearch.Text.Equals("b"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+            }
+
+            else if (cboSearch.Text.Equals("C") || cboSearch.Text.Equals("c"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+            }
+
+            else if (cboSearch.Text.Equals("G") || cboSearch.Text.Equals("g"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+            }
+
+            else if (cboSearch.Text.Equals("S") || cboSearch.Text.Equals("s"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+            }
+
+            else if (cboSearch.Text.Equals("J") || cboSearch.Text.Equals("j"))
+            {
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+            }
+
+
+            else
+            {
+
+                cboStock_List.Items.Clear();
+                cboStock_List.Items.Add("   1,     Jameson,      Black Barrell,  ");
+                cboStock_List.Items.Add("   2,     Smirnoff,     Original,       ");
+                cboStock_List.Items.Add("   3,     Cognak,       Original,       ");
+                cboStock_List.Items.Add("   4,     Baileys,      Original,       ");
+                cboStock_List.Items.Add("   5,     Apple Sourz,  Original,       ");
+                cboStock_List.Items.Add("   6,     BushMills,    Original,       ");
+                cboStock_List.Items.Add("   7,     Coors,        Original,       ");
+                cboStock_List.Items.Add("   8,     Grey Goose,   Original,       ");
+                cboStock_List.Items.Add("   9,     Smithick's,   Red,            ");
+                cboStock_List.Items.Add("   10,    Smirnoff,     Fruity Passion, ");
+                cboStock_List.Items.Add("   11,    Gordon's,     Original,       ");
+                cboStock_List.Items.Add("   12,    Gordon's,     Pink,           ");
+                cboStock_List.Items.Add("   13,    Cornona,      Original,       ");
+                cboStock_List.Items.Add("   14,    Jameson,      Original,       ");
+                cboStock_List.Items.Add("   15,    Jameson,      Golden,         ");
+
+
+
+            }
         }
 
         private void btnOrder_Items_Click(object sender, EventArgs e)
@@ -346,7 +742,6 @@ namespace RE_Laura_Looney_SD
         {
             string value = "";
             int valueAsInt;
-
             if (cboLowStock.Checked == true && cboSearch.Text.Equals(""))
             {
                 if (cboStock_List.SelectedIndex == 0)
@@ -377,7 +772,6 @@ namespace RE_Laura_Looney_SD
 
                 if (cboStock_List.SelectedIndex == 1)
                 {
-
                     if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
                     {
                         bool Canconvert = int.TryParse(value, out _);
@@ -399,10 +793,822 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
                 }
 
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   3,     Cognak,       Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 3)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   4,     Baileys,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 4)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   5,     Apple Sourz,  Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 5)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   6,     BushMills,    Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 6)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   7,     Coors,        Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 7)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   8,     Grey Goose,   Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 8)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   9,     Smithick's,   Red,            " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 9)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   10,    Smirnoff,     Fruity Passion, " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 10)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   11,    Gordon's,     Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 11)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   12,    Gordon's,     Pink,           " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 12)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   13,    Cornona,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 13)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   14,    Jameson,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 14)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   15,    Jameson,      Golden,         " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("A") || cboLowStock.Checked == true && cboSearch.Text.Equals("a"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   5,     Apple Sourz,  Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("B") || cboLowStock.Checked == true && cboSearch.Text.Equals("b"))
+            {
+
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   4,     Baileys,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   6,     BushMills,    Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("C") || cboLowStock.Checked == true && cboSearch.Text.Equals("c"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   3,     Cognak,       Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   7,     Coors,        Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   13,    Cornona,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("G") || cboLowStock.Checked == true && cboSearch.Text.Equals("g"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   8,     Grey Goose,   Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   11,    Gordon's,     Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   12,    Gordon's,     Pink,           " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("S") || cboLowStock.Checked == true && cboSearch.Text.Equals("s"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   2,     Smirnoff,     Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   9,     Smithick's,   Red,            " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   10,    Smirnoff,     Fruity Passion, " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("J") || cboLowStock.Checked == true && cboSearch.Text.Equals("j"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   1,     Jameson,      Black Barrell,  " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   14,    Jameson,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   15,    Jameson,      Golden,         " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals(""))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   1,     Jameson,      Black Barrell,  " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   2,     Smirnoff,     Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
                 if (cboStock_List.SelectedIndex == 2)
                 {
                     if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
@@ -426,9 +1632,7 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 3)
@@ -454,9 +1658,7 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 4)
@@ -482,9 +1684,7 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 5)
@@ -510,9 +1710,7 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 6)
@@ -538,9 +1736,7 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 7)
@@ -566,9 +1762,7 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 8)
@@ -594,7 +1788,6 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
                 }
 
@@ -621,9 +1814,7 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 10)
@@ -649,9 +1840,7 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 11)
@@ -678,7 +1867,6 @@ namespace RE_Laura_Looney_SD
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 12)
@@ -704,9 +1892,7 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 13)
@@ -732,9 +1918,7 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
-
                 }
 
                 if (cboStock_List.SelectedIndex == 14)
@@ -760,12 +1944,816 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
                     }
                 }
             }
 
-            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("A") || cboLowStock.Checked == true && cboSearch.Text.Equals("a"))
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("A") || cboLowStock.Checked == false && cboSearch.Text.Equals("a"))
+            {
+
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   5,     Apple Sourz,  Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+
+                }
+            }
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("B") || cboLowStock.Checked == false && cboSearch.Text.Equals("b"))
+            {
+
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   4,     Baileys,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   6,     BushMills,    Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+
+                }
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("C") || cboLowStock.Checked == false && cboSearch.Text.Equals("c"))
+            {
+
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   3,     Cognak,       Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   7,     Coors,        Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   13,    Cornona,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("G") || cboLowStock.Checked == false && cboSearch.Text.Equals("g"))
+            {
+
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   8,     Grey Goose,   Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   11,    Gordon's,     Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   12,    Gordon's,     Pink,           " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("S") || cboLowStock.Checked == false && cboSearch.Text.Equals("s"))
+            {
+
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   2,     Smirnoff,     Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   9,     Smithick's,   Red,            " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   10,    Smirnoff,     Fruity Passion, " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboLowStock.Checked == false && cboSearch.Text.Equals("J") || cboLowStock.Checked == false && cboSearch.Text.Equals("j"))
+            {
+
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   1,     Jameson,      Black Barrell,  " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   14,    Jameson,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   15,    Jameson,      Golden,         " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            else if (cboSearch.Text.Equals("A") || cboSearch.Text.Equals("a"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   5,     Apple Sourz,  Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboSearch.Text.Equals("B") || cboSearch.Text.Equals("b"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   4,     Baileys,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   6,     BushMills,    Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboSearch.Text.Equals("C") || cboSearch.Text.Equals("c"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   3,     Cognak,       Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   7,     Coors,        Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   13,    Cornona,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboSearch.Text.Equals("G") || cboSearch.Text.Equals("g"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   8,     Grey Goose,   Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   11,    Gordon's,     Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   12,    Gordon's,     Pink,           " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboSearch.Text.Equals("S") || cboSearch.Text.Equals("s"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   2,     Smirnoff,     Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   9,     Smithick's,   Red,            " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   10,    Smirnoff,     Fruity Passion, " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboSearch.Text.Equals("J") || cboSearch.Text.Equals("j"))
+            {
+                if (cboStock_List.SelectedIndex == 0)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   1,     Jameson,      Black Barrell,  " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 1)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   14,    Jameson,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                if (cboStock_List.SelectedIndex == 2)
+                {
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   15,    Jameson,      Golden,         " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+
+            else if (cboSearch.Text.Equals("A") || cboSearch.Text.Equals("a"))
             {
 
                 if (cboStock_List.SelectedIndex == 0)
@@ -797,9 +2785,8 @@ namespace RE_Laura_Looney_SD
                 }
             }
 
-            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("B") || cboLowStock.Checked == true && cboSearch.Text.Equals("b"))
+            else if (cboSearch.Text.Equals("B") || cboSearch.Text.Equals("b"))
             {
-
                 if (cboStock_List.SelectedIndex == 0)
                 {
 
@@ -852,14 +2839,13 @@ namespace RE_Laura_Looney_SD
                         {
                             MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        
+
                     }
                 }
             }
 
-            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("C") || cboLowStock.Checked == true && cboSearch.Text.Equals("c"))
+            else if (cboSearch.Text.Equals("C") || cboSearch.Text.Equals("c"))
             {
-
                 if (cboStock_List.SelectedIndex == 0)
                 {
 
@@ -945,9 +2931,8 @@ namespace RE_Laura_Looney_SD
                 }
             }
 
-            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("G") || cboLowStock.Checked == true && cboSearch.Text.Equals("g"))
+            else if (cboSearch.Text.Equals("G") || cboSearch.Text.Equals("g"))
             {
-
                 if (cboStock_List.SelectedIndex == 0)
                 {
 
@@ -1033,9 +3018,8 @@ namespace RE_Laura_Looney_SD
                 }
             }
 
-            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("S") || cboLowStock.Checked == true && cboSearch.Text.Equals("s"))
+            else if (cboSearch.Text.Equals("S") || cboSearch.Text.Equals("s"))
             {
-
                 if (cboStock_List.SelectedIndex == 0)
                 {
 
@@ -1120,9 +3104,8 @@ namespace RE_Laura_Looney_SD
                 }
             }
 
-            else if (cboLowStock.Checked == true && cboSearch.Text.Equals("J") || cboLowStock.Checked == true && cboSearch.Text.Equals("j"))
+            else if (cboSearch.Text.Equals("J") || cboSearch.Text.Equals("j"))
             {
-
                 if (cboStock_List.SelectedIndex == 0)
                 {
 
@@ -1206,847 +3189,425 @@ namespace RE_Laura_Looney_SD
 
                     }
                 }
+            }
 
 
-                else if (cboSearch.Text.Equals("A") || cboSearch.Text.Equals("a"))
+            else
+            {
+                if (cboStock_List.SelectedIndex == 0)
                 {
 
-                    if (cboStock_List.SelectedIndex == 0)
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
                     {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
                         {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
+                            valueAsInt = Convert.ToInt32(value);
 
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   5,     Apple Sourz,  Original,       " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
+                            if (valueAsInt > 0)
                             {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                cboItemList.Items.Add("   1,     Jameson,      Black Barrell,  " + valueAsInt);
                             }
 
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 1)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   2,     Smirnoff,     Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
 
-                else if (cboSearch.Text.Equals("B") || cboSearch.Text.Equals("b"))
+                if (cboStock_List.SelectedIndex == 2)
                 {
-                    if (cboStock_List.SelectedIndex == 0)
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
                     {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
                         {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
+                            valueAsInt = Convert.ToInt32(value);
 
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   4,     Baileys,      Original,       " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
+                            if (valueAsInt > 0)
                             {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                cboItemList.Items.Add("   3,     Cognak,       Original,       " + valueAsInt);
                             }
 
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
-                    }
-
-                    if (cboStock_List.SelectedIndex == 1)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                        else if (!Canconvert)
                         {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   6,     BushMills,    Original,       " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
 
-                else if (cboSearch.Text.Equals("C") || cboSearch.Text.Equals("c"))
+                if (cboStock_List.SelectedIndex == 3)
                 {
-                    if (cboStock_List.SelectedIndex == 0)
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
                     {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
                         {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
+                            valueAsInt = Convert.ToInt32(value);
 
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   3,     Cognak,       Original,       " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
+                            if (valueAsInt > 0)
                             {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                cboItemList.Items.Add("   4,     Baileys,      Original,       " + valueAsInt);
                             }
 
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
-                    }
-
-                    if (cboStock_List.SelectedIndex == 1)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                        else if (!Canconvert)
                         {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   7,     Coors,        Original,       " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
-                        }
-                    }
-
-                    if (cboStock_List.SelectedIndex == 2)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                        {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   13,    Cornona,      Original,       " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
 
-                else if (cboSearch.Text.Equals("G") || cboSearch.Text.Equals("g"))
+                if (cboStock_List.SelectedIndex == 4)
                 {
-                    if (cboStock_List.SelectedIndex == 0)
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
                     {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
                         {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
                             {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   8,     Grey Goose,   Original,       " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
-                        }
-                    }
-
-                    if (cboStock_List.SelectedIndex == 1)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                        {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   11,    Gordon's,     Original,       " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
-                        }
-                    }
-
-                    if (cboStock_List.SelectedIndex == 2)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                        {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   12,    Gordon's,     Pink,           " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
-                        }
-                    }
-                }
-
-                else if (cboSearch.Text.Equals("S") || cboSearch.Text.Equals("s"))
-                {
-                    if (cboStock_List.SelectedIndex == 0)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                        {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   2,     Smirnoff,     Original,       " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                    }
-
-                    if (cboStock_List.SelectedIndex == 1)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                        {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   9,     Smithick's,   Red,            " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
-                        }
-                    }
-
-                    if (cboStock_List.SelectedIndex == 2)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                        {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   10,    Smirnoff,     Fruity Passion, " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
-                        }
-                    }
-                }
-
-                else if (cboSearch.Text.Equals("J") || cboSearch.Text.Equals("j"))
-                {
-                    if (cboStock_List.SelectedIndex == 0)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                        {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   1,     Jameson,      Black Barrell,  " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
-                        }
-                    }
-
-                    if (cboStock_List.SelectedIndex == 1)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                        {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   14,    Jameson,      Original,       " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
-                        }
-                    }
-
-                    if (cboStock_List.SelectedIndex == 2)
-                    {
-
-                        if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                        {
-                            bool Canconvert = int.TryParse(value, out _);
-                            if (Canconvert)
-                            {
-                                valueAsInt = Convert.ToInt32(value);
-
-                                if (valueAsInt > 0)
-                                {
-                                    cboItemList.Items.Add("   15,    Jameson,      Golden,         " + valueAsInt);
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else if (!Canconvert)
-                            {
-                                MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
-                        }
-                    }
-
-
-                    else
-                    {
-                        if (cboStock_List.SelectedIndex == 0)
-                        {
-
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                            {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
-
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   1,     Jameson,      Black Barrell,  " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
-                            }
-                        }
-
-                        if (cboStock_List.SelectedIndex == 1)
-                        {
-
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                            {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
-
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   2,     Smirnoff,     Original,       " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                        }
-
-                        if (cboStock_List.SelectedIndex == 2)
-                        {
-
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                            {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
-
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   3,     Cognak,       Original,       " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                        }
-
-                        if (cboStock_List.SelectedIndex == 3)
-                        {
-
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                            {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
-
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   4,     Baileys,      Original,       " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                        }
-
-                        if (cboStock_List.SelectedIndex == 4)
-                        {
-
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                            {
-                                valueAsInt = int.Parse(value);
                                 cboItemList.Items.Add("   5,     Apple Sourz,  Original,       " + valueAsInt);
                             }
-                        }
 
-                        if (cboStock_List.SelectedIndex == 5)
-                        {
-
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                            else
                             {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
-
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   6,     BushMills,    Original,       " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-
-                        if (cboStock_List.SelectedIndex == 6)
+                        else if (!Canconvert)
                         {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
 
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                if (cboStock_List.SelectedIndex == 5)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
                             {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
+                                cboItemList.Items.Add("   6,     BushMills,    Original,       " + valueAsInt);
+                            }
 
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   7,     Coors,        Original,       " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-
-                        if (cboStock_List.SelectedIndex == 7)
+                        else if (!Canconvert)
                         {
-
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                            {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
-
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   8,     Grey Goose,   Original,      " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
-                            }
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
-                        if (cboStock_List.SelectedIndex == 8)
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 6)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
                         {
+                            valueAsInt = Convert.ToInt32(value);
 
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                            if (valueAsInt > 0)
                             {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
+                                cboItemList.Items.Add("   7,     Coors,        Original,       " + valueAsInt);
+                            }
 
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   9,     Smithick's,   Red,            " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-
-                        if (cboStock_List.SelectedIndex == 9)
+                        else if (!Canconvert)
                         {
-
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                            {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
-
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   10,    Smirnoff,     Fruity Passion, " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
-                        if (cboStock_List.SelectedIndex == 10)
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 7)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
                         {
+                            valueAsInt = Convert.ToInt32(value);
 
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                            if (valueAsInt > 0)
                             {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
+                                cboItemList.Items.Add("   8,     Grey Goose,   Original,      " + valueAsInt);
+                            }
 
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   11,    Gordon's,     Original,       " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-
-                        if (cboStock_List.SelectedIndex == 11)
+                        else if (!Canconvert)
                         {
-
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                            {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
-
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   12,    Gordon's,     Pink,           " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
-                        if (cboStock_List.SelectedIndex == 12)
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 8)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
                         {
+                            valueAsInt = Convert.ToInt32(value);
 
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                            if (valueAsInt > 0)
                             {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
+                                cboItemList.Items.Add("   9,     Smithick's,   Red,            " + valueAsInt);
+                            }
 
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   13,    Cornona,      Original,       " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-
-                        if (cboStock_List.SelectedIndex == 13)
+                        else if (!Canconvert)
                         {
-
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
-                            {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
-
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   14,    Jameson,      Original,       " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
-                            }
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
-                        if (cboStock_List.SelectedIndex == 14)
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 9)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
                         {
+                            valueAsInt = Convert.ToInt32(value);
 
-                            if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                            if (valueAsInt > 0)
                             {
-                                bool Canconvert = int.TryParse(value, out _);
-                                if (Canconvert)
-                                {
-                                    valueAsInt = Convert.ToInt32(value);
+                                cboItemList.Items.Add("   10,    Smirnoff,     Fruity Passion, " + valueAsInt);
+                            }
 
-                                    if (valueAsInt > 0)
-                                    {
-                                        cboItemList.Items.Add("   15,    Jameson,      Golden,         " + valueAsInt);
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else if (!Canconvert)
-                                {
-                                    MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 10)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   11,    Gordon's,     Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 11)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   12,    Gordon's,     Pink,           " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 12)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   13,    Cornona,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 13)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   14,    Jameson,      Original,       " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                }
+
+                if (cboStock_List.SelectedIndex == 14)
+                {
+
+                    if (InputBox("Order Quantity", "Please enter your order quantity: ", ref value) == DialogResult.OK)
+                    {
+                        bool Canconvert = int.TryParse(value, out _);
+                        if (Canconvert)
+                        {
+                            valueAsInt = Convert.ToInt32(value);
+
+                            if (valueAsInt > 0)
+                            {
+                                cboItemList.Items.Add("   15,    Jameson,      Golden,         " + valueAsInt);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Value Muste Be  greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (!Canconvert)
+                        {
+                            MessageBox.Show("Value Muste Be Numeric", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
                     }
                 }
             }
         }
     }
 }
+
