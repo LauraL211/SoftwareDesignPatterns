@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace RE_Laura_Looney_SD
 {
@@ -3606,6 +3607,31 @@ namespace RE_Laura_Looney_SD
 
                     }
                 }
+            }
+        }
+
+        private void cboItemList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (cboItemList.SelectedItem != null)
+            {
+                DialogResult Result = (MessageBox.Show("Are you sure you want to remove this Stock Item?", "Remove Stock Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+
+                if (Result == DialogResult.Yes)
+                {
+                    string selectedItem = cboItemList.SelectedItem.ToString();
+                    cboItemList.Items.Remove(selectedItem);
+                    DisplayItems();
+                }
+            }
+        }
+
+        private void DisplayItems()
+        {
+            Console.WriteLine("Current items:");
+            foreach (var item in cboItemList.Items)
+            {
+                Console.WriteLine(item.ToString());
             }
         }
     }
