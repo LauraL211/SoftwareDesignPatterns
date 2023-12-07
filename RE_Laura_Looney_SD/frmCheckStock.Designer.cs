@@ -90,7 +90,7 @@
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(146, 45);
             this.btnPrint.TabIndex = 68;
-            this.btnPrint.Text = " ";
+            this.btnPrint.Text = " Print List";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 

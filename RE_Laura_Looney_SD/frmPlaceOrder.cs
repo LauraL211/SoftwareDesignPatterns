@@ -1119,5 +1119,36 @@ namespace RE_Laura_Looney_SD
                 Console.WriteLine(item.ToString());
             }
         }
+
+        private void btnPlace_Order_Click(object sender, EventArgs e)
+        {
+            DialogResult Result = (MessageBox.Show("Are you sure you want to order these Stock Items?", "Place Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+
+            if (Result == DialogResult.Yes)
+            {
+                MessageBox.Show("The Stock Items have been ordered "
+                                , "Order Placed", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+
+
+                //Refreshing the page
+                cboItemList.Items.Clear();
+                cboStock_List.Items.Clear();
+                cboStock_List.SelectedIndex = -1;
+                cboSearch.Clear();
+                cboTotal_Cost.Clear();
+            }
+
+            if (Result == DialogResult.No)
+            {
+                MessageBox.Show("The Stock Items have not been ordered", "Order Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //Refreshing the page
+                cboItemList.Items.Clear();
+                cboStock_List.Items.Clear();
+                cboStock_List.SelectedIndex = -1;
+                cboSearch.Clear();
+                cboTotal_Cost.Clear();
+            }
+        }
     }
 }
