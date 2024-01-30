@@ -242,5 +242,10 @@ namespace RE_Laura_Looney_SD
 
             }
         }
+
+        private void frmAddStock_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
