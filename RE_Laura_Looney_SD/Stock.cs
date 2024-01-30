@@ -10,7 +10,7 @@ namespace RE_Laura_Looney_SD
 {
     class Stock
     {
-        private int StockID;
+        private int stockid;
         private String name;
         private String description;
         private String type;
@@ -22,7 +22,7 @@ namespace RE_Laura_Looney_SD
 
         public Stock()
         {
-            this.StockID = 0;
+            this.stockid = 0;
             this.name = "";
             this.description = "";
             this.type = "";
@@ -34,7 +34,7 @@ namespace RE_Laura_Looney_SD
 
         public Stock(int StockID, String name, String description, String type, decimal price, int quantity, int reorderlvl, String status)
         {
-            this.StockID = StockID;
+            this.stockid = StockID;
             this.name = name;
             this.description = description;
             this.type = type;
@@ -46,7 +46,7 @@ namespace RE_Laura_Looney_SD
         }
 
         //getters
-        public int getStockID() { return this.StockID; }
+        public int getStockID() { return this.stockid; }
         public String getName() { return this.name; }
         public String getDescription() { return this.description; }
         public String getType() { return this.type; }
@@ -56,7 +56,7 @@ namespace RE_Laura_Looney_SD
         public String getStatus() { return this.status; }
 
         //setters
-        public void setStockID(int StockID) { StockID = StockID; }
+        public void setStockID(int StockID) { stockid = StockID; }
         public void setName(String Name) { name = Name; }
         public void setDescription(String Description) { description = Description; }
         public void setType(String Type) { type = Type; }
@@ -145,7 +145,7 @@ namespace RE_Laura_Looney_SD
 
             //Define the SQL query to be executed
             String sqlQuery = "INSERT INTO Stock Values (" +
-                this.StockID + ",'" +
+                this.stockid + ",'" +
                 this.name + "','" +
                 this.description + "','" +
                 this.type + "'," +
@@ -171,7 +171,7 @@ namespace RE_Laura_Looney_SD
 
             //Define the SQL query to be executed
             String sqlQuery = "UPDATE Stock SET " +
-                "StockId = " + this.StockID + "," +
+                "StockId = " + this.stockid + "," +
                 "Name = '" + this.name + "'," +
                 "Description = '" + this.description + "'," +
                 "Type = '" + this.type + "'," +
@@ -179,7 +179,7 @@ namespace RE_Laura_Looney_SD
                 "Quantity = " + this.quantity + "," +
                 "ReorderLvl = '" + this.reorderlvl + "' " +
                 "Status = '" + this.status + "' " +
-                "WHERE StockID = " + this.StockID;
+                "WHERE StockID = " + this.stockid;
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
