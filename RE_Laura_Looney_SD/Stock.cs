@@ -144,15 +144,16 @@ namespace RE_Laura_Looney_SD
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "INSERT INTO Stock Values (" +
-                this.stockid + ",'" +
+            String sqlQuery = "INSERT INTO STOCK(Name, Description, Type, Price, Quantity, ReorderLVL, Status) Values('" +
+                //this.stockid + ",'" +
                 this.name + "','" +
                 this.description + "','" +
                 this.type + "'," +
                 this.price + "," +
                 this.quantity + ",'" +
                 this.reorderlvl + ",'" +
-                this.status + "')";
+                this.status + 
+                "')";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -170,7 +171,7 @@ namespace RE_Laura_Looney_SD
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "UPDATE Stock SET " +
+            String sqlQuery = "UPDATE STOCK SET " +
                 "StockId = " + this.stockid + "," +
                 "Name = '" + this.name + "'," +
                 "Description = '" + this.description + "'," +

@@ -47,6 +47,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblStockID = new System.Windows.Forms.Label();
             this.cboStockID = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.cboStatus = new System.Windows.Forms.TextBox();
             this.mnuAddStock.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +95,7 @@
             // btnAddStock
             // 
             this.btnAddStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnAddStock.Location = new System.Drawing.Point(153, 225);
+            this.btnAddStock.Location = new System.Drawing.Point(153, 252);
             this.btnAddStock.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddStock.Name = "btnAddStock";
             this.btnAddStock.Size = new System.Drawing.Size(92, 35);
@@ -204,8 +206,6 @@
             // 
             // mnuAddStock
             // 
-            this.mnuAddStock.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuBackBtn});
             this.mnuAddStock.Location = new System.Drawing.Point(0, 0);
             this.mnuAddStock.Name = "mnuAddStock";
             this.mnuAddStock.Size = new System.Drawing.Size(800, 24);
@@ -221,6 +221,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblStatus);
+            this.groupBox1.Controls.Add(this.cboStatus);
             this.groupBox1.Controls.Add(this.cboQuantity);
             this.groupBox1.Controls.Add(this.cboType);
             this.groupBox1.Controls.Add(this.lblName);
@@ -236,7 +238,7 @@
             this.groupBox1.Controls.Add(this.cboReorderLVL);
             this.groupBox1.Location = new System.Drawing.Point(192, 119);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(395, 265);
+            this.groupBox1.Size = new System.Drawing.Size(395, 292);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enter Stock Details";
@@ -260,6 +262,26 @@
             this.cboStockID.Name = "cboStockID";
             this.cboStockID.Size = new System.Drawing.Size(46, 20);
             this.cboStockID.TabIndex = 36;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblStatus.Location = new System.Drawing.Point(45, 216);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(44, 15);
+            this.lblStatus.TabIndex = 37;
+            this.lblStatus.Text = "Status:";
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.Location = new System.Drawing.Point(153, 218);
+            this.cboStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.cboStatus.MaxLength = 3;
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(48, 20);
+            this.cboStatus.TabIndex = 36;
             // 
             // frmAddStockTrial
             // 
@@ -305,5 +327,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblStockID;
         private System.Windows.Forms.TextBox cboStockID;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.TextBox cboStatus;
     }
 }
