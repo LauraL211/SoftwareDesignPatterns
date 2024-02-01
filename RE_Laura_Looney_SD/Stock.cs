@@ -144,14 +144,14 @@ namespace RE_Laura_Looney_SD
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "INSERT INTO STOCK(Name, Description, Type, Price, Quantity, ReorderLVL, Status) Values('" +
-                //this.stockid + ",'" +
+            String sqlQuery = "INSERT INTO STOCK(StockID, Name, Description, Type, Price, Quantity, ReorderLVL, Status) Values('" +
+                this.stockid + "','" +
                 this.name + "','" +
                 this.description + "','" +
                 this.type + "'," +
                 this.price + "," +
                 this.quantity + ",'" +
-                this.reorderlvl + ",'" +
+                this.reorderlvl + "','" +
                 this.status + 
                 "')";
 
@@ -221,7 +221,7 @@ namespace RE_Laura_Looney_SD
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "SELECT MAX(StockID) FROM StockID";
+            String sqlQuery = "SELECT MAX(StockID) FROM STOCK";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
