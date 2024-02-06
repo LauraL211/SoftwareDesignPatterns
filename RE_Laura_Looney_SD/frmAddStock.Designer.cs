@@ -163,13 +163,6 @@
             this.cboType.AllowDrop = true;
             this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboType.FormattingEnabled = true;
-            this.cboType.Items.AddRange(new object[] {
-            "Whiskey",
-            "Spirit",
-            "Bourbon",
-            "Gin",
-            "Cider",
-            "Non-Alcho"});
             this.cboType.Location = new System.Drawing.Point(153, 95);
             this.cboType.Margin = new System.Windows.Forms.Padding(2);
             this.cboType.Name = "cboType";

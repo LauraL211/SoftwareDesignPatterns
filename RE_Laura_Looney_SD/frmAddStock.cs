@@ -247,6 +247,8 @@ namespace RE_Laura_Looney_SD
         {
             //get next Stock ID
             cboStockID.Text = Stock.getNextStockID().ToString("0000");
+
+            
         }
 
         private void mnubtnExit_Click(object sender, EventArgs e)

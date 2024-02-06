@@ -11,12 +11,12 @@ namespace RE_Laura_Looney_SD
      class Type
     {
         String type;
-        String meaning;
+        String description;
 
-        public Type(string Type, string meaning)
+        public Type(string Type, string Description)
         {
             this.type = Type;
-            this.meaning = meaning;
+            this.description = Description;
         }
 
         public static DataSet getType()
@@ -25,7 +25,7 @@ namespace RE_Laura_Looney_SD
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "SELECT * FROM Type ORDER BY Type";
+            String sqlQuery = "SELECT * FROM Type ORDER BY TypeCode";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
