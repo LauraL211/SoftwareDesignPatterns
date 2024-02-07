@@ -239,10 +239,10 @@ namespace RE_Laura_Looney_SD
                                 , "Customer Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     //Create an instance of Stock and instantiate with values from form controls
-                    Customer aCustomer = new Customer(Convert.ToInt32(cboCustID.Text), cboUsername.Text, cboPassword.Text,
-                            cboForename.Text, cboSurname.Text, Convert.ToInt32(cboPhone.Text),
-                            cboStatus.Text
-                            );
+                    //Customer aCustomer = new Customer(Convert.ToInt32(cboCustID.Text), cboUsername.Text, cboPassword.Text,
+                           // cboForename.Text, cboSurname.Text, Convert.,
+                           // cboStatus.Text
+                           // );
 
                     //invoke the method to add the data to the Stock table
                     aCustomer.addCustomer();

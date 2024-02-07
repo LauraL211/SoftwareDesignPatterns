@@ -55,7 +55,6 @@
             this.mnuStockmnu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnubtnExit = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
-            this.mnuOrderMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMainMenu
@@ -136,6 +135,7 @@
             this.lblStatus.Size = new System.Drawing.Size(44, 15);
             this.lblStatus.TabIndex = 37;
             this.lblStatus.Text = "Status:";
+            this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
             // 
             // cboStatus
             // 
@@ -148,6 +148,7 @@
             this.cboStatus.Size = new System.Drawing.Size(48, 20);
             this.cboStatus.TabIndex = 7;
             this.cboStatus.Text = "A";
+            this.cboStatus.TextChanged += new System.EventHandler(this.cboStatus_TextChanged);
             // 
             // cboQuantity
             // 
@@ -168,6 +169,7 @@
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(92, 21);
             this.cboType.TabIndex = 3;
+            this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
             // lblName
             // 
@@ -298,10 +300,6 @@
             // mnuOrderMenu
             // 
             this.mnuOrderMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mnuOrderMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.mnuStockmnu,
-            this.mnubtnExit});
             this.mnuOrderMenu.Location = new System.Drawing.Point(0, 0);
             this.mnuOrderMenu.Name = "mnuOrderMenu";
             this.mnuOrderMenu.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -347,8 +345,6 @@
             this.Load += new System.EventHandler(this.frmAddStock_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.mnuOrderMenu.ResumeLayout(false);
-            this.mnuOrderMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -96,6 +96,12 @@
     <Compile Include="frmAddStockTrial.Designer.cs">
       <DependentUpon>frmAddStockTrial.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddType.Designer.cs">
+      <DependentUpon>frmAddType.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,12 @@
     <Compile Include="frmStockMenu.Designer.cs">
       <DependentUpon>frmStockMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTypeMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTypeMenu.Designer.cs">
+      <DependentUpon>frmTypeMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUpdateCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddStockTrial.resx">
       <DependentUpon>frmAddStockTrial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddType.resx">
+      <DependentUpon>frmAddType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminMenu.resx">
       <DependentUpon>frmAdminMenu.cs</DependentUpon>
@@ -313,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStockMenu.resx">
       <DependentUpon>frmStockMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTypeMenu.resx">
+      <DependentUpon>frmTypeMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateCustomer.resx">
       <DependentUpon>frmUpdateCustomer.cs</DependentUpon>

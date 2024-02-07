@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -248,7 +249,20 @@ namespace RE_Laura_Looney_SD
             //get next Stock ID
             cboStockID.Text = Stock.getNextStockID().ToString("0000");
 
-            
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleCommand cmd = new OracleCommand("SELECT DESCRIPTION FROM TYPES", conn);
+            conn.Open();
+            OracleDataReader Reader = cmd.ExecuteReader();
+            while(Reader.Read())
+            {
+
+                String Type = Reader.GetString(0);
+                cboType.Items.Add(Type);
+            }
+            conn.Close();
+
+
+
         }
 
         private void mnubtnExit_Click(object sender, EventArgs e)
@@ -366,7 +380,7 @@ namespace RE_Laura_Looney_SD
                     cboPrice.Clear();
                     cboQuantity.Clear();
                     cboReorderLVL.Clear();
-                    cboStatus.Clear();
+               
                     cboName.Focus();
                 }
 
@@ -478,6 +492,21 @@ namespace RE_Laura_Looney_SD
                 }
 
             }
+        }
+
+        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboStatus_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStatus_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }
