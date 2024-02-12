@@ -214,7 +214,6 @@ namespace RE_Laura_Looney_SD
 
             return ds;
         }
-
         public static int getNextStockID()
         {
             //Open a db connection

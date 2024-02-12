@@ -15,7 +15,7 @@ namespace RE_Laura_Looney_SD
         private String password;
         private String forename;
         private String surname;
-        private int phone;
+        private String phone;
         private String status;
 
 
@@ -26,11 +26,11 @@ namespace RE_Laura_Looney_SD
             this.password = "";
             this.forename = "";
             this.surname = "";
-            this.phone = 0;
+            this.phone = "";
             this.status = "O";
         }
 
-        public Customer(int CustID, String username, String password, String forename, String surname, int phone, String status)
+        public Customer(int CustID, String username, String password, String forename, String surname, String phone, String status)
         {
             this.custid = CustID;
             this.username = username;
@@ -48,7 +48,7 @@ namespace RE_Laura_Looney_SD
         public String getPassword() { return this.password; }
         public String getForename() { return this.forename; }
         public String getSurname() { return this.surname; }
-        public int getPhone() { return this.phone; }
+        public String getPhone() { return this.phone; }
         public String getStatus() { return this.status; }
 
         //setters
@@ -57,7 +57,7 @@ namespace RE_Laura_Looney_SD
         public void setPassword(String Password) { password = Password; }
         public void setForename(String Forename) { forename = Forename; }
         public void setSurname(String Surname) { surname = Surname; }
-        public void setPhone(int Phone) { phone = Phone; }
+        public void setPhone(String Phone) { phone = Phone; }
         public void setStatus(String Status) { status = Status; }
 
         public static DataSet getAllCustomers()
@@ -126,7 +126,7 @@ namespace RE_Laura_Looney_SD
             setPassword(dr.GetString(2));
             setForename(dr.GetString(3));
             setSurname(dr.GetString(4));
-            setPhone(dr.GetInt32(5));
+            setPhone(dr.GetString(5));
             setStatus(dr.GetString(7));
 
             //close DB
@@ -190,7 +190,7 @@ namespace RE_Laura_Looney_SD
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "SELECT CustkId, Forename, Surname, Phone FROM Customers " +
+            String sqlQuery = "SELECT CustId, Forename, Surname, Phone FROM Customers " +
                 "WHERE Forename LIKE '%" + CustomerName + "%' ORDER BY Surname";
 
             //Execute the SQL query (OracleCommand)

@@ -50,11 +50,15 @@
             this.cboName = new System.Windows.Forms.TextBox();
             this.cboReorderLVL = new System.Windows.Forms.TextBox();
             this.lblAddStock = new System.Windows.Forms.Label();
-            this.mnuOrderMenu = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStockmnu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnubtnExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuStockMenu = new System.Windows.Forms.MenuStrip();
             this.groupBox1.SuspendLayout();
+            this.mnuStockMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMainMenu
@@ -297,16 +301,6 @@
             this.lblAddStock.TabIndex = 39;
             this.lblAddStock.Text = "Add Stock";
             // 
-            // mnuOrderMenu
-            // 
-            this.mnuOrderMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mnuOrderMenu.Location = new System.Drawing.Point(0, 0);
-            this.mnuOrderMenu.Name = "mnuOrderMenu";
-            this.mnuOrderMenu.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.mnuOrderMenu.Size = new System.Drawing.Size(636, 24);
-            this.mnuOrderMenu.TabIndex = 43;
-            this.mnuOrderMenu.Text = "menuStrip1";
-            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -329,12 +323,48 @@
             this.mnubtnExit.Text = "Exit";
             this.mnubtnExit.Click += new System.EventHandler(this.mnubtnExit_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(80, 20);
+            this.toolStripMenuItem2.Text = "Main Menu";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(82, 20);
+            this.toolStripMenuItem3.Text = "Stock Menu";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(38, 20);
+            this.toolStripMenuItem4.Text = "Exit";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // mnuStockMenu
+            // 
+            this.mnuStockMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mnuStockMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
+            this.mnuStockMenu.Location = new System.Drawing.Point(0, 0);
+            this.mnuStockMenu.Name = "mnuStockMenu";
+            this.mnuStockMenu.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.mnuStockMenu.Size = new System.Drawing.Size(636, 24);
+            this.mnuStockMenu.TabIndex = 43;
+            this.mnuStockMenu.Text = "menuStrip1";
+            // 
             // frmAddStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 407);
-            this.Controls.Add(this.mnuOrderMenu);
+            this.Controls.Add(this.mnuStockMenu);
             this.Controls.Add(this.cboStockID);
             this.Controls.Add(this.lblStockID);
             this.Controls.Add(this.groupBox1);
@@ -345,6 +375,8 @@
             this.Load += new System.EventHandler(this.frmAddStock_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.mnuStockMenu.ResumeLayout(false);
+            this.mnuStockMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,9 +405,12 @@
         private System.Windows.Forms.TextBox cboName;
         private System.Windows.Forms.TextBox cboReorderLVL;
         private System.Windows.Forms.Label lblAddStock;
-        private System.Windows.Forms.MenuStrip mnuOrderMenu;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mnuStockmnu;
         private System.Windows.Forms.ToolStripMenuItem mnubtnExit;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.MenuStrip mnuStockMenu;
     }
 }

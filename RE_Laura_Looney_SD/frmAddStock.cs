@@ -508,6 +508,53 @@ namespace RE_Laura_Looney_SD
         {
 
         }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            DialogResult Result = (MessageBox.Show("Are you sure you want to exit?", "Exit Looney's Liquer", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+
+            if (Result == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //this.Close();
+                Application.Exit();
+            }
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmStockMenu(this);
+                frm.Show();
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmMainMenuManager frm = (frmMainMenuManager)Application.OpenForms["frmMainMenuManager"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmMainMenuManager(this);
+                frm.Show();
+            }
+        }
     }
     }
     

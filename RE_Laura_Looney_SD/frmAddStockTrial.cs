@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,154 +21,202 @@ namespace RE_Laura_Looney_SD
 
         private void frmAddStockTrial_Load(object sender, EventArgs e)
         {
-            //get next Customer ID
-            cboCustID.Text = Customer.getNextCustID().ToString("0000");
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleCommand cmd = new OracleCommand("SELECT NAME FROM STOCK WHERE NAME LIKE '%cboSearch.Text%'", conn);
+            conn.Open();
+            OracleDataReader Reader = cmd.ExecuteReader();
+            while (Reader.Read())
+            {
+                String Name = Reader.GetString(0);
+                cboStock_List.Items.Add(Name);
+            }
+            conn.Close();
         }
 
         private void btnARegisterCustomer_Click(object sender, EventArgs e)
         {
-            bool User = false;
-            bool Pass = false;
-            bool FName = false;
-            bool SName = false;
-            bool Phone = false;
+            //// Validate ALL the input data
+            bool Name = false;
+            bool Desc = false;
+            bool Type = false;
+            bool Price = false;
+            bool Quantity = false;
+            bool ReorderLVL = false;
 
-            if (!(cboUsername.Text.Equals("")))
+            if (!(cboName.Text.Equals("")))
             {
-                User = true;
+                Name = true;
             }
 
-            if (!(cboPassword.Text.Equals("")))
+            if (!(cboDescription.Text.Equals("")))
             {
-                Pass = true;
+                Desc = true;
             }
 
-            if (!(cboForename.Text.Equals("")))
+            if (!(cboType.Text.Equals("")))
             {
-                FName = true;
+                Type = true;
             }
 
-            if (!(cboSurname.Text.Equals("")))
+            if (!(cboPrice.Text.Equals("")) && (double.TryParse(cboPrice.Text, out double a)))
             {
-                SName = true;
+                Price = true;
             }
 
-            if (!(cboPhone.Text.Equals("")) && (int.TryParse(cboPhone.Text, out int a)) && (cboPhone.TextLength == 10))
+            if (!(cboQuantity.Text.Equals("")) && (int.TryParse(cboQuantity.Text, out int b)))
             {
-                Phone = true;
+                Quantity = true;
+            }
+
+            if (!(cboReorderLVL.Text.Equals("")) && (int.TryParse(cboReorderLVL.Text, out int c)))
+            {
+                ReorderLVL = true;
             }
 
 
-            if (User && Pass && FName && SName && Phone)
+            if (Name && Desc && Type && Price && Quantity && ReorderLVL)
             {
-                DialogResult Result = (MessageBox.Show("Are you sure you want to register?", "Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+                DialogResult Result = (MessageBox.Show("Are you sure you want to add this Stock Item?", "Add Stock Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
 
                 if (Result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Hello " + cboForename.Text + " " + cboSurname.Text + ",\n Welcome to Looney's Liquer"
-                                , "Customer Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
                     //Create an instance of Stock and instantiate with values from form controls
-                    Customer aCustomer = new Customer(Convert.ToInt32(cboCustID.Text), cboUsername.Text, cboPassword.Text,
-                            cboForename.Text, cboSurname.Text, Convert.ToInt32(cboPhone.Text),
-                            cboStatus.Text
-                            );
+                    Stock aStock = new Stock(Convert.ToInt32(cboStockID.Text), cboName.Text, cboDescription.Text,
+                        cboType.Text, Convert.ToDecimal(cboPrice.Text), Convert.ToInt32(cboQuantity.Text), Convert.ToInt32(cboReorderLVL.Text),
+                        cboStatus.Text
+                        );
 
-                        //invoke the method to add the data to the Stock table
-                        aCustomer.addCustomer();
+                    //invoke the method to add the data to the Stock table
+                    aStock.addStock();
 
-                        //display confirmation message
-                        MessageBox.Show("Customer " + cboCustID.Text + " added successfully", "Success",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //display confirmation message
+                    MessageBox.Show("Stock " + cboStockID.Text + " added successfully", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        //reset UI
-                        cboCustID.Text = Customer.getNextCustID().ToString("0000");
-                        cboUsername.Clear();
-                        cboPassword.Clear();
-                        cboForename.Clear();
-                        cboSurname.Clear();
-                        cboPhone.Clear();
+                    //reset UI
+                    cboStockID.Text = Stock.getNextStockID().ToString("0000");
+                    cboName.Clear();
+                    cboDescription.Clear();
+                    cboType.SelectedIndex = -1;
+                    cboPrice.Clear();
+                    cboQuantity.Clear();
+                    cboReorderLVL.Clear();
+
+                    cboName.Focus();
                 }
 
-                    if (Result == DialogResult.No)
-                    {
-                    MessageBox.Show("TheCustomer has not been registered to the system", "Registeration Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (Result == DialogResult.No)
+                {
+                    MessageBox.Show("The Stock Item has not been added to the system", "Stock Item Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     //Refreshing the page
-                    cboUsername.Clear();
-                    cboPassword.Clear();
-                    cboForename.Clear();
-                    cboSurname.Clear();
-                    cboPhone.Clear();
-
-                    this.Close();
-                    frmLoginPage frm = (frmLoginPage)Application.OpenForms["frmLoginPage"];
-                    if (frm != null)
-                    {
-                        // The form is already open, so just bring it to the front
-                        frm.BringToFront();
-                    }
-                    else
-                    {
-                        // The form is not open, create a new instance and show it
-                        frm = new frmLoginPage(this);
-                        frm.Show();
-                    }
+                    cboName.Clear();
+                    cboDescription.Clear();
+                    cboType.SelectedIndex = -1;
+                    cboPrice.Clear();
+                    cboQuantity.Clear();
+                    cboReorderLVL.Clear();
                 }
             }
 
-            else if (!User)
+            else if (!Name)
             {
-                MessageBox.Show("The Username entered cannot be Null. Please enter something.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cboUsername.Focus();
-                cboUsername.Clear();
+                MessageBox.Show("The Stock Name entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboName.Focus();
+                cboName.Clear();
             }
 
-            else if (!Pass)
+            else if (!Desc)
             {
-                MessageBox.Show("The Password entered cannot be Null. Please enter something.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cboPassword.Focus();
-                cboPassword.Clear();
+                MessageBox.Show("The Stock Description entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboDescription.Focus();
+                cboDescription.Clear();
             }
 
-            else if (!FName)
+            else if (!Type)
             {
-                MessageBox.Show("The Forename entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cboForename.Focus();
-                cboForename.Clear();
+                MessageBox.Show("The Stock Type entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboType.Focus();
+                cboType.SelectedIndex = -1;
             }
 
-            else if (!SName)
+            else if (!Price)
             {
-                MessageBox.Show("The Surname entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cboSurname.Focus();
-                cboSurname.Clear();
-            }
 
-            else if (!Phone)
-            {
-                if (cboPhone.Text == "")
+                if (cboPrice.Text.Equals(""))
                 {
-                    MessageBox.Show("The Phone Number cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    cboPhone.Focus();
-                    cboPhone.Clear();
+                    MessageBox.Show("The Stock Price entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboPrice.Focus();
+                    cboPrice.Clear();
                 }
 
-                else if (cboPhone.TextLength != 10)
+                else if (!(double.TryParse(cboPrice.Text, out double f)))
                 {
-                    MessageBox.Show("The Phone Number must be 10 digits long. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    cboPhone.Focus();
-                    cboPhone.Clear();
+                    MessageBox.Show("The Stock Price entered must be an integer. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboPrice.Focus();
+                    cboPrice.Clear();
                 }
 
                 else
                 {
-                    MessageBox.Show("The Phone Number entered is incorrect. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    cboPhone.Focus();
-                    cboPhone.Clear();
+                    MessageBox.Show("The Stock Price entered is incorrect. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboPrice.Focus();
+                    cboPrice.Clear();
+                }
+            }
+
+            else if (!Quantity)
+            {
+                if (cboQuantity.Text.Equals(""))
+                {
+                    MessageBox.Show("The Stock Quantity entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboQuantity.Focus();
+                    cboQuantity.Clear();
                 }
 
+                else if (!(double.TryParse(cboQuantity.Text, out double f)))
+                {
+                    MessageBox.Show("The Stock Quantity entered must be an integer. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboQuantity.Focus();
+                    cboQuantity.Clear();
+                }
+
+                else
+                {
+                    MessageBox.Show("The Stock Quantity entered is incorrect. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboQuantity.Focus();
+                    cboQuantity.Clear();
+                }
             }
+
+            else if (!ReorderLVL)
+            {
+                if (cboReorderLVL.Text.Equals(""))
+                {
+                    MessageBox.Show("The Stock Reorder Level entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboReorderLVL.Focus();
+                    cboReorderLVL.Clear();
+                }
+
+                else if (!(double.TryParse(cboReorderLVL.Text, out double f)))
+                {
+                    MessageBox.Show("The Stock Reorder Level entered must be an integer. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboReorderLVL.Focus();
+                    cboReorderLVL.Clear();
+                }
+
+                else
+                {
+                    MessageBox.Show("The Stock Reorder Level entered is incorrect. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboReorderLVL.Focus();
+                    cboReorderLVL.Clear();
+                }
+            }
+        }
+
+        private void cboSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

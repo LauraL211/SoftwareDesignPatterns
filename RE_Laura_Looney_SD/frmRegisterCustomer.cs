@@ -238,11 +238,12 @@ namespace RE_Laura_Looney_SD
                     MessageBox.Show("Hello " + cboForename.Text + " " + cboSurname.Text + ",\n Welcome to Looney's Liquer"
                                 , "Customer Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
                     //Create an instance of Stock and instantiate with values from form controls
-                    //Customer aCustomer = new Customer(Convert.ToInt32(cboCustID.Text), cboUsername.Text, cboPassword.Text,
-                           // cboForename.Text, cboSurname.Text, Convert.,
-                           // cboStatus.Text
-                           // );
+                    Customer aCustomer = new Customer(Convert.ToInt32(cboCustID.Text), cboUsername.Text, cboPassword.Text,
+                            cboForename.Text, cboSurname.Text, cboPhone.Text,
+                            cboStatus.Text
+                           );
 
                     //invoke the method to add the data to the Stock table
                     aCustomer.addCustomer();

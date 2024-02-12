@@ -567,5 +567,25 @@ namespace RE_Laura_Looney_SD
 
             btnUpdateStock.Visible = true; 
         }
+
+        private void cboSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStock_List_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUpdateStock_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
