@@ -342,23 +342,28 @@
             this.Description});
             this.DGVStock.Location = new System.Drawing.Point(39, 220);
             this.DGVStock.Name = "DGVStock";
+            this.DGVStock.ReadOnly = true;
             this.DGVStock.Size = new System.Drawing.Size(348, 202);
             this.DGVStock.TabIndex = 61;
+            this.DGVStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStock_CellContentClick);
             // 
             // StockID
             // 
             this.StockID.HeaderText = "Stock ID";
             this.StockID.Name = "StockID";
+            this.StockID.ReadOnly = true;
             // 
             // Name
             // 
             this.Name.HeaderText = "Stock Name";
             this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
             // 
             // Description
             // 
             this.Description.HeaderText = "Stock Description";
             this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
             // 
             // Trial
             // 

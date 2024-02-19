@@ -21,6 +21,8 @@ namespace RE_Laura_Looney_SD
 
         private void frmAddStockTrial_Load(object sender, EventArgs e)
         {
+
+
             DataSet StockItem = Stock.GetStock(cboSearch.ToString());
 
             for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
@@ -36,6 +38,15 @@ namespace RE_Laura_Looney_SD
             OracleCommand cmd = new OracleCommand("SELECT * FROM STOCK", conn);
             conn.Open();
             OracleDataReader Reader = cmd.ExecuteReader();
+
+             cmd = new OracleCommand("SELECT Description FROM Types", conn);
+            Reader = cmd.ExecuteReader();
+            while(Reader.Read())
+            {
+
+                String Type = Reader.GetString(0);
+                cboType.Items.Add(Type);
+            }
 
 
             conn.Close();
@@ -222,18 +233,14 @@ namespace RE_Laura_Looney_SD
             }
         }
 
-        private void cboSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            cboSearch.Text.ToLower();
             {
                 DGVStock.Rows.Clear();
                 {
 
-                   DataSet StockItem = Stock.GetStock(cboSearch.Text);
+                   DataSet StockItem = Stock.GetStock(cboSearch.Text.ToLower());
 
                     for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
                     {
@@ -244,6 +251,41 @@ namespace RE_Laura_Looney_SD
                             );
                     }
                 }
+            }
+        }
+
+        private void DGVStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            int selectedrowindex = DGVStock.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = DGVStock.Rows[selectedrowindex];
+            string cellValue = Convert.ToString(selectedRow.Cells["StockID"].Value);
+
+           OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT * FROM STOCK WHERE STOCKID = " + cellValue;
+            
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            conn.Open();
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                String Name = dr.GetString(1);
+                String Desc = dr.GetString(2);
+                String Type = dr.GetString(3);
+                String Price = dr.GetString(4);
+                String Quantity = dr.GetString(5);
+                String ReOrderLvl = dr.GetString(6);
+
+                cboName.Text = Name;
+                cboDescription.Text = Desc;
+                cboPrice.Text = Price;
+                cboQuantity.Text = Quantity;
+                cboReorderLVL.Text = ReOrderLvl;
+                cboType.SelectedIndex= selectedrowindex;
+              
             }
         }
     }

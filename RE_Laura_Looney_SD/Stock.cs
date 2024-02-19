@@ -146,9 +146,9 @@ namespace RE_Laura_Looney_SD
             //Define the SQL query to be executed
             String sqlQuery = "INSERT INTO STOCK(StockID, Name, Description, Type, Price, Quantity, ReorderLVL, Status) Values('" +
                 this.stockid + "','" +
-                this.name + "','" +
-                this.description + "','" +
-                this.type + "'," +
+                this.name.ToLower() + "','" +
+                this.description.ToLower() + "','" +
+                this.type.ToLower() + "'," +
                 this.price + "," +
                 this.quantity + ",'" +
                 this.reorderlvl + "','" +
@@ -249,7 +249,7 @@ namespace RE_Laura_Looney_SD
         {
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION FROM STOCK WHERE NAME LIKE '" + Search +"%'";
+            String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION FROM STOCK WHERE NAME LIKE '%" + Search +"%' ORDER BY STOCKID";
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             OracleDataAdapter da = new OracleDataAdapter(cmd);
 

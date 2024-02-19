@@ -360,7 +360,7 @@ namespace RE_Laura_Looney_SD
                 if (Result == DialogResult.Yes)
                 {
                     //Create an instance of Stock and instantiate with values from form controls
-                    Stock aStock = new Stock(Convert.ToInt32(cboStockID.Text), cboName.Text, cboDescription.Text,
+                    Stock aStock = new Stock(Convert.ToInt32(cboStockID.Text), cboName.Text.ToLower(), cboDescription.Text,
                         cboType.Text, Convert.ToDecimal(cboPrice.Text), Convert.ToInt32(cboQuantity.Text), Convert.ToInt32(cboReorderLVL.Text),
                         cboStatus.Text
                         );
