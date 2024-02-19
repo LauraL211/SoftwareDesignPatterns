@@ -84,7 +84,7 @@ namespace RE_Laura_Looney_SD
 
             if (Name && Desc && Type && Price && Quantity && ReorderLVL)
             {
-                DialogResult Result = (MessageBox.Show("Are you sure you want to add this Stock Item?", "Add Stock Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+                DialogResult Result = (MessageBox.Show("Are you sure you want to update this Stock Item?", "Update Stock Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
 
                 if (Result == DialogResult.Yes)
                 {
@@ -230,15 +230,19 @@ namespace RE_Laura_Looney_SD
         private void btnSearch_Click(object sender, EventArgs e)
         {
             {
-                DataSet StockItem = Stock.GetStock(cboSearch.Text.to);
-
-                for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
+                DGVStock.Rows.Clear();
                 {
-                    DGVStock.Rows.Add(
-                        StockItem.Tables[0].Rows[i][0],
-                        StockItem.Tables[0].Rows[i][1],
-                        StockItem.Tables[0].Rows[i][2]
-                        );
+
+                   DataSet StockItem = Stock.GetStock(cboSearch.Text);
+
+                    for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
+                    {
+                        DGVStock.Rows.Add(
+                            StockItem.Tables[0].Rows[i][0],
+                            StockItem.Tables[0].Rows[i][1],
+                            StockItem.Tables[0].Rows[i][2]
+                            );
+                    }
                 }
             }
         }
