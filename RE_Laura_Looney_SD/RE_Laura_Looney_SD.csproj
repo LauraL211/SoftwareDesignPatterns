@@ -90,11 +90,11 @@
     <Compile Include="frmAddStock.Designer.cs">
       <DependentUpon>frmAddStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddStockTrial.cs">
+    <Compile Include="Trial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddStockTrial.Designer.cs">
-      <DependentUpon>frmAddStockTrial.cs</DependentUpon>
+    <Compile Include="Trial.Designer.cs">
+      <DependentUpon>Trial.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddType.cs">
       <SubType>Form</SubType>
@@ -260,8 +260,8 @@
     <EmbeddedResource Include="frmAddStock.resx">
       <DependentUpon>frmAddStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddStockTrial.resx">
-      <DependentUpon>frmAddStockTrial.cs</DependentUpon>
+    <EmbeddedResource Include="Trial.resx">
+      <DependentUpon>Trial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddType.resx">
       <DependentUpon>frmAddType.cs</DependentUpon>

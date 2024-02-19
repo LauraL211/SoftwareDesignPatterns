@@ -244,5 +244,21 @@ namespace RE_Laura_Looney_SD
 
             return nextId;
         }
+
+        public static DataSet GetStock(String Search)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION FROM STOCK WHERE NAME LIKE '" + Search +"%'";
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "StockID");
+
+            conn.Close();
+
+            return ds;
+        }
     }
 }

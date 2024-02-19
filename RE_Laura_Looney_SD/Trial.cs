@@ -12,24 +12,32 @@ using System.Xml.Linq;
 
 namespace RE_Laura_Looney_SD
 {
-    public partial class frmAddStockTrial : Form
+    public partial class Trial : Form
     {
-        public frmAddStockTrial()
+        public Trial()
         {
             InitializeComponent();
         }
 
         private void frmAddStockTrial_Load(object sender, EventArgs e)
         {
+            DataSet StockItem = Stock.GetStock(cboSearch.ToString());
+
+            for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
+            {
+                DGVStock.Rows.Add(
+                    StockItem.Tables[0].Rows[i][0],
+                    StockItem.Tables[0].Rows[i][1],
+                    StockItem.Tables[0].Rows[i][2]
+                    );
+            }
+
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
-            OracleCommand cmd = new OracleCommand("SELECT NAME FROM STOCK WHERE NAME LIKE '%cboSearch.Text%'", conn);
+            OracleCommand cmd = new OracleCommand("SELECT * FROM STOCK", conn);
             conn.Open();
             OracleDataReader Reader = cmd.ExecuteReader();
-            while (Reader.Read())
-            {
-                String Name = Reader.GetString(0);
-                cboStock_List.Items.Add(Name);
-            }
+
+
             conn.Close();
         }
 
@@ -217,6 +225,22 @@ namespace RE_Laura_Looney_SD
         private void cboSearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            {
+                DataSet StockItem = Stock.GetStock(cboSearch.Text.to);
+
+                for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
+                {
+                    DGVStock.Rows.Add(
+                        StockItem.Tables[0].Rows[i][0],
+                        StockItem.Tables[0].Rows[i][1],
+                        StockItem.Tables[0].Rows[i][2]
+                        );
+                }
+            }
         }
     }
 }
