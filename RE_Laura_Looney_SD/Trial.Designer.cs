@@ -178,15 +178,14 @@
             // 
             // cboStatus
             // 
-            this.cboStatus.Enabled = false;
             this.cboStatus.Location = new System.Drawing.Point(153, 218);
             this.cboStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cboStatus.MaxLength = 3;
             this.cboStatus.Name = "cboStatus";
-            this.cboStatus.ReadOnly = true;
             this.cboStatus.Size = new System.Drawing.Size(48, 20);
             this.cboStatus.TabIndex = 7;
             this.cboStatus.Text = "A";
+            this.cboStatus.TextChanged += new System.EventHandler(this.cboStatus_TextChanged);
             // 
             // cboQuantity
             // 
@@ -262,6 +261,7 @@
             this.btnUpdateStock.TabIndex = 8;
             this.btnUpdateStock.Text = "Update Stock";
             this.btnUpdateStock.UseVisualStyleBackColor = true;
+            this.btnUpdateStock.Click += new System.EventHandler(this.btnUpdateStock_Click);
             // 
             // lblQuantity
             // 
@@ -345,7 +345,7 @@
             this.DGVStock.ReadOnly = true;
             this.DGVStock.Size = new System.Drawing.Size(348, 202);
             this.DGVStock.TabIndex = 61;
-            this.DGVStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStock_CellContentClick);
+            this.DGVStock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStock_CellContentClick);
             // 
             // StockID
             // 

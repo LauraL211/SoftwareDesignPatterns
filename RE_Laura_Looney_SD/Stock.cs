@@ -178,8 +178,8 @@ namespace RE_Laura_Looney_SD
                 "Type = '" + this.type + "'," +
                 "Price = " + this.price + "," +
                 "Quantity = " + this.quantity + "," +
-                "ReorderLvl = '" + this.reorderlvl + "' " +
-                "Status = '" + this.status + "' " +
+                "ReorderLvl = '" + this.reorderlvl + "'," +
+                "Status = '" + this.status + "'" +
                 "WHERE StockID = " + this.stockid;
 
             //Execute the SQL query (OracleCommand)
