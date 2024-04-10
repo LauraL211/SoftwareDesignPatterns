@@ -28,31 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateStock));
             this.mnuStockMenu = new System.Windows.Forms.MenuStrip();
             this.mnuMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStock = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExxit = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cboType = new System.Windows.Forms.ComboBox();
+            this.DGVStock = new System.Windows.Forms.DataGridView();
+            this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.cboSearch = new System.Windows.Forms.TextBox();
-            this.lblType = new System.Windows.Forms.Label();
             this.lblStock_List = new System.Windows.Forms.Label();
-            this.cboStock_List = new System.Windows.Forms.ComboBox();
-            this.lblUpdateStock = new System.Windows.Forms.Label();
-            this.btnUpdateStock = new System.Windows.Forms.Button();
-            this.cboDescription = new System.Windows.Forms.TextBox();
-            this.cboPrice = new System.Windows.Forms.TextBox();
-            this.cboReorderLVL = new System.Windows.Forms.TextBox();
+            this.cboStockID = new System.Windows.Forms.TextBox();
+            this.lblStockID = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.cboStatus = new System.Windows.Forms.TextBox();
             this.cboQuantity = new System.Windows.Forms.TextBox();
-            this.cboName = new System.Windows.Forms.TextBox();
-            this.lblReorderLevel = new System.Windows.Forms.Label();
-            this.lblQuantity = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.Label();
+            this.cboType = new System.Windows.Forms.ComboBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.btnUpdateStock = new System.Windows.Forms.Button();
+            this.lblQuantity = new System.Windows.Forms.Label();
+            this.cboDescription = new System.Windows.Forms.TextBox();
+            this.lblReorderLevel = new System.Windows.Forms.Label();
+            this.cboPrice = new System.Windows.Forms.TextBox();
+            this.cboName = new System.Windows.Forms.TextBox();
+            this.cboReorderLVL = new System.Windows.Forms.TextBox();
+            this.lblUpdateStock = new System.Windows.Forms.Label();
             this.mnuStockMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVStock)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuStockMenu
@@ -65,7 +73,7 @@
             this.mnuStockMenu.Location = new System.Drawing.Point(0, 0);
             this.mnuStockMenu.Name = "mnuStockMenu";
             this.mnuStockMenu.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.mnuStockMenu.Size = new System.Drawing.Size(600, 24);
+            this.mnuStockMenu.Size = new System.Drawing.Size(799, 24);
             this.mnuStockMenu.TabIndex = 4;
             this.mnuStockMenu.Text = "menuStrip1";
             // 
@@ -91,237 +99,302 @@
             this.mnuExxit.Text = "Exit";
             this.mnuExxit.Click += new System.EventHandler(this.mnuExxit_Click);
             // 
-            // pictureBox1
+            // DGVStock
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(30, 112);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 49;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.DGVStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StockID,
+            this.Name,
+            this.Description});
+            this.DGVStock.Location = new System.Drawing.Point(22, 214);
+            this.DGVStock.Name = "DGVStock";
+            this.DGVStock.ReadOnly = true;
+            this.DGVStock.Size = new System.Drawing.Size(348, 202);
+            this.DGVStock.TabIndex = 69;
             // 
-            // cboType
+            // StockID
             // 
-            this.cboType.FormattingEnabled = true;
-            this.cboType.Items.AddRange(new object[] {
-            "Whiskey",
-            "Spirit",
-            "Bourbon",
-            "Gin",
-            "Cider",
-            "Non-Alcho"});
-            this.cboType.Location = new System.Drawing.Point(419, 153);
-            this.cboType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(81, 21);
-            this.cboType.TabIndex = 40;
+            this.StockID.HeaderText = "Stock ID";
+            this.StockID.Name = "StockID";
+            this.StockID.ReadOnly = true;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Stock Name";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Stock Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnSearch.Location = new System.Drawing.Point(22, 143);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(92, 35);
+            this.btnSearch.TabIndex = 62;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cboSearch
             // 
-            this.cboSearch.Location = new System.Drawing.Point(52, 112);
-            this.cboSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboSearch.Location = new System.Drawing.Point(22, 118);
+            this.cboSearch.Margin = new System.Windows.Forms.Padding(2);
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(137, 20);
-            this.cboSearch.TabIndex = 32;
-            this.cboSearch.TextChanged += new System.EventHandler(this.cboSearch_TextChanged);
-            // 
-            // lblType
-            // 
-            this.lblType.AutoSize = true;
-            this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblType.Location = new System.Drawing.Point(311, 151);
-            this.lblType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(44, 18);
-            this.lblType.TabIndex = 39;
-            this.lblType.Text = "Type:";
+            this.cboSearch.TabIndex = 67;
             // 
             // lblStock_List
             // 
             this.lblStock_List.AutoSize = true;
-            this.lblStock_List.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStock_List.Location = new System.Drawing.Point(27, 91);
+            this.lblStock_List.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblStock_List.Location = new System.Drawing.Point(19, 101);
             this.lblStock_List.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStock_List.Name = "lblStock_List";
-            this.lblStock_List.Size = new System.Drawing.Size(91, 18);
-            this.lblStock_List.TabIndex = 34;
-            this.lblStock_List.Text = "Search Item:";
-            this.lblStock_List.Click += new System.EventHandler(this.lblStock_List_Click);
+            this.lblStock_List.Size = new System.Drawing.Size(109, 15);
+            this.lblStock_List.TabIndex = 68;
+            this.lblStock_List.Text = "Enter Stock Name:";
             // 
-            // cboStock_List
+            // cboStockID
             // 
-            this.cboStock_List.FormattingEnabled = true;
-            this.cboStock_List.Items.AddRange(new object[] {
-            "1: Jameson, Black Barrell, Whiskey",
-            "2: Smirnoff, Original, Vodka",
-            "3: Cognak, Original, Brandy",
-            "4: Baileys, Original, Liqeur",
-            "5: Grey Goose, Original, Vodka"});
-            this.cboStock_List.Location = new System.Drawing.Point(30, 134);
-            this.cboStock_List.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboStock_List.Name = "cboStock_List";
-            this.cboStock_List.Size = new System.Drawing.Size(158, 21);
-            this.cboStock_List.TabIndex = 33;
-            this.cboStock_List.SelectedIndexChanged += new System.EventHandler(this.cboStock_List_SelectedIndexChanged);
+            this.cboStockID.Enabled = false;
+            this.cboStockID.Location = new System.Drawing.Point(442, 93);
+            this.cboStockID.Margin = new System.Windows.Forms.Padding(2);
+            this.cboStockID.MaxLength = 20;
+            this.cboStockID.Name = "cboStockID";
+            this.cboStockID.ReadOnly = true;
+            this.cboStockID.Size = new System.Drawing.Size(46, 20);
+            this.cboStockID.TabIndex = 64;
+            // 
+            // lblStockID
+            // 
+            this.lblStockID.AutoSize = true;
+            this.lblStockID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblStockID.Location = new System.Drawing.Point(391, 93);
+            this.lblStockID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStockID.Name = "lblStockID";
+            this.lblStockID.Size = new System.Drawing.Size(52, 15);
+            this.lblStockID.TabIndex = 66;
+            this.lblStockID.Text = "StockID:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblStatus);
+            this.groupBox1.Controls.Add(this.cboStatus);
+            this.groupBox1.Controls.Add(this.cboQuantity);
+            this.groupBox1.Controls.Add(this.cboType);
+            this.groupBox1.Controls.Add(this.lblName);
+            this.groupBox1.Controls.Add(this.lblType);
+            this.groupBox1.Controls.Add(this.lblDescription);
+            this.groupBox1.Controls.Add(this.lblPrice);
+            this.groupBox1.Controls.Add(this.btnUpdateStock);
+            this.groupBox1.Controls.Add(this.lblQuantity);
+            this.groupBox1.Controls.Add(this.cboDescription);
+            this.groupBox1.Controls.Add(this.lblReorderLevel);
+            this.groupBox1.Controls.Add(this.cboPrice);
+            this.groupBox1.Controls.Add(this.cboName);
+            this.groupBox1.Controls.Add(this.cboReorderLVL);
+            this.groupBox1.Location = new System.Drawing.Point(394, 118);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(395, 298);
+            this.groupBox1.TabIndex = 65;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Enter Stock Details";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblStatus.Location = new System.Drawing.Point(45, 216);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(44, 15);
+            this.lblStatus.TabIndex = 37;
+            this.lblStatus.Text = "Status:";
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.Location = new System.Drawing.Point(153, 218);
+            this.cboStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.cboStatus.MaxLength = 3;
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(48, 20);
+            this.cboStatus.TabIndex = 7;
+            this.cboStatus.Text = "A";
+            // 
+            // cboQuantity
+            // 
+            this.cboQuantity.Location = new System.Drawing.Point(153, 155);
+            this.cboQuantity.Margin = new System.Windows.Forms.Padding(2);
+            this.cboQuantity.MaxLength = 3;
+            this.cboQuantity.Name = "cboQuantity";
+            this.cboQuantity.Size = new System.Drawing.Size(48, 20);
+            this.cboQuantity.TabIndex = 5;
+            // 
+            // cboType
+            // 
+            this.cboType.AllowDrop = true;
+            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboType.FormattingEnabled = true;
+            this.cboType.Location = new System.Drawing.Point(153, 95);
+            this.cboType.Margin = new System.Windows.Forms.Padding(2);
+            this.cboType.Name = "cboType";
+            this.cboType.Size = new System.Drawing.Size(92, 21);
+            this.cboType.TabIndex = 3;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblName.Location = new System.Drawing.Point(47, 39);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(44, 15);
+            this.lblName.TabIndex = 30;
+            this.lblName.Text = "Name:";
+            // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblType.Location = new System.Drawing.Point(45, 95);
+            this.lblType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(36, 15);
+            this.lblType.TabIndex = 32;
+            this.lblType.Text = "Type:";
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(45, 65);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(72, 15);
+            this.lblDescription.TabIndex = 31;
+            this.lblDescription.Text = "Description:";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblPrice.Location = new System.Drawing.Point(45, 125);
+            this.lblPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(38, 15);
+            this.lblPrice.TabIndex = 33;
+            this.lblPrice.Text = "Price:";
+            // 
+            // btnUpdateStock
+            // 
+            this.btnUpdateStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnUpdateStock.Location = new System.Drawing.Point(153, 252);
+            this.btnUpdateStock.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdateStock.Name = "btnUpdateStock";
+            this.btnUpdateStock.Size = new System.Drawing.Size(92, 35);
+            this.btnUpdateStock.TabIndex = 8;
+            this.btnUpdateStock.Text = "Update Stock";
+            this.btnUpdateStock.UseVisualStyleBackColor = true;
+            // 
+            // lblQuantity
+            // 
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblQuantity.Location = new System.Drawing.Point(45, 153);
+            this.lblQuantity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(54, 15);
+            this.lblQuantity.TabIndex = 34;
+            this.lblQuantity.Text = "Quantity:";
+            // 
+            // cboDescription
+            // 
+            this.cboDescription.Location = new System.Drawing.Point(153, 65);
+            this.cboDescription.Margin = new System.Windows.Forms.Padding(2);
+            this.cboDescription.MaxLength = 30;
+            this.cboDescription.Name = "cboDescription";
+            this.cboDescription.Size = new System.Drawing.Size(138, 20);
+            this.cboDescription.TabIndex = 2;
+            // 
+            // lblReorderLevel
+            // 
+            this.lblReorderLevel.AutoSize = true;
+            this.lblReorderLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblReorderLevel.Location = new System.Drawing.Point(45, 183);
+            this.lblReorderLevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblReorderLevel.Name = "lblReorderLevel";
+            this.lblReorderLevel.Size = new System.Drawing.Size(87, 15);
+            this.lblReorderLevel.TabIndex = 35;
+            this.lblReorderLevel.Text = "Reorder Level:";
+            // 
+            // cboPrice
+            // 
+            this.cboPrice.Location = new System.Drawing.Point(153, 127);
+            this.cboPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.cboPrice.MaxLength = 5;
+            this.cboPrice.Name = "cboPrice";
+            this.cboPrice.Size = new System.Drawing.Size(48, 20);
+            this.cboPrice.TabIndex = 4;
+            // 
+            // cboName
+            // 
+            this.cboName.Location = new System.Drawing.Point(153, 34);
+            this.cboName.Margin = new System.Windows.Forms.Padding(2);
+            this.cboName.MaxLength = 20;
+            this.cboName.Name = "cboName";
+            this.cboName.Size = new System.Drawing.Size(120, 20);
+            this.cboName.TabIndex = 1;
+            // 
+            // cboReorderLVL
+            // 
+            this.cboReorderLVL.Location = new System.Drawing.Point(153, 185);
+            this.cboReorderLVL.Margin = new System.Windows.Forms.Padding(2);
+            this.cboReorderLVL.MaxLength = 3;
+            this.cboReorderLVL.Name = "cboReorderLVL";
+            this.cboReorderLVL.Size = new System.Drawing.Size(48, 20);
+            this.cboReorderLVL.TabIndex = 6;
             // 
             // lblUpdateStock
             // 
             this.lblUpdateStock.AutoSize = true;
             this.lblUpdateStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdateStock.Location = new System.Drawing.Point(189, 16);
+            this.lblUpdateStock.Location = new System.Drawing.Point(248, 24);
             this.lblUpdateStock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUpdateStock.Name = "lblUpdateStock";
             this.lblUpdateStock.Size = new System.Drawing.Size(206, 36);
-            this.lblUpdateStock.TabIndex = 48;
+            this.lblUpdateStock.TabIndex = 63;
             this.lblUpdateStock.Text = "Update Stock";
-            this.lblUpdateStock.Click += new System.EventHandler(this.lblUpdateStock_Click);
-            // 
-            // btnUpdateStock
-            // 
-            this.btnUpdateStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateStock.Location = new System.Drawing.Point(364, 309);
-            this.btnUpdateStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnUpdateStock.Name = "btnUpdateStock";
-            this.btnUpdateStock.Size = new System.Drawing.Size(112, 41);
-            this.btnUpdateStock.TabIndex = 47;
-            this.btnUpdateStock.Text = "Update Stock";
-            this.btnUpdateStock.UseVisualStyleBackColor = true;
-            this.btnUpdateStock.Click += new System.EventHandler(this.btnUpdateStock_Click);
-            // 
-            // cboDescription
-            // 
-            this.cboDescription.Location = new System.Drawing.Point(419, 118);
-            this.cboDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboDescription.MaxLength = 30;
-            this.cboDescription.Name = "cboDescription";
-            this.cboDescription.Size = new System.Drawing.Size(155, 20);
-            this.cboDescription.TabIndex = 38;
-            // 
-            // cboPrice
-            // 
-            this.cboPrice.Location = new System.Drawing.Point(419, 181);
-            this.cboPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboPrice.MaxLength = 5;
-            this.cboPrice.Name = "cboPrice";
-            this.cboPrice.Size = new System.Drawing.Size(57, 20);
-            this.cboPrice.TabIndex = 41;
-            // 
-            // cboReorderLVL
-            // 
-            this.cboReorderLVL.Location = new System.Drawing.Point(419, 245);
-            this.cboReorderLVL.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboReorderLVL.MaxLength = 3;
-            this.cboReorderLVL.Name = "cboReorderLVL";
-            this.cboReorderLVL.Size = new System.Drawing.Size(57, 20);
-            this.cboReorderLVL.TabIndex = 45;
-            // 
-            // cboQuantity
-            // 
-            this.cboQuantity.Location = new System.Drawing.Point(419, 214);
-            this.cboQuantity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboQuantity.MaxLength = 3;
-            this.cboQuantity.Name = "cboQuantity";
-            this.cboQuantity.Size = new System.Drawing.Size(57, 20);
-            this.cboQuantity.TabIndex = 43;
-            // 
-            // cboName
-            // 
-            this.cboName.Location = new System.Drawing.Point(419, 87);
-            this.cboName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboName.MaxLength = 20;
-            this.cboName.Name = "cboName";
-            this.cboName.Size = new System.Drawing.Size(109, 20);
-            this.cboName.TabIndex = 36;
-            // 
-            // lblReorderLevel
-            // 
-            this.lblReorderLevel.AutoSize = true;
-            this.lblReorderLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReorderLevel.Location = new System.Drawing.Point(311, 245);
-            this.lblReorderLevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblReorderLevel.Name = "lblReorderLevel";
-            this.lblReorderLevel.Size = new System.Drawing.Size(104, 18);
-            this.lblReorderLevel.TabIndex = 46;
-            this.lblReorderLevel.Text = "Reorder Level:";
-            // 
-            // lblQuantity
-            // 
-            this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(311, 214);
-            this.lblQuantity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(66, 18);
-            this.lblQuantity.TabIndex = 44;
-            this.lblQuantity.Text = "Quantity:";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(311, 183);
-            this.lblPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(46, 18);
-            this.lblPrice.TabIndex = 42;
-            this.lblPrice.Text = "Price:";
-            // 
-            // lblDescription
-            // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(311, 118);
-            this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(87, 18);
-            this.lblDescription.TabIndex = 37;
-            this.lblDescription.Text = "Description:";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(311, 87);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(52, 18);
-            this.lblName.TabIndex = 35;
-            this.lblName.Text = "Name:";
             // 
             // frmUpdateStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.cboType);
+            this.ClientSize = new System.Drawing.Size(799, 444);
+            this.Controls.Add(this.DGVStock);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.cboSearch);
-            this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblStock_List);
-            this.Controls.Add(this.cboStock_List);
+            this.Controls.Add(this.cboStockID);
+            this.Controls.Add(this.lblStockID);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblUpdateStock);
-            this.Controls.Add(this.btnUpdateStock);
-            this.Controls.Add(this.cboDescription);
-            this.Controls.Add(this.cboPrice);
-            this.Controls.Add(this.cboReorderLVL);
-            this.Controls.Add(this.cboQuantity);
-            this.Controls.Add(this.cboName);
-            this.Controls.Add(this.lblReorderLevel);
-            this.Controls.Add(this.lblQuantity);
-            this.Controls.Add(this.lblPrice);
-            this.Controls.Add(this.lblDescription);
-            this.Controls.Add(this.lblName);
             this.Controls.Add(this.mnuStockMenu);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmUpdateStock";
             this.Text = "Looney\'s Liquer - [Update Stock]";
             this.mnuStockMenu.ResumeLayout(false);
             this.mnuStockMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVStock)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,23 +406,31 @@
         private System.Windows.Forms.ToolStripMenuItem mnuMainMenu;
         private System.Windows.Forms.ToolStripMenuItem mnuStock;
         private System.Windows.Forms.ToolStripMenuItem mnuExxit;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox cboType;
+        private System.Windows.Forms.DataGridView DGVStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox cboSearch;
-        private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblStock_List;
-        private System.Windows.Forms.ComboBox cboStock_List;
-        private System.Windows.Forms.Label lblUpdateStock;
-        private System.Windows.Forms.Button btnUpdateStock;
-        private System.Windows.Forms.TextBox cboDescription;
-        private System.Windows.Forms.TextBox cboPrice;
-        private System.Windows.Forms.TextBox cboReorderLVL;
+        private System.Windows.Forms.TextBox cboStockID;
+        private System.Windows.Forms.Label lblStockID;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.TextBox cboStatus;
         private System.Windows.Forms.TextBox cboQuantity;
-        private System.Windows.Forms.TextBox cboName;
-        private System.Windows.Forms.Label lblReorderLevel;
-        private System.Windows.Forms.Label lblQuantity;
-        private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblType;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Button btnUpdateStock;
+        private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.TextBox cboDescription;
+        private System.Windows.Forms.Label lblReorderLevel;
+        private System.Windows.Forms.TextBox cboPrice;
+        private System.Windows.Forms.TextBox cboName;
+        private System.Windows.Forms.TextBox cboReorderLVL;
+        private System.Windows.Forms.Label lblUpdateStock;
     }
 }

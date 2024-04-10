@@ -16,7 +16,7 @@ namespace RE_Laura_Looney_SD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Trial());
+            Application.Run(new frmHomePage());
         }
     }
 }

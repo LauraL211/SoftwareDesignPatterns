@@ -484,5 +484,40 @@ namespace RE_Laura_Looney_SD
 
             }
         }
+
+        private void DGVStock_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cboSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStock_List_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboStockID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStockID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUpdateStock_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -99,6 +99,7 @@
             this.lblUpdateStock.Size = new System.Drawing.Size(206, 36);
             this.lblUpdateStock.TabIndex = 53;
             this.lblUpdateStock.Text = "Update Stock";
+            this.lblUpdateStock.Click += new System.EventHandler(this.lblUpdateStock_Click);
             // 
             // cboSearch
             // 
@@ -107,6 +108,7 @@
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(137, 20);
             this.cboSearch.TabIndex = 58;
+            this.cboSearch.TextChanged += new System.EventHandler(this.cboSearch_TextChanged);
             // 
             // lblStock_List
             // 
@@ -118,6 +120,7 @@
             this.lblStock_List.Size = new System.Drawing.Size(109, 15);
             this.lblStock_List.TabIndex = 60;
             this.lblStock_List.Text = "Enter Stock Name:";
+            this.lblStock_List.Click += new System.EventHandler(this.lblStock_List_Click);
             // 
             // cboStockID
             // 
@@ -129,6 +132,7 @@
             this.cboStockID.ReadOnly = true;
             this.cboStockID.Size = new System.Drawing.Size(46, 20);
             this.cboStockID.TabIndex = 55;
+            this.cboStockID.TextChanged += new System.EventHandler(this.cboStockID_TextChanged);
             // 
             // lblStockID
             // 
@@ -140,6 +144,7 @@
             this.lblStockID.Size = new System.Drawing.Size(52, 15);
             this.lblStockID.TabIndex = 57;
             this.lblStockID.Text = "StockID:";
+            this.lblStockID.Click += new System.EventHandler(this.lblStockID_Click);
             // 
             // groupBox1
             // 
@@ -164,6 +169,7 @@
             this.groupBox1.TabIndex = 56;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enter Stock Details";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblStatus
             // 
@@ -346,6 +352,7 @@
             this.DGVStock.Size = new System.Drawing.Size(348, 202);
             this.DGVStock.TabIndex = 61;
             this.DGVStock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStock_CellContentClick);
+            this.DGVStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStock_CellContentClick_1);
             // 
             // StockID
             // 
@@ -380,6 +387,7 @@
             this.Controls.Add(this.lblUpdateStock);
             this.Controls.Add(this.mnuAddStock);
             this.MainMenuStrip = this.mnuAddStock;
+            this.Name = "Trial";
             this.Text = "Add Stock-(Trial)";
             this.Load += new System.EventHandler(this.frmAddStockTrial_Load);
             this.groupBox1.ResumeLayout(false);

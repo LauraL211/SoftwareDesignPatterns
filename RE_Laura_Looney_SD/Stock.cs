@@ -144,14 +144,14 @@ namespace RE_Laura_Looney_SD
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "INSERT INTO STOCK(StockID, Name, Description, Type, Price, Quantity, ReorderLVL, Status) Values('" +
+            String sqlQuery = "INSERT INTO STOCK(STOCKID, NAME, DESCRIPTION, TYPE, PRICE, QUANTITY, REORDERLVL, STATUS) Values('" +
                 this.stockid + "','" +
                 this.name.ToLower() + "','" +
                 this.description.ToLower() + "','" +
-                this.type.ToLower() + "'," +
+                this.type.ToUpper() + "'," +
                 this.price + "," +
-                this.quantity + ",'" +
-                this.reorderlvl + "','" +
+                this.quantity  + "," +
+                this.reorderlvl  + ", '" +
                 this.status + 
                 "')";
 
@@ -250,6 +250,22 @@ namespace RE_Laura_Looney_SD
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION FROM STOCK WHERE NAME LIKE '%" + Search +"%' ORDER BY STOCKID";
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "StockID");
+
+            conn.Close();
+
+            return ds;
+        }
+
+        public static DataSet CheckStock()
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT * FROM STOCK WHERE REORDERLVL < QUANTITY ORDER BY STOCKID";
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             OracleDataAdapter da = new OracleDataAdapter(cmd);
 

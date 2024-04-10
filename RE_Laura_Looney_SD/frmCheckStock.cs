@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,22 +17,23 @@ namespace RE_Laura_Looney_SD
         {
             InitializeComponent();
 
-            cboItemList.Items.Add("StockID:  Name:         Description:     Type:      Price:    Quantity: ReorderLVL:");
-            cboItemList.Items.Add("   1,     Jameson,      Black Barrell,   Whiskey,   $33.33,    2,       10");
-            cboItemList.Items.Add("   2,     Smirnoff,     Original,        Vodka,     $33.33,    4,       10");
-            cboItemList.Items.Add("   3,     Cognak,       Original,        Brandy,    $33.33,    7,       10");
-            cboItemList.Items.Add("   4,     Baileys,      Original,        Liquer,    $33.33,    3,       10");
-            cboItemList.Items.Add("   5,     Apple Sourz,  Original,        IDK,       $33.33,    1,       10");
-            cboItemList.Items.Add("   6,     BushMills,    Original,        Whiskey,   $33.33,    0,       10");
-            cboItemList.Items.Add("   7,     Coors,        Original,        Beer,      $33.33,    9,       10");
-            cboItemList.Items.Add("   8,     Grey Goose,   Original,        Vodka,     $33.33,    9,       10");
-            cboItemList.Items.Add("   9,     Smithick's,   Red,             Ale,       $33.33,    6,       10");
-            cboItemList.Items.Add("   10,    Smirnoff,     Fruity Passion,  Vodka,     $33.33,    2,       10");
-            cboItemList.Items.Add("   11,    Gordon's,     Original,        Gin,       $33.33,    2,       10");
-            cboItemList.Items.Add("   12,    Gordon's,     Pink,            Gin,       $33.33,    8,       10");
-            cboItemList.Items.Add("   13,    Cornona,      Original,        Beer,      $33.33,    5,       10");
-            cboItemList.Items.Add("   14,    Jameson,      Original,        Whiskey,   $33.33,    3,       10");
-            cboItemList.Items.Add("   15,    Jameson,      Golden,          Whiskey,   $33.33,    4,       10");
+            dgvLowStock.Rows.Clear();
+            {
+                DataSet StockItem = Stock.CheckStock();
+
+                for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
+                {
+                    dgvLowStock.Rows.Add(
+                        StockItem.Tables[0].Rows[i][0],
+                        StockItem.Tables[0].Rows[i][1],
+                        StockItem.Tables[0].Rows[i][2],
+                        StockItem.Tables[0].Rows[i][3],
+                        StockItem.Tables[0].Rows[i][4],
+                        StockItem.Tables[0].Rows[i][5],
+                        StockItem.Tables[0].Rows[i][6]
+                        );
+                }
+            }
 
         }
 
@@ -86,5 +88,19 @@ namespace RE_Laura_Looney_SD
         {
             MessageBox.Show("The following stock list is being printed ", "Low Stock List", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void dgvLowStock_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            {
+               
+
+            }
+        }
+
+        private void dgvLowStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
+
