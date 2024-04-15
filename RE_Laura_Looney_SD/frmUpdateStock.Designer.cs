@@ -111,6 +111,8 @@
             this.DGVStock.ReadOnly = true;
             this.DGVStock.Size = new System.Drawing.Size(348, 202);
             this.DGVStock.TabIndex = 69;
+            this.DGVStock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStock_CellContentClick);
+            this.DGVStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStock_CellContentClick);
             // 
             // StockID
             // 
@@ -388,7 +390,6 @@
             this.Controls.Add(this.lblUpdateStock);
             this.Controls.Add(this.mnuStockMenu);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmUpdateStock";
             this.Text = "Looney\'s Liquer - [Update Stock]";
             this.mnuStockMenu.ResumeLayout(false);
             this.mnuStockMenu.PerformLayout();

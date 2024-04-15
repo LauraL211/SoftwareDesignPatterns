@@ -110,13 +110,13 @@ namespace RE_Laura_Looney_SD
             return ds;
         }
 
-        public void getStock(int Id)
+        public void getStock( int stockId)
         {
             //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "SELECT * FROM Stock WHERE StockID = " + Id;
+            String sqlQuery = "SELECT * FROM Stock WHERE StockID = " + stockId;
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);

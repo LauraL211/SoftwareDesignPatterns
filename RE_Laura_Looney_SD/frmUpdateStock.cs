@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace RE_Laura_Looney_SD
 {
@@ -17,25 +18,6 @@ namespace RE_Laura_Looney_SD
         {
             InitializeComponent();
 
-            lblName.Visible = false;
-            cboName.Visible = false;
-
-            lblDescription.Visible = false;
-            cboDescription.Visible = false;
-
-            lblType.Visible = false;
-            cboType.Visible = false;
-
-            lblPrice.Visible = false;
-            cboPrice.Visible = false;
-
-            lblQuantity.Visible = false;
-            cboQuantity.Visible = false;
-
-            lblReorderLevel.Visible = false;
-            cboReorderLVL.Visible = false;
-
-            btnUpdateStock.Visible = false;
         }
 
         private void mnuMainMenu_Click(object sender, EventArgs e)
@@ -282,6 +264,18 @@ namespace RE_Laura_Looney_SD
                             );
                     }
                 }
+            }
+        }
+
+        private void DGVStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Get the value of the clicked cell which should contain the stock ID
+                int stockId = Convert.ToInt32(DGVStock.Rows[e.RowIndex].Cells["StockID"].Value);
+
+               Stock.ge
+
             }
         }
     }

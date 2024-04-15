@@ -387,7 +387,6 @@
             this.Controls.Add(this.lblUpdateStock);
             this.Controls.Add(this.mnuAddStock);
             this.MainMenuStrip = this.mnuAddStock;
-            this.Name = "Trial";
             this.Text = "Add Stock-(Trial)";
             this.Load += new System.EventHandler(this.frmAddStockTrial_Load);
             this.groupBox1.ResumeLayout(false);
