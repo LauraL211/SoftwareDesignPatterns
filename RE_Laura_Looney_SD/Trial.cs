@@ -519,5 +519,10 @@ namespace RE_Laura_Looney_SD
         {
 
         }
+
+        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

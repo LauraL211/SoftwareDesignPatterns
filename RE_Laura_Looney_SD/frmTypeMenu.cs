@@ -62,5 +62,39 @@ namespace RE_Laura_Looney_SD
                 frm.Show();
             }
         }
+
+        private void btnUpdateStockType_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmUpdateType frm = (frmUpdateType)Application.OpenForms["frmUpdateType"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmUpdateType(this);
+                frm.Show();
+            }
+        }
+
+        private void mnuAdminMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
+            if (frm != null)
+            {
+                // The form is already open, so just bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // The form is not open, create a new instance and show it
+                frm = new frmStockMenu(this);
+                frm.Show();
+            }
+        }
     }
 }

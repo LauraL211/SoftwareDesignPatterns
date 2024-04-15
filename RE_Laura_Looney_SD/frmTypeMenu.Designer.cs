@@ -32,7 +32,7 @@
             this.btnAddStockType = new System.Windows.Forms.Button();
             this.mnuStockMenu = new System.Windows.Forms.MenuStrip();
             this.mnuMainMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAdminMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuStock = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExxit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStockMenu.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +47,7 @@
             this.btnUpdateStockType.TabIndex = 9;
             this.btnUpdateStockType.Text = "Update Stock Type";
             this.btnUpdateStockType.UseVisualStyleBackColor = true;
+            this.btnUpdateStockType.Click += new System.EventHandler(this.btnUpdateStockType_Click);
             // 
             // btnAddStockType
             // 
@@ -65,7 +66,7 @@
             this.mnuStockMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuStockMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuMainMenu,
-            this.mnuAdminMenu,
+            this.mnuStock,
             this.mnuExxit});
             this.mnuStockMenu.Location = new System.Drawing.Point(0, 0);
             this.mnuStockMenu.Name = "mnuStockMenu";
@@ -81,11 +82,12 @@
             this.mnuMainMenu.Text = "Main Menu";
             this.mnuMainMenu.Click += new System.EventHandler(this.mnuMainMenu_Click);
             // 
-            // mnuAdminMenu
+            // mnuStock
             // 
-            this.mnuAdminMenu.Name = "mnuAdminMenu";
-            this.mnuAdminMenu.Size = new System.Drawing.Size(89, 20);
-            this.mnuAdminMenu.Text = "Admin Menu";
+            this.mnuStock.Name = "mnuStock";
+            this.mnuStock.Size = new System.Drawing.Size(82, 20);
+            this.mnuStock.Text = "Stock Menu";
+            this.mnuStock.Click += new System.EventHandler(this.mnuAdminMenu_Click);
             // 
             // mnuExxit
             // 
@@ -118,7 +120,7 @@
         private System.Windows.Forms.Button btnAddStockType;
         private System.Windows.Forms.MenuStrip mnuStockMenu;
         private System.Windows.Forms.ToolStripMenuItem mnuMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem mnuAdminMenu;
+        private System.Windows.Forms.ToolStripMenuItem mnuStock;
         private System.Windows.Forms.ToolStripMenuItem mnuExxit;
     }
 }

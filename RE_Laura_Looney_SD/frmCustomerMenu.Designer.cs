@@ -46,21 +46,22 @@
             this.mnuExxit});
             this.mnuCustomer.Location = new System.Drawing.Point(0, 0);
             this.mnuCustomer.Name = "mnuCustomer";
-            this.mnuCustomer.Size = new System.Drawing.Size(800, 28);
+            this.mnuCustomer.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.mnuCustomer.Size = new System.Drawing.Size(600, 24);
             this.mnuCustomer.TabIndex = 1;
             this.mnuCustomer.Text = "menuStrip1";
             // 
             // mnuMainMenu
             // 
             this.mnuMainMenu.Name = "mnuMainMenu";
-            this.mnuMainMenu.Size = new System.Drawing.Size(97, 24);
+            this.mnuMainMenu.Size = new System.Drawing.Size(80, 20);
             this.mnuMainMenu.Text = "Main Menu";
             this.mnuMainMenu.Click += new System.EventHandler(this.mnuMainMenu_Click);
             // 
             // mnuOrderMenu
             // 
             this.mnuOrderMenu.Name = "mnuOrderMenu";
-            this.mnuOrderMenu.Size = new System.Drawing.Size(102, 24);
+            this.mnuOrderMenu.Size = new System.Drawing.Size(83, 20);
             this.mnuOrderMenu.Text = "Order Menu";
             this.mnuOrderMenu.Click += new System.EventHandler(this.mnuOrderMenu_Click);
             // 
@@ -68,17 +69,17 @@
             // 
             this.mnuExxit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.mnuExxit.Name = "mnuExxit";
-            this.mnuExxit.Size = new System.Drawing.Size(47, 24);
+            this.mnuExxit.Size = new System.Drawing.Size(38, 20);
             this.mnuExxit.Text = "Exit";
             this.mnuExxit.Click += new System.EventHandler(this.mnuExxit_Click);
             // 
             // btnDeRegisterCustomer
             // 
             this.btnDeRegisterCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeRegisterCustomer.Location = new System.Drawing.Point(417, 184);
-            this.btnDeRegisterCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeRegisterCustomer.Location = new System.Drawing.Point(313, 150);
+            this.btnDeRegisterCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeRegisterCustomer.Name = "btnDeRegisterCustomer";
-            this.btnDeRegisterCustomer.Size = new System.Drawing.Size(179, 82);
+            this.btnDeRegisterCustomer.Size = new System.Drawing.Size(134, 67);
             this.btnDeRegisterCustomer.TabIndex = 2;
             this.btnDeRegisterCustomer.Text = "De-Register Customer";
             this.btnDeRegisterCustomer.UseVisualStyleBackColor = true;
@@ -87,10 +88,10 @@
             // btnUpdateCustomer
             // 
             this.btnUpdateCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnUpdateCustomer.Location = new System.Drawing.Point(205, 184);
-            this.btnUpdateCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdateCustomer.Location = new System.Drawing.Point(155, 150);
+            this.btnUpdateCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdateCustomer.Name = "btnUpdateCustomer";
-            this.btnUpdateCustomer.Size = new System.Drawing.Size(179, 82);
+            this.btnUpdateCustomer.Size = new System.Drawing.Size(134, 67);
             this.btnUpdateCustomer.TabIndex = 1;
             this.btnUpdateCustomer.Text = "Update Customer Details";
             this.btnUpdateCustomer.UseVisualStyleBackColor = true;
@@ -98,12 +99,13 @@
             // 
             // frmCustomerMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnDeRegisterCustomer);
             this.Controls.Add(this.btnUpdateCustomer);
             this.Controls.Add(this.mnuCustomer);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmCustomerMenu";
             this.Text = "Looney\'s Liquer - [Customer Menu]";
             this.mnuCustomer.ResumeLayout(false);

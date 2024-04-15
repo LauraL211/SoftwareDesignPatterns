@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,26 +17,6 @@ namespace RE_Laura_Looney_SD
         public frmDeleteStock(frmStockMenu frmStockMenu)
         {
             InitializeComponent();
-
-            lblName.Visible = false;
-            cboName.Visible = false;
-
-            lblDescription.Visible = false;
-            cboDescription.Visible = false;
-
-            lblType.Visible = false;
-            cboType.Visible = false;
-
-            lblPrice.Visible = false;
-            cboPrice.Visible = false;
-
-            lblQuantity.Visible = false;
-            cboQuantity.Visible = false;
-
-            lblReorderLevel.Visible = false;
-            cboReorderLVL.Visible = false;
-
-            btnDeleteStock.Visible = false;
         }
 
         private void mnuMainMenu_Click(object sender, EventArgs e)
@@ -85,450 +66,104 @@ namespace RE_Laura_Looney_SD
             }
         }
 
-        private void btnDeleteStock_Click(object sender, EventArgs e)
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            cboSearch.Text.ToLower();
+            {
+                DGVStock.Rows.Clear();
+                {
+
+                    DataSet StockItem = Stock.GetAvailableStock(cboSearch.Text.ToLower());
+
+                    for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
+                    {
+                        DGVStock.Rows.Add(
+                            StockItem.Tables[0].Rows[i][0],
+                            StockItem.Tables[0].Rows[i][1],
+                            StockItem.Tables[0].Rows[i][2]
+                            );
+                    }
+                }
+            }
+        }
+
+        private void DGVStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int stockId = Convert.ToInt32(DGVStock.Rows[e.RowIndex].Cells["StockID"].Value);
+
+            Stock stock = new Stock();
+            stock.getStock(stockId);
+            cboStockID.Text = stockId.ToString();
+            cboName.Text = stock.getName();
+            cboDescription.Text = stock.getDescription();
+            cboType.Text = stock.getType();
+            cboPrice.Text = stock.getPrice().ToString();
+            cboQuantity.Text = stock.getQuantity().ToString();
+            cboReorderLVL.Text = stock.getReorderLvl().ToString();
+            cboStatus.Text = stock.getStatus();
+        }
+
+        private void frmDeleteStock_Load(object sender, EventArgs e)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleCommand cmd = new OracleCommand("SELECT DESCRIPTION FROM TYPES", conn);
+            conn.Open();
+            OracleDataReader Reader = cmd.ExecuteReader();
+            while (Reader.Read())
+            {
+
+                String Type = Reader.GetString(0);
+                cboType.Items.Add(Type);
+            }
+            conn.Close();
+        }
+
+        private void btnDeleteStock_Click_1(object sender, EventArgs e)
         {
             DialogResult Result = (MessageBox.Show("Are you sure you want to delete this Stock Item?", "Delete Stock Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
 
             if (Result == DialogResult.Yes)
             {
+                Stock stock = new Stock();
+                stock.setStockID(int.Parse(cboStockID.Text));
+                stock.setName(cboName.Text);
+                stock.setDescription(cboDescription.Text);
+                stock.setType(cboType.Text);
+                stock.setPrice(decimal.Parse(cboPrice.Text));
+                stock.setQuantity(int.Parse(cboQuantity.Text));
+                stock.setReorderLvl(int.Parse(cboReorderLVL.Text));
+                stock.setStatus("U");
+                stock.updateStock();
 
-                MessageBox.Show("The following Stock Item has been deleted from the system " +
-                                "\n\nStock ID: " + Stock_ID +
-                                "\nStock Name: " + cboName.Text +
-                                "\nStock Description: " + cboDescription.Text +
-                                "\nStock Type: " + cboType.Text +
-                                "\nStock Price: " + cboPrice.Text +
-                                "\nStock Quantity: " + cboQuantity.Text +
-                                "\nStock Reorder Level: " + cboReorderLVL.Text
-                                , "Stock Item Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //display confirmation message
+                MessageBox.Show("Stock " + cboStockID.Text + " deleted successfully", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-                //Refreshing the page
+                //reset UI
+                cboStockID.Clear();
                 cboName.Clear();
                 cboDescription.Clear();
-                cboType.Clear();
+                cboType.SelectedIndex = -1;
                 cboPrice.Clear();
                 cboQuantity.Clear();
                 cboReorderLVL.Clear();
-                cboStock_List.SelectedIndex = -1;
+                DGVStock.Rows.Clear();
+                cboSearch.Focus();
 
-                lblName.Visible = false;
-                cboName.Visible = false;
-
-                lblDescription.Visible = false;
-                cboDescription.Visible = false;
-
-                lblType.Visible = false;
-                cboType.Visible = false;
-
-                lblPrice.Visible = false;
-                cboPrice.Visible = false;
-
-                lblQuantity.Visible = false;
-                cboQuantity.Visible = false;
-
-                lblReorderLevel.Visible = false;
-                cboReorderLVL.Visible = false;
-
-                btnDeleteStock.Visible = false;
             }
 
             if (Result == DialogResult.No)
             {
-                MessageBox.Show("The Chosen Stock Item has not been Deleted", "Cancelled Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("The Stock Item has not been deleted from the system", "Stock Item Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Refreshing the page
                 cboName.Clear();
                 cboDescription.Clear();
-                cboType.Clear();
+                cboType.SelectedIndex = -1;
                 cboPrice.Clear();
                 cboQuantity.Clear();
                 cboReorderLVL.Clear();
-                cboStock_List.SelectedIndex = -1;
-
-                lblName.Visible = false;
-                cboName.Visible = false;
-
-                lblDescription.Visible = false;
-                cboDescription.Visible = false;
-
-                lblType.Visible = false;
-                cboType.Visible = false;
-
-                lblPrice.Visible = false;
-                cboPrice.Visible = false;
-
-                lblQuantity.Visible = false;
-                cboQuantity.Visible = false;
-
-                lblReorderLevel.Visible = false;
-                cboReorderLVL.Visible = false;
-
-                btnDeleteStock.Visible = false;
-            }
-        }
-
-        private void cboStock_List_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboSearch.Text.Contains(""))
-            {
-                if (cboStock_List.SelectedIndex == 0)
-                {
-                    Stock_ID = 1;
-                    cboName.Text = "Jameson";
-                    cboDescription.Text = "Black Barrell";
-                    cboType.Text = "Whiskey";
-                    cboPrice.Text = "69.69";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "20";
-                }
-
-                if (cboStock_List.SelectedIndex == 1)
-                {
-                    Stock_ID = 2;
-                    cboName.Text = "Smirnoff";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Vodka";
-                    cboPrice.Text = "30.00";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "30";
-                }
-
-                if (cboStock_List.SelectedIndex == 2)
-                {
-                    Stock_ID = 3;
-                    cboName.Text = "Cognak";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Brandy";
-                    cboPrice.Text = "40.00";
-                    cboQuantity.Text = "50";
-                    cboReorderLVL.Text = "10";
-                }
-
-                if (cboStock_List.SelectedIndex == 3)
-                {
-                    Stock_ID = 4;
-                    cboName.Text = "Baileys";
-                    cboDescription.Text = "Cream";
-                    cboType.Text = "Liquer";
-                    cboPrice.Text = "20.00";
-                    cboQuantity.Text = "69";
-                    cboReorderLVL.Text = "15";
-                }
-
-                if (cboStock_List.SelectedIndex == 4)
-                {
-                    Stock_ID = 5;
-                    cboName.Text = "Grey Goose";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Vodka";
-                    cboPrice.Text = "35.00";
-                    cboQuantity.Text = "40";
-                    cboReorderLVL.Text = "10";
-                }
-            }
-
-            if (cboSearch.Text.Contains("A") || cboSearch.Text.Contains("a"))
-            {
-                if (cboStock_List.SelectedIndex == 0)
-                {
-                    Stock_ID = 1;
-                    cboName.Text = "Aperol";
-                    cboDescription.Text = "Spritz";
-                    cboType.Text = "IDK";
-                    cboPrice.Text = "69.69";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "20";
-                }
-
-                if (cboStock_List.SelectedIndex == 1)
-                {
-                    Stock_ID = 2;
-                    cboName.Text = "Apple Sourz";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "IDK";
-                    cboPrice.Text = "30.00";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "30";
-                }
-
-                if (cboStock_List.SelectedIndex == 2)
-                {
-                    Stock_ID = 3;
-                    cboName.Text = "Angellica";
-                    cboDescription.Text = "Spritzer";
-                    cboType.Text = "Vodka";
-                    cboPrice.Text = "40.00";
-                    cboQuantity.Text = "50";
-                    cboReorderLVL.Text = "10";
-                }
-
-            }
-
-            if (cboSearch.Text.Contains("B") || cboSearch.Text.Contains("b"))
-            {
-                if (cboStock_List.SelectedIndex == 0)
-                {
-                    Stock_ID = 1;
-                    cboName.Text = "Baileys";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Liquer";
-                    cboPrice.Text = "69.69";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "20";
-                }
-
-                if (cboStock_List.SelectedIndex == 1)
-                {
-                    Stock_ID = 2;
-                    cboName.Text = "Bushmills";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Whiskey";
-                    cboPrice.Text = "30.00";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "30";
-                }
-
-                if (cboStock_List.SelectedIndex == 2)
-                {
-                    Stock_ID = 3;
-                    cboName.Text = "BJ";
-                    cboDescription.Text = "Sprits";
-                    cboType.Text = "Vodka";
-                    cboPrice.Text = "40.00";
-                    cboQuantity.Text = "50";
-                    cboReorderLVL.Text = "10";
-                }
-
-            }
-
-            if (cboSearch.Text.Contains("C") || cboSearch.Text.Contains("c"))
-            {
-                if (cboStock_List.SelectedIndex == 0)
-                {
-                    Stock_ID = 1;
-                    cboName.Text = "Cognak";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Brandy";
-                    cboPrice.Text = "69.69";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "20";
-                }
-
-                if (cboStock_List.SelectedIndex == 1)
-                {
-                    Stock_ID = 2;
-                    cboName.Text = "Coors";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Beer";
-                    cboPrice.Text = "30.00";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "30";
-                }
-
-                if (cboStock_List.SelectedIndex == 2)
-                {
-                    Stock_ID = 3;
-                    cboName.Text = "Cashmans";
-                    cboDescription.Text = "Sprits";
-                    cboType.Text = "Vodka";
-                    cboPrice.Text = "40.00";
-                    cboQuantity.Text = "50";
-                    cboReorderLVL.Text = "10";
-                }
-
-            }
-
-            if (cboSearch.Text.Contains("G") || cboSearch.Text.Contains("g"))
-            {
-                if (cboStock_List.SelectedIndex == 0)
-                {
-                    Stock_ID = 1;
-                    cboName.Text = "Grey Goose";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Vodka";
-                    cboPrice.Text = "69.69";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "20";
-                }
-
-                if (cboStock_List.SelectedIndex == 1)
-                {
-                    Stock_ID = 2;
-                    cboName.Text = "Gordon's";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Gin";
-                    cboPrice.Text = "30.00";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "30";
-                }
-
-                if (cboStock_List.SelectedIndex == 2)
-                {
-                    Stock_ID = 3;
-                    cboName.Text = "Gordon's";
-                    cboDescription.Text = "Pink";
-                    cboType.Text = "Gin";
-                    cboPrice.Text = "40.00";
-                    cboQuantity.Text = "50";
-                    cboReorderLVL.Text = "10";
-                }
-
-            }
-
-            if (cboSearch.Text.Contains("S") || cboSearch.Text.Contains("s"))
-            {
-                if (cboStock_List.SelectedIndex == 0)
-                {
-                    Stock_ID = 1;
-                    cboName.Text = "Smirnoff";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Vodka";
-                    cboPrice.Text = "69.69";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "20";
-                }
-
-                if (cboStock_List.SelectedIndex == 1)
-                {
-                    Stock_ID = 2;
-                    cboName.Text = "Smithicks";
-                    cboDescription.Text = "Red";
-                    cboType.Text = "Ale";
-                    cboPrice.Text = "30.00";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "30";
-                }
-
-                if (cboStock_List.SelectedIndex == 2)
-                {
-                    Stock_ID = 3;
-                    cboName.Text = "Smirnoff";
-                    cboDescription.Text = "Fruity Passion";
-                    cboType.Text = "Vodka";
-                    cboPrice.Text = "40.00";
-                    cboQuantity.Text = "50";
-                    cboReorderLVL.Text = "10";
-                }
-
-            }
-
-            if (cboSearch.Text.Contains("J") || cboSearch.Text.Contains("j"))
-            {
-                if (cboStock_List.SelectedIndex == 0)
-                {
-                    Stock_ID = 1;
-                    cboName.Text = "Jameson";
-                    cboDescription.Text = "Black Barrel";
-                    cboType.Text = "Whiskey";
-                    cboPrice.Text = "69.69";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "20";
-                }
-
-                if (cboStock_List.SelectedIndex == 1)
-                {
-                    Stock_ID = 2;
-                    cboName.Text = "Jameson";
-                    cboDescription.Text = "Original";
-                    cboType.Text = "Whiskey";
-                    cboPrice.Text = "30.00";
-                    cboQuantity.Text = "100";
-                    cboReorderLVL.Text = "30";
-                }
-
-                if (cboStock_List.SelectedIndex == 2)
-                {
-                    Stock_ID = 3;
-                    cboName.Text = "Jameson";
-                    cboDescription.Text = "Golden";
-                    cboType.Text = "WHiskey";
-                    cboPrice.Text = "40.00";
-                    cboQuantity.Text = "50";
-                    cboReorderLVL.Text = "10";
-                }
-
-            }
-
-            lblName.Visible = true;
-            cboName.Visible = true;
-
-            lblDescription.Visible = true;
-            cboDescription.Visible = true;
-
-            lblType.Visible = true;
-            cboType.Visible = true;
-
-            lblPrice.Visible = true;
-            cboPrice.Visible = true;
-
-            lblQuantity.Visible = true;
-            cboQuantity.Visible = true;
-
-            lblReorderLevel.Visible = true;
-            cboReorderLVL.Visible = true;
-
-            btnDeleteStock.Visible = true;
-        }
-
-        private void cboSearch_TextChanged(object sender, EventArgs e)
-        {
-            if (cboSearch.Text.Contains(""))
-            {
-                cboStock_List.Items.Clear();
-                cboStock_List.Items.Add("1: Jameson, Black Barrell, Whiskey ");
-                cboStock_List.Items.Add("2: Smirnoff, Original, Vodka ");
-                cboStock_List.Items.Add("3: Cognak, Original, Brandy ");
-                cboStock_List.Items.Add("4: Baileys, Original, Liqeur ");
-                cboStock_List.Items.Add("5: Grey Goose, Original, Vodka ");
-            }
-
-            if (cboSearch.Text.Contains('A') || cboSearch.Text.Contains('a'))
-            {
-                cboStock_List.Items.Clear();
-                cboStock_List.Items.Add("1: Aperol, Sprits, IDK");
-                cboStock_List.Items.Add("2: Apple Sours, Original, IDK");
-                cboStock_List.Items.Add("3: Angelica, Sprits, Vodka");
-            }
-
-            if (cboSearch.Text.Contains('B') || cboSearch.Text.Contains('b'))
-            {
-                cboStock_List.Items.Clear();
-                cboStock_List.Items.Add("1: Baileys, Original, Liqeur");
-                cboStock_List.Items.Add("2: Bushmills, Original, Whiskey");
-                cboStock_List.Items.Add("3: BJ, Sprits, Vodka");
-            }
-
-            if (cboSearch.Text.Contains('C') || cboSearch.Text.Contains('c'))
-            {
-                cboStock_List.Items.Clear();
-                cboStock_List.Items.Add("1: Cognak, Original, Brandy");
-                cboStock_List.Items.Add("2: Coors, Original, Beer");
-                cboStock_List.Items.Add("3: Cashmans, Sprits, Vodka");
-            }
-
-            if (cboSearch.Text.Contains('G') || cboSearch.Text.Contains('g'))
-            {
-                cboStock_List.Items.Clear();
-                cboStock_List.Items.Add("1: Grey Goose, Original, Vodka");
-                cboStock_List.Items.Add("2: Gordons, Original, Gin");
-                cboStock_List.Items.Add("3: Gordons, Pink, Gin");
-            }
-
-            if (cboSearch.Text.Contains('S') || cboSearch.Text.Contains('s'))
-            {
-                cboStock_List.Items.Clear();
-                cboStock_List.Items.Add("1: Smirnoff, Original, Vodka ");
-                cboStock_List.Items.Add("2: Smithicks, Red, Ale");
-                cboStock_List.Items.Add("3: Smirnoff, Fruity Passion, Vodka");
-            }
-
-            if (cboSearch.Text.Contains('J') || cboSearch.Text.Contains('j'))
-            {
-                cboStock_List.Items.Clear();
-                cboStock_List.Items.Add("1: Jameson, Black Barrell, Whiskey");
-                cboStock_List.Items.Add("2: Jameson, Black Original, Whiskey");
-                cboStock_List.Items.Add("3: Jameson, Golden, Whiskey");
             }
         }
     }

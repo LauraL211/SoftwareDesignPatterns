@@ -65,6 +65,8 @@ namespace RE_Laura_Looney_SD
         public void setReorderLvl(int ReorderLvl) { reorderlvl = ReorderLvl; }
         public void setStatus(String Status) { status = Status; }
 
+        
+
         public static DataSet getAllStock()
         {
             //Open a db connection
@@ -261,6 +263,54 @@ namespace RE_Laura_Looney_SD
             return ds;
         }
 
+        //Attempt at replenish stock
+        /*public static DataColumn replenishStock(int stockId)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION, QUANTITY FROM STOCK WHERE WHERE StockID = " + stockId;
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "StockID");
+
+            conn.Close();
+
+            return ds;
+        }*/
+
+        public static DataSet GetAvailableStock(String Search)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION FROM STOCK WHERE NAME LIKE '%" + Search + "%' AND STATUS != 'U' ORDER BY STOCKID";
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "StockID");
+
+            conn.Close();
+
+            return ds;
+        }
+
+        public static DataSet GetLowStock(String Search)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION FROM STOCK WHERE NAME LIKE '%" + Search + "%' AND QUANTITY<REORDERLVL ORDER BY STOCKID";
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "StockID");
+
+            conn.Close();
+
+            return ds;
+        }
         public static DataSet CheckStock()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
@@ -276,5 +326,6 @@ namespace RE_Laura_Looney_SD
 
             return ds;
         }
+
     }
 }

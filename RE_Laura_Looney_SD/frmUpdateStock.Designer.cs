@@ -41,7 +41,7 @@
             this.lblStock_List = new System.Windows.Forms.Label();
             this.cboStockID = new System.Windows.Forms.TextBox();
             this.lblStockID = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.UpdateStockDetailsBx = new System.Windows.Forms.GroupBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.cboStatus = new System.Windows.Forms.TextBox();
             this.cboQuantity = new System.Windows.Forms.TextBox();
@@ -60,7 +60,7 @@
             this.lblUpdateStock = new System.Windows.Forms.Label();
             this.mnuStockMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVStock)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.UpdateStockDetailsBx.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuStockMenu
@@ -151,6 +151,7 @@
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(137, 20);
             this.cboSearch.TabIndex = 67;
+            this.cboSearch.TextChanged += new System.EventHandler(this.cboSearch_TextChanged);
             // 
             // lblStock_List
             // 
@@ -173,6 +174,7 @@
             this.cboStockID.ReadOnly = true;
             this.cboStockID.Size = new System.Drawing.Size(46, 20);
             this.cboStockID.TabIndex = 64;
+            this.cboStockID.TextChanged += new System.EventHandler(this.cboStockID_TextChanged);
             // 
             // lblStockID
             // 
@@ -185,29 +187,29 @@
             this.lblStockID.TabIndex = 66;
             this.lblStockID.Text = "StockID:";
             // 
-            // groupBox1
+            // UpdateStockDetailsBx
             // 
-            this.groupBox1.Controls.Add(this.lblStatus);
-            this.groupBox1.Controls.Add(this.cboStatus);
-            this.groupBox1.Controls.Add(this.cboQuantity);
-            this.groupBox1.Controls.Add(this.cboType);
-            this.groupBox1.Controls.Add(this.lblName);
-            this.groupBox1.Controls.Add(this.lblType);
-            this.groupBox1.Controls.Add(this.lblDescription);
-            this.groupBox1.Controls.Add(this.lblPrice);
-            this.groupBox1.Controls.Add(this.btnUpdateStock);
-            this.groupBox1.Controls.Add(this.lblQuantity);
-            this.groupBox1.Controls.Add(this.cboDescription);
-            this.groupBox1.Controls.Add(this.lblReorderLevel);
-            this.groupBox1.Controls.Add(this.cboPrice);
-            this.groupBox1.Controls.Add(this.cboName);
-            this.groupBox1.Controls.Add(this.cboReorderLVL);
-            this.groupBox1.Location = new System.Drawing.Point(394, 118);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(395, 298);
-            this.groupBox1.TabIndex = 65;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Enter Stock Details";
+            this.UpdateStockDetailsBx.Controls.Add(this.lblStatus);
+            this.UpdateStockDetailsBx.Controls.Add(this.cboStatus);
+            this.UpdateStockDetailsBx.Controls.Add(this.cboQuantity);
+            this.UpdateStockDetailsBx.Controls.Add(this.cboType);
+            this.UpdateStockDetailsBx.Controls.Add(this.lblName);
+            this.UpdateStockDetailsBx.Controls.Add(this.lblType);
+            this.UpdateStockDetailsBx.Controls.Add(this.lblDescription);
+            this.UpdateStockDetailsBx.Controls.Add(this.lblPrice);
+            this.UpdateStockDetailsBx.Controls.Add(this.btnUpdateStock);
+            this.UpdateStockDetailsBx.Controls.Add(this.lblQuantity);
+            this.UpdateStockDetailsBx.Controls.Add(this.cboDescription);
+            this.UpdateStockDetailsBx.Controls.Add(this.lblReorderLevel);
+            this.UpdateStockDetailsBx.Controls.Add(this.cboPrice);
+            this.UpdateStockDetailsBx.Controls.Add(this.cboName);
+            this.UpdateStockDetailsBx.Controls.Add(this.cboReorderLVL);
+            this.UpdateStockDetailsBx.Location = new System.Drawing.Point(394, 118);
+            this.UpdateStockDetailsBx.Name = "UpdateStockDetailsBx";
+            this.UpdateStockDetailsBx.Size = new System.Drawing.Size(395, 298);
+            this.UpdateStockDetailsBx.TabIndex = 65;
+            this.UpdateStockDetailsBx.TabStop = false;
+            this.UpdateStockDetailsBx.Text = "Enter Stock Details";
             // 
             // lblStatus
             // 
@@ -249,6 +251,7 @@
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(92, 21);
             this.cboType.TabIndex = 3;
+            this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
             // lblName
             // 
@@ -304,6 +307,7 @@
             this.btnUpdateStock.TabIndex = 8;
             this.btnUpdateStock.Text = "Update Stock";
             this.btnUpdateStock.UseVisualStyleBackColor = true;
+            this.btnUpdateStock.Click += new System.EventHandler(this.btnUpdateStock_Click_1);
             // 
             // lblQuantity
             // 
@@ -386,16 +390,17 @@
             this.Controls.Add(this.lblStock_List);
             this.Controls.Add(this.cboStockID);
             this.Controls.Add(this.lblStockID);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.UpdateStockDetailsBx);
             this.Controls.Add(this.lblUpdateStock);
             this.Controls.Add(this.mnuStockMenu);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Text = "Looney\'s Liquer - [Update Stock]";
+            this.Load += new System.EventHandler(this.frmUpdateStock_Load);
             this.mnuStockMenu.ResumeLayout(false);
             this.mnuStockMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVStock)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.UpdateStockDetailsBx.ResumeLayout(false);
+            this.UpdateStockDetailsBx.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,7 +421,7 @@
         private System.Windows.Forms.Label lblStock_List;
         private System.Windows.Forms.TextBox cboStockID;
         private System.Windows.Forms.Label lblStockID;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox UpdateStockDetailsBx;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.TextBox cboStatus;
         private System.Windows.Forms.TextBox cboQuantity;
