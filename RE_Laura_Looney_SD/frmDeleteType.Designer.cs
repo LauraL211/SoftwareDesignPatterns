@@ -1,6 +1,6 @@
 ﻿namespace RE_Laura_Looney_SD
 {
-    partial class frmUpdateType
+    partial class frmDeleteType
     {
         /// <summary>
         /// Required designer variable.
@@ -37,17 +37,17 @@
             this.cboStatus = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.btnUpdateStockType = new System.Windows.Forms.Button();
+            this.btnDeleteStockType = new System.Windows.Forms.Button();
             this.cboDescription = new System.Windows.Forms.TextBox();
             this.cboTypeCode = new System.Windows.Forms.TextBox();
-            this.lblUpdateStockType = new System.Windows.Forms.Label();
+            this.lblDeleteStockType = new System.Windows.Forms.Label();
             this.DGVStockType = new System.Windows.Forms.DataGridView();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.cboSearch = new System.Windows.Forms.TextBox();
-            this.lblStock_List = new System.Windows.Forms.Label();
             this.TypeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.cboSearch = new System.Windows.Forms.TextBox();
+            this.lblStock_List = new System.Windows.Forms.Label();
             this.mnuOrderMenu.SuspendLayout();
             this.grpStockType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVStockType)).BeginInit();
@@ -95,7 +95,7 @@
             this.grpStockType.Controls.Add(this.cboStatus);
             this.grpStockType.Controls.Add(this.lblName);
             this.grpStockType.Controls.Add(this.lblDescription);
-            this.grpStockType.Controls.Add(this.btnUpdateStockType);
+            this.grpStockType.Controls.Add(this.btnDeleteStockType);
             this.grpStockType.Controls.Add(this.cboDescription);
             this.grpStockType.Controls.Add(this.cboTypeCode);
             this.grpStockType.Location = new System.Drawing.Point(433, 176);
@@ -103,7 +103,7 @@
             this.grpStockType.Size = new System.Drawing.Size(322, 198);
             this.grpStockType.TabIndex = 48;
             this.grpStockType.TabStop = false;
-            this.grpStockType.Text = "Enter Stock Type Details";
+            this.grpStockType.Text = "Stock Type Details";
             // 
             // lblStatus
             // 
@@ -122,6 +122,7 @@
             this.cboStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cboStatus.MaxLength = 3;
             this.cboStatus.Name = "cboStatus";
+            this.cboStatus.ReadOnly = true;
             this.cboStatus.Size = new System.Drawing.Size(48, 20);
             this.cboStatus.TabIndex = 38;
             // 
@@ -147,17 +148,17 @@
             this.lblDescription.TabIndex = 31;
             this.lblDescription.Text = "Description:";
             // 
-            // btnUpdateStockType
+            // btnDeleteStockType
             // 
-            this.btnUpdateStockType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnUpdateStockType.Location = new System.Drawing.Point(90, 152);
-            this.btnUpdateStockType.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpdateStockType.Name = "btnUpdateStockType";
-            this.btnUpdateStockType.Size = new System.Drawing.Size(134, 26);
-            this.btnUpdateStockType.TabIndex = 8;
-            this.btnUpdateStockType.Text = "Update Stock Type";
-            this.btnUpdateStockType.UseVisualStyleBackColor = true;
-            this.btnUpdateStockType.Click += new System.EventHandler(this.btnUpdateStockType_Click);
+            this.btnDeleteStockType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnDeleteStockType.Location = new System.Drawing.Point(90, 152);
+            this.btnDeleteStockType.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteStockType.Name = "btnDeleteStockType";
+            this.btnDeleteStockType.Size = new System.Drawing.Size(134, 26);
+            this.btnDeleteStockType.TabIndex = 8;
+            this.btnDeleteStockType.Text = "Delete Stock Type";
+            this.btnDeleteStockType.UseVisualStyleBackColor = true;
+            this.btnDeleteStockType.Click += new System.EventHandler(this.btnDeleteStockType_Click_1);
             // 
             // cboDescription
             // 
@@ -165,6 +166,7 @@
             this.cboDescription.Margin = new System.Windows.Forms.Padding(2);
             this.cboDescription.MaxLength = 20;
             this.cboDescription.Name = "cboDescription";
+            this.cboDescription.ReadOnly = true;
             this.cboDescription.Size = new System.Drawing.Size(120, 20);
             this.cboDescription.TabIndex = 2;
             // 
@@ -174,21 +176,22 @@
             this.cboTypeCode.Margin = new System.Windows.Forms.Padding(2);
             this.cboTypeCode.MaxLength = 3;
             this.cboTypeCode.Name = "cboTypeCode";
+            this.cboTypeCode.ReadOnly = true;
             this.cboTypeCode.Size = new System.Drawing.Size(71, 20);
             this.cboTypeCode.TabIndex = 1;
             this.cboTypeCode.TextChanged += new System.EventHandler(this.cboTypeCode_TextChanged);
             // 
-            // lblUpdateStockType
+            // lblDeleteStockType
             // 
-            this.lblUpdateStockType.AutoSize = true;
-            this.lblUpdateStockType.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+            this.lblDeleteStockType.AutoSize = true;
+            this.lblDeleteStockType.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdateStockType.Location = new System.Drawing.Point(261, 59);
-            this.lblUpdateStockType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUpdateStockType.Name = "lblUpdateStockType";
-            this.lblUpdateStockType.Size = new System.Drawing.Size(285, 36);
-            this.lblUpdateStockType.TabIndex = 47;
-            this.lblUpdateStockType.Text = "Update Stock Type";
+            this.lblDeleteStockType.Location = new System.Drawing.Point(261, 59);
+            this.lblDeleteStockType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDeleteStockType.Name = "lblDeleteStockType";
+            this.lblDeleteStockType.Size = new System.Drawing.Size(273, 36);
+            this.lblDeleteStockType.TabIndex = 47;
+            this.lblDeleteStockType.Text = "Delete Stock Type";
             // 
             // DGVStockType
             // 
@@ -204,6 +207,24 @@
             this.DGVStockType.TabIndex = 73;
             this.DGVStockType.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStockType_CellContentClick);
             this.DGVStockType.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStockType_CellContentClick);
+            // 
+            // TypeCode
+            // 
+            this.TypeCode.HeaderText = "Type Code";
+            this.TypeCode.Name = "TypeCode";
+            this.TypeCode.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // btnSearch
             // 
@@ -236,25 +257,7 @@
             this.lblStock_List.TabIndex = 72;
             this.lblStock_List.Text = "Enter Type Name:";
             // 
-            // TypeCode
-            // 
-            this.TypeCode.HeaderText = "Type Code";
-            this.TypeCode.Name = "TypeCode";
-            this.TypeCode.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // frmUpdateType
+            // frmDeleteType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -265,9 +268,9 @@
             this.Controls.Add(this.lblStock_List);
             this.Controls.Add(this.mnuOrderMenu);
             this.Controls.Add(this.grpStockType);
-            this.Controls.Add(this.lblUpdateStockType);
-            this.Name = "frmUpdateType";
-            this.Text = "Update Type";
+            this.Controls.Add(this.lblDeleteStockType);
+            this.Name = "frmDeleteType";
+            this.Text = "Delete Type";
             this.mnuOrderMenu.ResumeLayout(false);
             this.mnuOrderMenu.PerformLayout();
             this.grpStockType.ResumeLayout(false);
@@ -289,10 +292,10 @@
         private System.Windows.Forms.TextBox cboStatus;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Button btnUpdateStockType;
+        private System.Windows.Forms.Button btnDeleteStockType;
         private System.Windows.Forms.TextBox cboDescription;
         private System.Windows.Forms.TextBox cboTypeCode;
-        private System.Windows.Forms.Label lblUpdateStockType;
+        private System.Windows.Forms.Label lblDeleteStockType;
         private System.Windows.Forms.DataGridView DGVStockType;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox cboSearch;

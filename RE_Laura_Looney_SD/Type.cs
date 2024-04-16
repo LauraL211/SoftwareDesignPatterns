@@ -65,28 +65,6 @@ namespace RE_Laura_Looney_SD
             conn.Close();
         }
 
-        public static DataSet loadTypes(ComboBox aCombo)
-        {
-            //Open a db connection
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
-
-            //Define the SQL query to be executed
-            String sqlQuery = "SELECT Description FROM Type ORDER BY TypeCode";
-
-            //Execute the SQL query (OracleCommand)
-            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-
-            OracleDataAdapter da = new OracleDataAdapter(cmd);
-
-            DataSet ds = new DataSet();
-            da.Fill(ds, "type");
-
-            //Close db connection
-            conn.Close();
-
-            return ds;
-        }
-
         public void addType()
         {
             //Open a db connection
@@ -125,25 +103,35 @@ namespace RE_Laura_Looney_SD
             return ds;
         }
 
-        public void updateType()
+        public void  CheckData(String stocktype)
         {
-            //Open a db connection
+          
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
-            String sqlQuery = "UPDATE TYPES SET " +
-                "TypeCode = '" + this.typecode + "'," +
-                "Description = '" + this.description + "'," +
-                "Status = '" + this.status + "'";
-
-            //Execute the SQL query (OracleCommand)
+            String sqlQuery = "SELECT COUNT(*) FROM STOCK WHERE TYPE = '" + stocktype + "'";
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
             conn.Open();
 
-            cmd.ExecuteNonQuery();
+            int resultCount = Convert.ToInt32(cmd.ExecuteScalar());
 
-            //Close db connection
+            if (resultCount > 0)
+            {
+                    MessageBox.Show("Stock Type can not be delted as stock contain that type", "Not Deleted",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                 sqlQuery = "DELETE FROM Types WHERE DESCRIPTION = " + stocktype;
+                 cmd = new OracleCommand(sqlQuery, conn);
+
+                MessageBox.Show("Stock Type deleted successfully", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             conn.Close();
+
+
         }
     } }
     

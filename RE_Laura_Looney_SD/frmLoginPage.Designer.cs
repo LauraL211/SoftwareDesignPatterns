@@ -95,6 +95,7 @@
             this.cboUsername.Name = "cboUsername";
             this.cboUsername.Size = new System.Drawing.Size(128, 20);
             this.cboUsername.TabIndex = 1;
+            this.cboUsername.TextChanged += new System.EventHandler(this.cboUsername_TextChanged);
             // 
             // cboPassword
             // 

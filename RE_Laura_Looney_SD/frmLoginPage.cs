@@ -12,9 +12,13 @@ namespace RE_Laura_Looney_SD
 {
     public partial class frmLoginPage : Form
     {
+        public String Username
+        { get; set; }
+
         public frmLoginPage(Form frmHomePage)
         {
             InitializeComponent();
+           
         }
         private void mnuExit_Click(object sender, EventArgs e)
         {
@@ -39,20 +43,14 @@ namespace RE_Laura_Looney_SD
         {
             bool User = false;
             bool Pass = false;
+            bool isValid = Customer.Valid.valid;
+            Username = cboUsername.Text;
 
-            if (!(cboUsername.Text.Equals("")))
+            if (!(cboUsername.Text.Equals("")) && !(cboPassword.Text.Equals("")))
             {
-                User = true;
-            }
+                Customer customer = new Customer();
+                customer.CheckCustomer(cboUsername.Text, cboPassword.Text);
 
-            if (!(cboPassword.Text.Equals("")))
-            {
-                Pass = true;
-            }
-
-            if (User && Pass)
-            {
-                //if user = manager(m)
                 if (cboUsername.Text.Equals("m") && cboPassword.Text.Equals("m"))
                 {
                     //manager view
@@ -61,24 +59,36 @@ namespace RE_Laura_Looney_SD
                     nextForm.Show();
                 }
 
-                //if user = worker(w)
-                else if (cboUsername.Text.Equals("w") && cboPassword.Text.Equals("w"))
+                else if (isValid = true)
                 {
-                    //worker view
-                    this.Close();
-                    frmMainMenuWorker nextForm = new frmMainMenuWorker(this);
-                    nextForm.Show();
+                    User = true;
+                    Pass = true;
+
+                    if (User && Pass)
+                    {
+                            //customer view
+                            this.Close();
+                            frmMainMenuCustomer nextForm = new frmMainMenuCustomer(this);
+                            nextForm.Show();
+                        
+                    }
                 }
 
-                //if user = customer(c)
                 else
                 {
-                    //customer view
-                    this.Close();
-                    frmMainMenuCustomer nextForm = new frmMainMenuCustomer(this);
-                    nextForm.Show();
+                    MessageBox.Show("The Username/Password entered is not in our System . Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboUsername.Focus();
+                    cboUsername.Clear();
+
+                    User = false;
+                    Pass = false;
                 }
+
+
+                
             }
+
+            
 
             else if (!User)
             {
@@ -94,5 +104,10 @@ namespace RE_Laura_Looney_SD
                 cboPassword.Clear();
             }
             }
+
+        private void cboUsername_TextChanged(object sender, EventArgs e)
+        {
+            String username = cboUsername.Text;
+        }
     }
 }

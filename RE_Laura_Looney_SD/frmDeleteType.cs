@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RE_Laura_Looney_SD
 {
-    public partial class frmUpdateType : Form
+    public partial class frmDeleteType : Form
     {
-        public frmUpdateType(frmTypeMenu frmTypeMenu)
+        public frmDeleteType(frmTypeMenu frmTypeMenu)
         {
             InitializeComponent();
         }
@@ -64,75 +64,14 @@ namespace RE_Laura_Looney_SD
             }
         }
 
-        private void btnUpdateStockType_Click(object sender, EventArgs e)
-        {
-            bool TypeCode = false;
-            bool Desc = false;
-
-            if (!(cboTypeCode.Text.Equals("")))
-            {
-                TypeCode = true;
-            }
-
-            if (!(cboDescription.Text.Equals("")))
-            {
-                Desc = true;
-            }
-
-            if (TypeCode && Desc)
-            {
-                DialogResult Result = (MessageBox.Show("Are you sure you want to update this Stock Type?", "Update Stock Type", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
-
-                if (Result == DialogResult.Yes)
-                {
-                    Type type = new Type();
-                    type.setTypecode(cboTypeCode.Text);
-                    type.setDescription(cboDescription.Text);
-                    type.setStatus(cboStatus.Text);
-                    type.updateType();
-
-                    //display confirmation message
-                    MessageBox.Show("Stock Type updated successfully", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    //reset UI
-                    cboTypeCode.Clear();
-                    cboDescription.Clear();
-                    cboTypeCode.Focus();
-                }
-
-                if (Result == DialogResult.No)
-                {
-                    MessageBox.Show("The Stock Type has not been updated in the system", "Stock Type Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    //Refreshing the page
-                    cboTypeCode.Clear();
-                    cboDescription.Clear();
-                    cboTypeCode.Focus();
-                }
-            }
-
-            else if (!TypeCode)
-            {
-                MessageBox.Show("The Stock TypeCode entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cboTypeCode.Focus();
-                cboTypeCode.Clear();
-            }
-
-            else if (!Desc)
-            {
-                MessageBox.Show("The Stock Type Description entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cboDescription.Focus();
-                cboDescription.Clear();
-            }
-        }
+     
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
                 DGVStockType.Rows.Clear();
                 {
 
-                    DataSet ItemType = Type.GetStockType(cboSearch.Text.ToUpper());
+                    DataSet ItemType = Type.GetStockType(cboSearch.Text);
 
                     for (int i = 0; i < ItemType.Tables[0].Rows.Count; i++)
                     {
@@ -161,6 +100,35 @@ namespace RE_Laura_Looney_SD
         private void cboTypeCode_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDeleteStockType_Click_1(object sender, EventArgs e)
+        {
+            DialogResult Result = (MessageBox.Show("Are you sure you want to delete this Stock Type?", "Delete Stock Type", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+
+            if (Result == DialogResult.Yes)
+            {
+                Type type = new Type(); 
+                type.CheckData(cboDescription.Text);
+
+                //reset UI
+                cboTypeCode.Clear();
+                cboDescription.Clear();
+                cboStatus.Clear();
+                cboSearch.Focus();
+            }
+
+            if (Result == DialogResult.No)
+            {
+                MessageBox.Show("The Stock Type has not been delted in the system", "Stock Type Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //Refreshing the page
+                cboTypeCode.Clear();
+                cboDescription.Clear();
+                cboStatus.Clear();
+                cboSearch.Clear();
+                cboSearch.Focus();
+            }
         }
     }
 }

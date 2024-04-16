@@ -66,7 +66,7 @@ namespace RE_Laura_Looney_SD
         private void btnUpdateStockType_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmUpdateType frm = (frmUpdateType)Application.OpenForms["frmUpdateType"];
+            frmDeleteType frm = (frmDeleteType)Application.OpenForms["frmUpdateType"];
             if (frm != null)
             {
                 // The form is already open, so just bring it to the front
@@ -75,7 +75,7 @@ namespace RE_Laura_Looney_SD
             else
             {
                 // The form is not open, create a new instance and show it
-                frm = new frmUpdateType(this);
+                frm = new frmDeleteType(this);
                 frm.Show();
             }
         }

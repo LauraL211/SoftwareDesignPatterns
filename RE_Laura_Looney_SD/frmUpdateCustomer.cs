@@ -94,12 +94,6 @@ namespace RE_Laura_Looney_SD
 
                     MessageBox.Show( cboForename.Text + " " + cboSurname.Text +", your information has been upated within the System "
                                     , "Customer Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                    //Refreshing the page
-                    //cboForename.Clear();
-                    //cboSurname.Clear();
-                    //cboPhone.Clear();
                 }
 
                 if (Result == DialogResult.No)
@@ -149,6 +143,20 @@ namespace RE_Laura_Looney_SD
                 }
 
             }
+        }
+
+        private void frmUpdateCustomer_Load(object sender, EventArgs e)
+        {
+            frmLoginPage loginPage = new frmLoginPage(null);
+            string username = loginPage.Username;
+
+            Customer cust = new Customer();
+            cust.FindingCustomer(username);
+
+            cboCustID.Text = cust.getCustID().ToString();
+            cboForename.Text = cust.getForename();
+            cboLastname.Text = cust.getSurname();
+            cboPhone.Text = cust.getPhone().ToString();
         }
     }
 }

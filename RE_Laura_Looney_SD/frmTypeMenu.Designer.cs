@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnUpdateStockType = new System.Windows.Forms.Button();
+            this.btnDeleteStockType = new System.Windows.Forms.Button();
             this.btnAddStockType = new System.Windows.Forms.Button();
             this.mnuStockMenu = new System.Windows.Forms.MenuStrip();
             this.mnuMainMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,17 +37,17 @@
             this.mnuStockMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnUpdateStockType
+            // btnDeleteStockType
             // 
-            this.btnUpdateStockType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateStockType.Location = new System.Drawing.Point(418, 182);
-            this.btnUpdateStockType.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpdateStockType.Name = "btnUpdateStockType";
-            this.btnUpdateStockType.Size = new System.Drawing.Size(161, 67);
-            this.btnUpdateStockType.TabIndex = 9;
-            this.btnUpdateStockType.Text = "Update Stock Type";
-            this.btnUpdateStockType.UseVisualStyleBackColor = true;
-            this.btnUpdateStockType.Click += new System.EventHandler(this.btnUpdateStockType_Click);
+            this.btnDeleteStockType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteStockType.Location = new System.Drawing.Point(418, 182);
+            this.btnDeleteStockType.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteStockType.Name = "btnDeleteStockType";
+            this.btnDeleteStockType.Size = new System.Drawing.Size(161, 67);
+            this.btnDeleteStockType.TabIndex = 9;
+            this.btnDeleteStockType.Text = "Delete Stock Type";
+            this.btnDeleteStockType.UseVisualStyleBackColor = true;
+            this.btnDeleteStockType.Click += new System.EventHandler(this.btnUpdateStockType_Click);
             // 
             // btnAddStockType
             // 
@@ -102,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnUpdateStockType);
+            this.Controls.Add(this.btnDeleteStockType);
             this.Controls.Add(this.btnAddStockType);
             this.Controls.Add(this.mnuStockMenu);
             this.Name = "frmTypeMenu";
@@ -116,7 +116,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnUpdateStockType;
+        private System.Windows.Forms.Button btnDeleteStockType;
         private System.Windows.Forms.Button btnAddStockType;
         private System.Windows.Forms.MenuStrip mnuStockMenu;
         private System.Windows.Forms.ToolStripMenuItem mnuMainMenu;

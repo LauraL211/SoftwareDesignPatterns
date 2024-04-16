@@ -166,22 +166,6 @@ namespace RE_Laura_Looney_SD
             }
         }
 
-        private void mnuMainMenu_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmMainMenuWorker frm = (frmMainMenuWorker)Application.OpenForms["frmMainMenuWorker"];
-            if (frm != null)
-            {
-                // The form is already open, so just bring it to the front
-                frm.BringToFront();
-            }
-            else
-            {
-                // The form is not open, create a new instance and show it
-                frm = new frmMainMenuWorker(this);
-                frm.Show();
-            }
-        }
 
         private void frmCollectOrder_Load(object sender, EventArgs e)
         {

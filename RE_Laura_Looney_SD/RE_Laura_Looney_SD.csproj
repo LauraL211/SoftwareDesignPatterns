@@ -90,11 +90,11 @@
     <Compile Include="frmAddStock.Designer.cs">
       <DependentUpon>frmAddStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUpdateType.cs">
+    <Compile Include="frmDeleteType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUpdateType.Designer.cs">
-      <DependentUpon>frmUpdateType.cs</DependentUpon>
+    <Compile Include="frmDeleteType.Designer.cs">
+      <DependentUpon>frmDeleteType.cs</DependentUpon>
     </Compile>
     <Compile Include="Trial.cs">
       <SubType>Form</SubType>
@@ -192,12 +192,6 @@
     <Compile Include="frmMainMenuManager.Designer.cs">
       <DependentUpon>frmMainMenuManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMainMenuWorker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMainMenuWorker.Designer.cs">
-      <DependentUpon>frmMainMenuWorker.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmOrderMenuCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,8 +260,8 @@
     <EmbeddedResource Include="frmAddStock.resx">
       <DependentUpon>frmAddStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUpdateType.resx">
-      <DependentUpon>frmUpdateType.cs</DependentUpon>
+    <EmbeddedResource Include="frmDeleteType.resx">
+      <DependentUpon>frmDeleteType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Trial.resx">
       <DependentUpon>Trial.cs</DependentUpon>
@@ -316,9 +310,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainMenuManager.resx">
       <DependentUpon>frmMainMenuManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMainMenuWorker.resx">
-      <DependentUpon>frmMainMenuWorker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrderMenuCustomer.resx">
       <DependentUpon>frmOrderMenuCustomer.cs</DependentUpon>

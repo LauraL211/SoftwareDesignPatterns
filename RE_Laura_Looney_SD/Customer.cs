@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RE_Laura_Looney_SD
 {
@@ -236,6 +237,89 @@ namespace RE_Laura_Looney_SD
             conn.Close();
 
             return nextId;
+        }
+
+        public class Valid
+        {
+            public static bool valid { get; set; }
+        }
+
+
+        public void CheckCustomer(String username, String password)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT COUNT(*) FROM CUSTOMERS WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password + "'";
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            conn.Open();
+
+            int resultCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+            if (resultCount > 0)
+            {
+                MessageBox.Show("Hello, " + username, "Welcome :)",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Valid valid = new Valid();
+                Valid.valid = true;
+            }
+            else
+            {
+                MessageBox.Show("Your username/password was inccorect", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Valid.valid = false;
+
+            }
+
+            conn.Close();
+        }
+
+        public void FindingCustomer(String name)
+        {
+            /*OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT CUSTID, FORENAME, SURNAME, PHONE FROM CUSTOMERS WHERE USERNAME = '" + name + "' ";
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            //set the instance variables with values from data reader
+            setCustID(dr.GetInt32(0));
+            setForename(dr.GetString(1));
+            setSurname(dr.GetString(2));
+            setPhone(dr.GetString(3));
+
+            //close DB
+            conn.Close();*/
+
+            using (OracleConnection conn = new OracleConnection(DBConnect.oraDB))
+            {
+                String sqlQuery = "SELECT CUSTID, FORENAME, SURNAME, PHONE FROM CUSTOMERS WHERE USERNAME = '" + name + "' ";
+                //Execute the SQL query (OracleCommand)
+                OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+                conn.Open();
+
+                using (OracleDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        //set the instance variables with values from data reader
+                        setCustID(dr.GetInt32(0));
+                        setForename(dr.GetString(1));
+                        setSurname(dr.GetString(2));
+                        setPhone(dr.GetString(3));
+                    }
+                    else
+                    {
+                        // Handle case where no rows are returned by the query
+                        // For example: throw an exception, log a message, or set default values
+                    }
+                }
+            }
         }
     }
 }

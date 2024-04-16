@@ -63,7 +63,6 @@
             this.mnuMainMenu.Name = "mnuMainMenu";
             this.mnuMainMenu.Size = new System.Drawing.Size(97, 24);
             this.mnuMainMenu.Text = "Main Menu";
-            this.mnuMainMenu.Click += new System.EventHandler(this.mnuMainMenu_Click);
             // 
             // mnuExxit
             // 
