@@ -268,7 +268,7 @@ namespace RE_Laura_Looney_SD
         {
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION, QUANTITY FROM STOCK WHERE StockID = " + stockId;
+            String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION, QUANTITY, PRICE FROM STOCK WHERE StockID = " + stockId;
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
@@ -280,6 +280,7 @@ namespace RE_Laura_Looney_SD
             setName(dr.GetString(1));
             setDescription(dr.GetString(2));
             setQuantity(dr.GetInt32(3));
+            setPrice(dr.GetInt32(4));
 
             //close DB
             conn.Close();

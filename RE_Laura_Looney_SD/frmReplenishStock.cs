@@ -224,7 +224,7 @@ namespace RE_Laura_Looney_SD
             stock.replenishStock(stockId);
 
 
-            string QuantityString = Microsoft.VisualBasic.Interaction.InputBox("Enter order quantity", "", "");
+            string QuantityString = Interaction.InputBox("Enter order quantity", "", "");
             int inputQuantity;
 
             if (int.TryParse(QuantityString, out inputQuantity))
@@ -253,7 +253,7 @@ namespace RE_Laura_Looney_SD
 
             if (Result == DialogResult.Yes)
             {
-                if (e.RowIndex >= 0 && e.RowIndex < DGVStock.Rows.Count && e.ColumnIndex >= 0 && e.ColumnIndex < DGVStock.Columns.Count)
+                if (e.RowIndex >= 0 && e.RowIndex < DGVReplenish.Rows.Count && e.ColumnIndex >= 0 && e.ColumnIndex < DGVReplenish.Columns.Count)
                 {
                     DGVReplenish.Rows.RemoveAt(e.RowIndex);
                 }
