@@ -266,8 +266,6 @@ namespace RE_Laura_Looney_SD
             }
             else
             {
-                MessageBox.Show("Your username/password was inccorect", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Valid.valid = false;
 
             }
@@ -277,7 +275,7 @@ namespace RE_Laura_Looney_SD
 
         public void FindingCustomer(String name)
         {
-            /*OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             String sqlQuery = "SELECT CUSTID, FORENAME, SURNAME, PHONE FROM CUSTOMERS WHERE USERNAME = '" + name + "' ";
             //Execute the SQL query (OracleCommand)
@@ -294,32 +292,8 @@ namespace RE_Laura_Looney_SD
             setPhone(dr.GetString(3));
 
             //close DB
-            conn.Close();*/
+            conn.Close();
 
-            using (OracleConnection conn = new OracleConnection(DBConnect.oraDB))
-            {
-                String sqlQuery = "SELECT CUSTID, FORENAME, SURNAME, PHONE FROM CUSTOMERS WHERE USERNAME = '" + name + "' ";
-                //Execute the SQL query (OracleCommand)
-                OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-                conn.Open();
-
-                using (OracleDataReader dr = cmd.ExecuteReader())
-                {
-                    if (dr.Read())
-                    {
-                        //set the instance variables with values from data reader
-                        setCustID(dr.GetInt32(0));
-                        setForename(dr.GetString(1));
-                        setSurname(dr.GetString(2));
-                        setPhone(dr.GetString(3));
-                    }
-                    else
-                    {
-                        // Handle case where no rows are returned by the query
-                        // For example: throw an exception, log a message, or set default values
-                    }
-                }
-            }
         }
     }
 }

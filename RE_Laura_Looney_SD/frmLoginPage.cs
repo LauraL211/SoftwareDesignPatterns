@@ -59,20 +59,13 @@ namespace RE_Laura_Looney_SD
                     nextForm.Show();
                 }
 
-                else if (isValid = true)
-                {
-                    User = true;
-                    Pass = true;
-
-                    if (User && Pass)
-                    {
+                else if (isValid == true)
+                   { 
                             //customer view
                             this.Close();
                             frmMainMenuCustomer nextForm = new frmMainMenuCustomer(this);
                             nextForm.Show();
-                        
-                    }
-                }
+                   }
 
                 else
                 {
@@ -90,7 +83,7 @@ namespace RE_Laura_Looney_SD
 
             
 
-            else if (!User)
+            else if (cboUsername.Text.Length==0)
             {
                 MessageBox.Show("The Username entered must not be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cboUsername.Focus();
