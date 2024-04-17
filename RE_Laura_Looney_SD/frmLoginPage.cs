@@ -41,15 +41,11 @@ namespace RE_Laura_Looney_SD
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            bool User = false;
-            bool Pass = false;
-            bool isValid = Customer.Valid.valid;
-            Username = cboUsername.Text;
 
             if (!(cboUsername.Text.Equals("")) && !(cboPassword.Text.Equals("")))
             {
                 Customer customer = new Customer();
-                customer.CheckCustomer(cboUsername.Text, cboPassword.Text);
+               bool isValid = customer.CheckCustomer(cboUsername.Text, cboPassword.Text);
 
                 if (cboUsername.Text.Equals("m") && cboPassword.Text.Equals("m"))
                 {
@@ -72,9 +68,6 @@ namespace RE_Laura_Looney_SD
                     MessageBox.Show("The Username/Password entered is not in our System . Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cboUsername.Focus();
                     cboUsername.Clear();
-
-                    User = false;
-                    Pass = false;
                 }
 
 
@@ -83,14 +76,14 @@ namespace RE_Laura_Looney_SD
 
             
 
-            else if (cboUsername.Text.Length==0)
+            else if (cboUsername.Text.Length == 0)
             {
                 MessageBox.Show("The Username entered must not be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cboUsername.Focus();
                 cboUsername.Clear();
             }
 
-            else if (!Pass)
+            else if (cboPassword.Text.Length == 0)
             {
                 MessageBox.Show("The Password entered must not be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cboPassword.Focus();

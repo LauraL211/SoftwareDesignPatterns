@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace RE_Laura_Looney_SD
 {
@@ -148,15 +151,104 @@ namespace RE_Laura_Looney_SD
         private void frmUpdateCustomer_Load(object sender, EventArgs e)
         {
             frmLoginPage loginPage = new frmLoginPage(null);
-            string username = loginPage.Username;
+            
+            //change
+            String username = Interaction.InputBox("Enter Your Username", "", "");
 
             Customer cust = new Customer();
             cust.FindingCustomer(username);
 
             cboCustID.Text = cust.getCustID().ToString();
-            cboForename.Text = cust.getForename();
+            cboForname.Text = cust.getForename();
             cboLastname.Text = cust.getSurname();
-            cboPhone.Text = cust.getPhone().ToString();
+            cboNumber.Text = cust.getPhone().ToString();
+        }
+
+        private void btnUpdateCustomer_Click_1(object sender, EventArgs e)
+        {
+            bool fname = false;
+            bool lname = false;
+            bool phone = false;
+
+            if (!(cboForname.Text.Equals("")))
+            {
+                fname = true;
+            }
+
+            if (!(cboLastname.Text.Equals("")))
+            {
+                lname = true;
+            }
+
+            if (!(cboNumber.Text.Equals("")) && (int.TryParse(cboNumber.Text, out int a)))
+            {
+                phone = true;
+            }
+
+
+            if (fname && lname && phone )
+            {
+                DialogResult Result = (MessageBox.Show("Are you sure you want to update your information?", "Update Customer Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+
+                if (Result == DialogResult.Yes)
+                {
+                    Customer cust = new Customer();
+                    cust.setCustID(int.Parse(cboCustID.Text));
+                    cust.setForename(cboForname.Text);
+                    cust.setSurname(cboLastname.Text);
+                    cust.setPhone(cboNumber.Text);
+                    cust.updateCustomer();
+
+                    //display confirmation message
+                    MessageBox.Show("Customer " + cboCustID.Text + " updated successfully", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+
+                if (Result == DialogResult.No)
+                {
+                    MessageBox.Show("Your information has not been changed", "Update Customer Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            else if (!fname)
+            {
+                MessageBox.Show("The Forename entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboForname.Focus();
+                cboForname.Clear();
+            }
+
+            else if (!lname)
+            {
+                MessageBox.Show("The Surname  entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboLastname.Focus();
+                cboLastname.Clear();
+            }
+
+            else if (!phone)
+            {
+                if (cboNumber.Text.Equals(""))
+                {
+                    MessageBox.Show("The Phone Number entered cannot be Null. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboNumber.Focus();
+                    cboNumber.Clear();
+                }
+
+                else if (!(double.TryParse(cboNumber.Text, out double f)))
+                {
+                    MessageBox.Show("The Phone Number entered must be an integer. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboNumber.Focus();
+                    cboNumber.Clear();
+                }
+
+                else
+                {
+                    MessageBox.Show("The Phone Number entered is incorrect. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboNumber.Focus();
+                    cboNumber.Clear();
+                }
+            }
+
         }
     }
 }

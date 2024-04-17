@@ -165,15 +165,11 @@ namespace RE_Laura_Looney_SD
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "UPDATE CUSTOMER SET " +
-                "CustId = " + this.custid + "," +
-                "Username = '" + this.username + "'," +
-                "Password = '" + this.password + "'," +
-                "Forename = '" + this.forename + "'," +
-                "Surname = " + this.surname + "," +
-                "Phone = " + this.phone + "," +
-                "Status = '" + this.status + "' " +
-                "WHERE CustID = " + this.custid;
+            String sqlQuery = "UPDATE CUSTOMERS SET " +
+                              "FORENAME = '" + this.forename + "', " +
+                              "SURNAME = '" + this.surname + "', " +
+                              "PHONE = '" + this.phone + "' " +
+                              "WHERE CUSTID = '" + this.custid +"'";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -239,14 +235,10 @@ namespace RE_Laura_Looney_SD
             return nextId;
         }
 
-        public class Valid
-        {
-            public static bool valid { get; set; }
-        }
 
-
-        public void CheckCustomer(String username, String password)
+        public bool CheckCustomer(String username, String password)
         {
+            bool valid = false;
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             String sqlQuery = "SELECT COUNT(*) FROM CUSTOMERS WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password + "'";
@@ -261,16 +253,17 @@ namespace RE_Laura_Looney_SD
                 MessageBox.Show("Hello, " + username, "Welcome :)",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Valid valid = new Valid();
-                Valid.valid = true;
+              
+               valid = true;
             }
             else
             {
-                Valid.valid = false;
-
+           
+               valid = false;
             }
 
             conn.Close();
+            return valid;
         }
 
         public void FindingCustomer(String name)

@@ -47,7 +47,7 @@
             this.lblPrice = new System.Windows.Forms.Label();
             this.btnUpdateCustomer = new System.Windows.Forms.Button();
             this.cboLastname = new System.Windows.Forms.TextBox();
-            this.cboPrice = new System.Windows.Forms.TextBox();
+            this.cboNumber = new System.Windows.Forms.TextBox();
             this.cboForname = new System.Windows.Forms.TextBox();
             this.mnuOrderMenu.SuspendLayout();
             this.UpdateCustDetailsBx.SuspendLayout();
@@ -92,7 +92,7 @@
             // cboSurname
             // 
             this.cboSurname.Location = new System.Drawing.Point(339, 195);
-            this.cboSurname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboSurname.Margin = new System.Windows.Forms.Padding(2);
             this.cboSurname.MaxLength = 30;
             this.cboSurname.Name = "cboSurname";
             this.cboSurname.Size = new System.Drawing.Size(112, 20);
@@ -101,7 +101,7 @@
             // cboPhone
             // 
             this.cboPhone.Location = new System.Drawing.Point(339, 227);
-            this.cboPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPhone.Margin = new System.Windows.Forms.Padding(2);
             this.cboPhone.MaxLength = 5;
             this.cboPhone.Name = "cboPhone";
             this.cboPhone.Size = new System.Drawing.Size(78, 20);
@@ -110,7 +110,7 @@
             // cboForename
             // 
             this.cboForename.Location = new System.Drawing.Point(339, 164);
-            this.cboForename.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboForename.Margin = new System.Windows.Forms.Padding(2);
             this.cboForename.MaxLength = 20;
             this.cboForename.Name = "cboForename";
             this.cboForename.Size = new System.Drawing.Size(109, 20);
@@ -189,7 +189,7 @@
             this.UpdateCustDetailsBx.Controls.Add(this.lblPrice);
             this.UpdateCustDetailsBx.Controls.Add(this.btnUpdateCustomer);
             this.UpdateCustDetailsBx.Controls.Add(this.cboLastname);
-            this.UpdateCustDetailsBx.Controls.Add(this.cboPrice);
+            this.UpdateCustDetailsBx.Controls.Add(this.cboNumber);
             this.UpdateCustDetailsBx.Controls.Add(this.cboForname);
             this.UpdateCustDetailsBx.Location = new System.Drawing.Point(145, 125);
             this.UpdateCustDetailsBx.Name = "UpdateCustDetailsBx";
@@ -241,6 +241,7 @@
             this.btnUpdateCustomer.TabIndex = 8;
             this.btnUpdateCustomer.Text = "Update Customer";
             this.btnUpdateCustomer.UseVisualStyleBackColor = true;
+            this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click_1);
             // 
             // cboLastname
             // 
@@ -251,14 +252,14 @@
             this.cboLastname.Size = new System.Drawing.Size(138, 20);
             this.cboLastname.TabIndex = 2;
             // 
-            // cboPrice
+            // cboNumber
             // 
-            this.cboPrice.Location = new System.Drawing.Point(153, 95);
-            this.cboPrice.Margin = new System.Windows.Forms.Padding(2);
-            this.cboPrice.MaxLength = 5;
-            this.cboPrice.Name = "cboPrice";
-            this.cboPrice.Size = new System.Drawing.Size(92, 20);
-            this.cboPrice.TabIndex = 4;
+            this.cboNumber.Location = new System.Drawing.Point(153, 95);
+            this.cboNumber.Margin = new System.Windows.Forms.Padding(2);
+            this.cboNumber.MaxLength = 10;
+            this.cboNumber.Name = "cboNumber";
+            this.cboNumber.Size = new System.Drawing.Size(92, 20);
+            this.cboNumber.TabIndex = 4;
             // 
             // cboForname
             // 
@@ -285,7 +286,7 @@
             this.Controls.Add(this.lblForename);
             this.Controls.Add(this.lblUpdate_Information);
             this.Controls.Add(this.mnuOrderMenu);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmUpdateCustomer";
             this.Text = "Looney\'s Liquer - [Update Customer Information]";
             this.Load += new System.EventHandler(this.frmUpdateCustomer_Load);
@@ -319,7 +320,7 @@
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Button btnUpdateCustomer;
         private System.Windows.Forms.TextBox cboLastname;
-        private System.Windows.Forms.TextBox cboPrice;
+        private System.Windows.Forms.TextBox cboNumber;
         private System.Windows.Forms.TextBox cboForname;
     }
 }
