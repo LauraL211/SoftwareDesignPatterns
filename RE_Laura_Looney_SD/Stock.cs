@@ -264,21 +264,27 @@ namespace RE_Laura_Looney_SD
         }
 
         //Attempt at replenish stock
-        /*public static DataColumn replenishStock(int stockId)
+        public void  replenishStock(int stockId)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION, QUANTITY FROM STOCK WHERE WHERE StockID = " + stockId;
+            String sqlQuery = "SELECT STOCKID, NAME, DESCRIPTION, QUANTITY FROM STOCK WHERE StockID = " + stockId;
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            conn.Open();
 
-            DataSet ds = new DataSet();
-            da.Fill(ds, "StockID");
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
 
+            //set the instance variables with values from data reader
+            setStockID(dr.GetInt32(0));
+            setName(dr.GetString(1));
+            setDescription(dr.GetString(2));
+            setQuantity(dr.GetInt32(3));
+
+            //close DB
             conn.Close();
 
-            return ds;
-        }*/
+        }
 
         public static DataSet GetAvailableStock(String Search)
         {
@@ -325,6 +331,26 @@ namespace RE_Laura_Looney_SD
             conn.Close();
 
             return ds;
+        }
+
+        public void Replenish(int orderquantity)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "UPDATE STOCK SET " +
+                              "QUANTITY = '" + orderquantity + "' " +
+                              "WHERE STOCKID = '" + this.stockid + "'";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            //Close db connection
+            conn.Close();
         }
 
     }

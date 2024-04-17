@@ -181,6 +181,26 @@ namespace RE_Laura_Looney_SD
             conn.Close();
         }
 
+        public void deleteCustomer() 
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "UPDATE CUSTOMERS SET " +
+                              "STATUS = 'C'" +
+                              "WHERE CUSTID = '" + this.custid + "'";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            //Close db connection
+            conn.Close();
+        }
+
         public static DataSet findCustomer(String CustomerName)
         {
             //Open a db connection
@@ -241,7 +261,7 @@ namespace RE_Laura_Looney_SD
             bool valid = false;
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            String sqlQuery = "SELECT COUNT(*) FROM CUSTOMERS WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password + "'";
+            String sqlQuery = "SELECT COUNT(*) FROM CUSTOMERS WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password + "' AND STATUS = 'O'";
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
             conn.Open();

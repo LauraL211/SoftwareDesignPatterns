@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -86,6 +87,42 @@ namespace RE_Laura_Looney_SD
 
             }
 
+        }
+
+        private void frmDeRegisterCustomer_Load(object sender, EventArgs e)
+        {
+            String username = Interaction.InputBox("Enter Your Username", "", "");
+
+            Customer cust = new Customer();
+            cust.FindingCustomer(username);
+
+            cboCustID.Text = cust.getCustID().ToString();
+            cboForname.Text = cust.getForename();
+            cboLastname.Text = cust.getSurname();
+            cboNumber.Text = cust.getPhone().ToString();
+        }
+
+        private void btnDeleteCustomer_Click(object sender, EventArgs e)
+        {
+            DialogResult Result = (MessageBox.Show("Are you sure you want to de-register your account?", "De-Register Customer Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+
+            if (Result == DialogResult.Yes)
+            {
+                Customer cust = new Customer();
+                cust.setCustID(int.Parse(cboCustID.Text));
+                cust.deleteCustomer();
+
+                MessageBox.Show("Goodbye! You have de-registered from our site", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                frmHomePage frm = (frmHomePage)Application.OpenForms["frmHomePage"];
+                frm.Show();
+
+            }
+
+            if (Result == DialogResult.No)
+            {
+                MessageBox.Show("Your information has not been changed", "Update Customer Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

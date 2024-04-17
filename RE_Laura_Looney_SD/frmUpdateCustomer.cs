@@ -150,9 +150,6 @@ namespace RE_Laura_Looney_SD
 
         private void frmUpdateCustomer_Load(object sender, EventArgs e)
         {
-            frmLoginPage loginPage = new frmLoginPage(null);
-            
-            //change
             String username = Interaction.InputBox("Enter Your Username", "", "");
 
             Customer cust = new Customer();

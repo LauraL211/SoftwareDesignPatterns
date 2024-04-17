@@ -213,6 +213,8 @@
             this.DGVReplenish.Name = "DGVReplenish";
             this.DGVReplenish.Size = new System.Drawing.Size(303, 150);
             this.DGVReplenish.TabIndex = 79;
+            this.DGVReplenish.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVReplenish_CellContentClick);
+            this.DGVReplenish.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVReplenish_CellContentClick);
             // 
             // ID
             // 

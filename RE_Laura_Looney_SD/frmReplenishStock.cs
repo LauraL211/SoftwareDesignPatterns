@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -123,6 +124,26 @@ namespace RE_Laura_Looney_SD
 
             if (Result == DialogResult.Yes)
             {
+
+                foreach (DataGridViewRow row in DGVReplenish.Rows)
+                {
+                    // Check if the row is not a new row or a header row
+                    if (!row.IsNewRow)
+                    {
+                        int stockId = Convert.ToInt32(row.Cells["ID"].Value);
+                        string name = row.Cells["SName"].Value.ToString();
+                        string description = row.Cells["SDescription"].Value.ToString();
+                        int quantity = Convert.ToInt32(row.Cells["SQuantity"].Value);
+
+                        Stock stock = new Stock();
+                        stock.setStockID(stockId);
+                        stock.setQuantity(quantity);
+                        stock.Replenish(quantity);
+                    }
+                }
+
+
+
                 MessageBox.Show("The Stock Items have been Replenished "
                                 , "Stock Items Replenished", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
 
@@ -130,6 +151,8 @@ namespace RE_Laura_Looney_SD
                 //Refreshing the page
           
                 cboSearch.Clear();
+                DGVReplenish.Rows.Clear();
+                DGVStock.Rows.Clear();
                 cboLowStock.Checked = false;
             }
 
@@ -140,6 +163,8 @@ namespace RE_Laura_Looney_SD
                 //Refreshing the page
                
                 cboSearch.Clear();
+                DGVReplenish.Rows.Clear();
+                DGVStock.Rows.Clear();
                 cboLowStock.Checked = false;
             }
         }
@@ -191,23 +216,47 @@ namespace RE_Laura_Looney_SD
 
         private void DGVStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             int stockId = Convert.ToInt32(DGVStock.Rows[e.RowIndex].Cells["StockID"].Value);
+            int quantity = 0;
+            bool valid=false;
 
-            /*Stock stock = new Stock();
-            stock.replenishStock(stockId);*/
+            Stock stock = new Stock();
+            stock.replenishStock(stockId);
 
-            DataSet StockItem = Stock.GetStock(stockId.ToString());
 
-            for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
+            string QuantityString = Microsoft.VisualBasic.Interaction.InputBox("Enter order quantity", "", "");
+            int inputQuantity;
+
+            if (int.TryParse(QuantityString, out inputQuantity))
             {
-                DGVStock.Rows.Add(
-                    StockItem.Tables[0].Rows[i][0],
-                    StockItem.Tables[0].Rows[i][1],
-                    StockItem.Tables[0].Rows[i][2],
-                    StockItem.Tables[0].Rows[i][3],
-                    StockItem.Tables[0].Rows[i][4]
-                    );
+                quantity = Convert.ToInt32(QuantityString);
+
+                int currentquantity = stock.getQuantity();
+                int orderquantity = currentquantity + quantity;
+                
+                int rowIndex = DGVReplenish.Rows.Add();
+                DGVReplenish.Rows[rowIndex].Cells["ID"].Value = stockId;
+                DGVReplenish.Rows[rowIndex].Cells["SName"].Value = stock.getName();
+                DGVReplenish.Rows[rowIndex].Cells["SDescription"].Value = stock.getDescription();
+                DGVReplenish.Rows[rowIndex].Cells["SQuantity"].Value = orderquantity; 
+            }
+            else
+            {
+                MessageBox.Show("Invalid input. Please enter a valid number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+
+        private void DGVReplenish_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult Result = (MessageBox.Show("Do you wish to remove this stock item?", "Replenish Stock", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+
+            if (Result == DialogResult.Yes)
+            {
+                if (e.RowIndex >= 0 && e.RowIndex < DGVStock.Rows.Count && e.ColumnIndex >= 0 && e.ColumnIndex < DGVStock.Columns.Count)
+                {
+                    DGVReplenish.Rows.RemoveAt(e.RowIndex);
+                }
             }
         }
     }

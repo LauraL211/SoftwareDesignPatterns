@@ -68,6 +68,7 @@ namespace RE_Laura_Looney_SD
                     MessageBox.Show("The Username/Password entered is not in our System . Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cboUsername.Focus();
                     cboUsername.Clear();
+                    cboPassword.Clear();
                 }
 
 
