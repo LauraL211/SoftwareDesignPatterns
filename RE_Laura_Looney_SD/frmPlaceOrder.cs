@@ -139,13 +139,56 @@ namespace RE_Laura_Looney_SD
 
             if (Result == DialogResult.Yes)
             {
+                //add info to order db
+                int OrderId = Convert.ToInt32(cboOrderID.Text);
+                String status = "O";
+                DateTime currentdate = DateTime.Today;
+                int totalCost = Convert.ToInt32(cboTotal_Cost.Text);
+                int custId = Convert.ToInt32(cboCustID.Text);
+
+                Order order = new Order();
+                Order anOrder = new Order(OrderId, status, currentdate, totalCost, custId);
+                anOrder.addOrder();
+
+                foreach (DataGridViewRow row in DGVCart.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        int stockId = Convert.ToInt32(row.Cells["ID"].Value);
+                        int orderId = Convert.ToInt32(cboOrderID.Text);
+                        string name = row.Cells["SName"].Value.ToString();
+                        string description = row.Cells["SDescription"].Value.ToString();
+                        int quantity = Convert.ToInt32(row.Cells["SQuantity"].Value);
+                        int price = Convert.ToInt32(row.Cells["Price"].Value);
+                       
+                        //Update stock quantity
+                        Stock stock = new Stock();
+                        stock.setStockID(stockId);
+                        stock.updatestockquantity(quantity);
+
+                        //loop through dgv and add info to order items
+                        OrderItem item = new OrderItem();
+                        OrderItem anItem = new OrderItem(stockId,orderId, price, quantity);
+                        anItem.addItem();
+
+                    }
+                }
+
                 MessageBox.Show("The Stock Items have been ordered "
                                 , "Order Placed", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+
+                DGVStock.Rows.Clear();
+                DGVCart.Rows.Clear();
+                cboSearch.Focus();
             }
 
             if (Result == DialogResult.No)
             {
                 MessageBox.Show("The Stock Items have not been ordered", "Order Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                DGVStock.Rows.Clear();
+                DGVCart.Rows.Clear();
+                cboSearch.Focus();
             }
         }
 
@@ -176,7 +219,7 @@ namespace RE_Laura_Looney_SD
             int quantity = 0;
             bool valid = false;
             int total = 0;
-
+            
             Stock stock = new Stock();
             stock.replenishStock(stockId);
 
@@ -247,6 +290,18 @@ namespace RE_Laura_Looney_SD
                     DGVCart.Rows.RemoveAt(e.RowIndex);
                 }
             }
+        }
+
+        private void frmPlaceOrder_Load(object sender, EventArgs e)
+        {
+            cboSearch.Focus();
+            String username = Interaction.InputBox("Enter Your Username", "", "");
+
+            Customer cust = new Customer();
+            cust.FindingCustomer(username);
+
+            cboCustID.Text = cust.getCustID().ToString();
+            cboOrderID.Text = Order.getNextOrderID().ToString("0000");
         }
     }
 }

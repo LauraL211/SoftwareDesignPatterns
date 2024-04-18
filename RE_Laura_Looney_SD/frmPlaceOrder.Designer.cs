@@ -50,6 +50,10 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.cboSearch = new System.Windows.Forms.TextBox();
             this.lblStock_List = new System.Windows.Forms.Label();
+            this.cboCustID = new System.Windows.Forms.TextBox();
+            this.lblCustID = new System.Windows.Forms.Label();
+            this.cboOrderID = new System.Windows.Forms.TextBox();
+            this.lblOrderId = new System.Windows.Forms.Label();
             this.mnuOrderMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVStock)).BeginInit();
@@ -96,7 +100,7 @@
             this.lblPlaceOrder.AutoSize = true;
             this.lblPlaceOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaceOrder.Location = new System.Drawing.Point(262, 33);
+            this.lblPlaceOrder.Location = new System.Drawing.Point(263, 34);
             this.lblPlaceOrder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPlaceOrder.Name = "lblPlaceOrder";
             this.lblPlaceOrder.Size = new System.Drawing.Size(183, 36);
@@ -202,7 +206,7 @@
             this.StockID,
             this.Name,
             this.Description});
-            this.DGVStock.Location = new System.Drawing.Point(38, 170);
+            this.DGVStock.Location = new System.Drawing.Point(38, 185);
             this.DGVStock.Name = "DGVStock";
             this.DGVStock.ReadOnly = true;
             this.DGVStock.Size = new System.Drawing.Size(303, 202);
@@ -232,10 +236,10 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnSearch.Location = new System.Drawing.Point(38, 120);
+            this.btnSearch.Location = new System.Drawing.Point(38, 146);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(92, 35);
+            this.btnSearch.Size = new System.Drawing.Size(81, 24);
             this.btnSearch.TabIndex = 82;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -243,7 +247,7 @@
             // 
             // cboSearch
             // 
-            this.cboSearch.Location = new System.Drawing.Point(38, 95);
+            this.cboSearch.Location = new System.Drawing.Point(38, 131);
             this.cboSearch.Margin = new System.Windows.Forms.Padding(2);
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(137, 20);
@@ -253,18 +257,66 @@
             // 
             this.lblStock_List.AutoSize = true;
             this.lblStock_List.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblStock_List.Location = new System.Drawing.Point(35, 78);
+            this.lblStock_List.Location = new System.Drawing.Point(35, 114);
             this.lblStock_List.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStock_List.Name = "lblStock_List";
             this.lblStock_List.Size = new System.Drawing.Size(109, 15);
             this.lblStock_List.TabIndex = 84;
             this.lblStock_List.Text = "Enter Stock Name:";
             // 
+            // cboCustID
+            // 
+            this.cboCustID.Enabled = false;
+            this.cboCustID.Location = new System.Drawing.Point(112, 49);
+            this.cboCustID.Margin = new System.Windows.Forms.Padding(2);
+            this.cboCustID.MaxLength = 20;
+            this.cboCustID.Name = "cboCustID";
+            this.cboCustID.ReadOnly = true;
+            this.cboCustID.Size = new System.Drawing.Size(46, 20);
+            this.cboCustID.TabIndex = 87;
+            // 
+            // lblCustID
+            // 
+            this.lblCustID.AutoSize = true;
+            this.lblCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCustID.Location = new System.Drawing.Point(38, 50);
+            this.lblCustID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCustID.Name = "lblCustID";
+            this.lblCustID.Size = new System.Drawing.Size(75, 15);
+            this.lblCustID.TabIndex = 88;
+            this.lblCustID.Text = "CustomerID:";
+            // 
+            // cboOrderID
+            // 
+            this.cboOrderID.Enabled = false;
+            this.cboOrderID.Location = new System.Drawing.Point(112, 70);
+            this.cboOrderID.Margin = new System.Windows.Forms.Padding(2);
+            this.cboOrderID.MaxLength = 20;
+            this.cboOrderID.Name = "cboOrderID";
+            this.cboOrderID.ReadOnly = true;
+            this.cboOrderID.Size = new System.Drawing.Size(46, 20);
+            this.cboOrderID.TabIndex = 89;
+            // 
+            // lblOrderId
+            // 
+            this.lblOrderId.AutoSize = true;
+            this.lblOrderId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblOrderId.Location = new System.Drawing.Point(38, 71);
+            this.lblOrderId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOrderId.Name = "lblOrderId";
+            this.lblOrderId.Size = new System.Drawing.Size(53, 15);
+            this.lblOrderId.TabIndex = 90;
+            this.lblOrderId.Text = "OrderID:";
+            // 
             // frmPlaceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 399);
+            this.Controls.Add(this.cboOrderID);
+            this.Controls.Add(this.lblOrderId);
+            this.Controls.Add(this.cboCustID);
+            this.Controls.Add(this.lblCustID);
             this.Controls.Add(this.DGVCart);
             this.Controls.Add(this.DGVStock);
             this.Controls.Add(this.btnSearch);
@@ -278,6 +330,7 @@
             this.Controls.Add(this.mnuOrderMenu);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Text = "Looney\'s Liquer - [Place Order]";
+            this.Load += new System.EventHandler(this.frmPlaceOrder_Load);
             this.mnuOrderMenu.ResumeLayout(false);
             this.mnuOrderMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCart)).EndInit();
@@ -311,5 +364,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn SQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.TextBox cboCustID;
+        private System.Windows.Forms.Label lblCustID;
+        private System.Windows.Forms.TextBox cboOrderID;
+        private System.Windows.Forms.Label lblOrderId;
     }
 }

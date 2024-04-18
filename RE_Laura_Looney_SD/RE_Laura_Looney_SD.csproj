@@ -97,6 +97,8 @@
     <Compile Include="frmDeleteType.Designer.cs">
       <DependentUpon>frmDeleteType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderItem.cs" />
     <Compile Include="Trial.cs">
       <SubType>Form</SubType>
     </Compile>

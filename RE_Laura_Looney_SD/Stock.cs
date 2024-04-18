@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RE_Laura_Looney_SD
 {
@@ -352,6 +353,40 @@ namespace RE_Laura_Looney_SD
 
             //Close db connection
             conn.Close();
+        }
+
+        public void updatestockquantity(int orderquantity)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            int currentquantity = 0;
+            String sqlQuery = "SELECT QUANTITY" +
+                              " FROM STOCK " +
+                              " WHERE STOCKID = '" + this.stockid + "'";
+
+            int newquantity = currentquantity - orderquantity;
+            String sqlQuery2 = "UPDATE STOCK SET " +
+                              "QUANTITY = '" + newquantity + "' " +
+                              "WHERE STOCKID = '" + this.stockid + "'";
+
+            conn.Open();
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                currentquantity = reader.GetInt32(0); // Assuming QUANTITY is of type INT in the database
+            }
+            reader.Close();
+
+            cmd.ExecuteNonQuery();
+
+            OracleCommand cmd1 = new OracleCommand(sqlQuery2, conn);
+            cmd1.ExecuteNonQuery();
+
+            //Close db connection
+            conn.Close();
+            
         }
 
     }
