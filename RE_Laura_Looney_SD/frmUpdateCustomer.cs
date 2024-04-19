@@ -26,12 +26,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuCustomer frm = (frmMainMenuCustomer)Application.OpenForms["frmMainMenuCustomer"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuCustomer(this);
                 frm.Show();
             }
@@ -55,12 +53,10 @@ namespace RE_Laura_Looney_SD
             frmCustomerMenu frm = (frmCustomerMenu)Application.OpenForms["frmCustomerMenu"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmCustomerMenu();
                 frm.Show();
             }
@@ -196,7 +192,6 @@ namespace RE_Laura_Looney_SD
                     cust.setPhone(cboNumber.Text);
                     cust.updateCustomer();
 
-                    //display confirmation message
                     MessageBox.Show("Customer " + cboCustID.Text + " updated successfully", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 

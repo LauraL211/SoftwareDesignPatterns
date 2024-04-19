@@ -8,9 +8,6 @@ namespace RE_Laura_Looney_SD
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {

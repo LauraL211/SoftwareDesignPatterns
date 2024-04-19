@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,19 +51,15 @@ namespace RE_Laura_Looney_SD
 
         public static int getNextOrderItemID()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "SELECT MAX(OrderItemID) FROM ORDERITEMS";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
 
-            //Does dr contain a value or NULL?
             int nextId;
             dr.Read();
 
@@ -73,17 +70,14 @@ namespace RE_Laura_Looney_SD
                 nextId = dr.GetInt32(0) + 1;
             }
 
-            //Close db connection
             conn.Close();
 
             return nextId;
         }
         public void addItem()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "INSERT INTO ORDERITEMS(ORDERITEMID, STOCKID, ORDERID, PRICE, QUANTITY) VALUES ('" +
                                 this.orderitemid + "','" +
                                 this.stockid + "','" +
@@ -92,14 +86,28 @@ namespace RE_Laura_Looney_SD
                                 this.quantity + "'" + 
                                 ")";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            //Close db connection
             conn.Close();
+        }
+
+        public static DataSet GetOrder(String Search)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT STOCKID, PRICE, QUANTITY FROM ORDERITEMS WHERE ORDERID = '" + Search + "' ORDER BY STOCKID";
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "StockID");
+
+            conn.Close();
+
+            return ds;
         }
     }
 }

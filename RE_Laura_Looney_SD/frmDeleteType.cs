@@ -23,12 +23,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuManager frm = (frmMainMenuManager)Application.OpenForms["frmMainMenuManager"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuManager(this);
                 frm.Show();
             }
@@ -40,12 +38,10 @@ namespace RE_Laura_Looney_SD
             frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmStockMenu(this);
                 frm.Show();
             }
@@ -111,7 +107,6 @@ namespace RE_Laura_Looney_SD
                 Type type = new Type(); 
                 type.CheckData(cboDescription.Text);
 
-                //reset UI
                 cboTypeCode.Clear();
                 cboDescription.Clear();
                 cboStatus.Clear();
@@ -122,13 +117,17 @@ namespace RE_Laura_Looney_SD
             {
                 MessageBox.Show("The Stock Type has not been delted in the system", "Stock Type Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //Refreshing the page
                 cboTypeCode.Clear();
                 cboDescription.Clear();
                 cboStatus.Clear();
                 cboSearch.Clear();
                 cboSearch.Focus();
             }
+        }
+
+        private void frmDeleteType_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

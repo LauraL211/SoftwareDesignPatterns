@@ -24,12 +24,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuManager frm = (frmMainMenuManager)Application.OpenForms["frmMainMenuManager"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuManager(this);
                 frm.Show();
             }
@@ -41,12 +39,10 @@ namespace RE_Laura_Looney_SD
             frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmStockMenu(this);
                 frm.Show();
             }
@@ -60,13 +56,11 @@ namespace RE_Laura_Looney_SD
             {
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
                 Application.Exit();
             }
         }
         private void frmAddStock_Load(object sender, EventArgs e)
         {
-            //get next Stock ID
             cboStockID.Text = Stock.getNextStockID().ToString("0000");
 
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
@@ -104,12 +98,10 @@ namespace RE_Laura_Looney_SD
             frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmStockMenu(this);
                 frm.Show();
             }
@@ -121,12 +113,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuManager frm = (frmMainMenuManager)Application.OpenForms["frmMainMenuManager"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuManager(this);
                 frm.Show();
             }
@@ -134,7 +124,6 @@ namespace RE_Laura_Looney_SD
 
         private void btnAddStock_Click_1(object sender, EventArgs e)
         {
-            //// Validate ALL the input data
             bool Name = false;
             bool Desc = false;
             bool Type = false;
@@ -179,20 +168,16 @@ namespace RE_Laura_Looney_SD
 
                 if (Result == DialogResult.Yes)
                 {
-                    //Create an instance of Stock and instantiate with values from form controls
                     Stock aStock = new Stock(Convert.ToInt32(cboStockID.Text), cboName.Text.ToLower(), cboDescription.Text,
                         cboType.Text, Convert.ToDecimal(cboPrice.Text), Convert.ToInt32(cboQuantity.Text), Convert.ToInt32(cboReorderLVL.Text),
                         cboStatus.Text
                         );
 
-                    //invoke the method to add the data to the Stock table
                     aStock.addStock();
 
-                    //display confirmation message
                     MessageBox.Show("Stock " + cboStockID.Text + " added successfully", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //reset UI
                     cboStockID.Text = Stock.getNextStockID().ToString("0000");
                     cboName.Clear();
                     cboDescription.Clear();
@@ -208,7 +193,6 @@ namespace RE_Laura_Looney_SD
                 {
                     MessageBox.Show("The Stock Item has not been added to the system", "Stock Item Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //Refreshing the page
                     cboName.Clear();
                     cboDescription.Clear();
                     cboType.SelectedIndex = -1;
@@ -337,7 +321,6 @@ namespace RE_Laura_Looney_SD
             {
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
                 Application.Exit();
             }
         }
@@ -348,12 +331,10 @@ namespace RE_Laura_Looney_SD
             frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmStockMenu(this);
                 frm.Show();
             }
@@ -365,12 +346,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuManager frm = (frmMainMenuManager)Application.OpenForms["frmMainMenuManager"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuManager(this);
                 frm.Show();
             }

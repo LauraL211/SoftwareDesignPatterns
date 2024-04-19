@@ -64,12 +64,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuCustomer frm = (frmMainMenuCustomer)Application.OpenForms["frmMainMenuCustomer"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuCustomer(this);
                 frm.Show();
             }
@@ -81,12 +79,10 @@ namespace RE_Laura_Looney_SD
             frmOrderMenuCustomer frm = (frmOrderMenuCustomer)Application.OpenForms["frmOrderMenuCustomer"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmOrderMenuCustomer(this);
                 frm.Show();
             }
@@ -100,7 +96,6 @@ namespace RE_Laura_Looney_SD
             {
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
                 Application.Exit();
             }
         }
@@ -160,6 +155,7 @@ namespace RE_Laura_Looney_SD
                     if (!row.IsNewRow)
                     {
                         int orderitemid = OrderItem.getNextOrderItemID();
+
                         int stockId = Convert.ToInt32(row.Cells["ID"].Value);
                         
                         string name = row.Cells["SName"].Value.ToString();
@@ -173,23 +169,23 @@ namespace RE_Laura_Looney_SD
                         stock.updatestockquantity(quantity);
 
                         //loop through dgv and add info to order items
-                        OrderItem item = new OrderItem();
                         OrderItem anItem = new OrderItem(orderitemid,stockId,orderId, price, quantity);
-                        item.setOrderID(orderId); 
-                        item.setStockID(stockId);
-                        item.setPrice(price);
-                        item.setQuantity(quantity);
-                        item.addItem();
+                        anItem.setOrderItemID(orderitemid);
+                        anItem.setOrderID(orderId);
+                        anItem.setStockID(stockId);
+                        anItem.setPrice(price);
+                        anItem.setQuantity(quantity);
                         anItem.addItem();
 
                     }
                 }
 
-                MessageBox.Show("The Stock Items have been ordered "
-                                , "Order Placed", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+                MessageBox.Show("Your order id for collection is: " + cboOrderID
+                                , "Order Placed", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 DGVStock.Rows.Clear();
                 DGVCart.Rows.Clear();
+                cboSearch.Clear();
                 cboSearch.Focus();
             }
 
@@ -197,8 +193,10 @@ namespace RE_Laura_Looney_SD
             {
                 MessageBox.Show("The Stock Items have not been ordered", "Order Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                cboOrderID.Text = Order.getNextOrderID().ToString("0000");
                 DGVStock.Rows.Clear();
                 DGVCart.Rows.Clear();
+                cboSearch.Clear();
                 cboSearch.Focus();
             }
         }

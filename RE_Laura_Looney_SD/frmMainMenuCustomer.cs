@@ -42,12 +42,10 @@ namespace RE_Laura_Looney_SD
             frmOrderMenuCustomer frm = (frmOrderMenuCustomer)Application.OpenForms["frmOrderMenuCustomer"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmOrderMenuCustomer(this);
                 frm.Show();
             }
@@ -59,12 +57,10 @@ namespace RE_Laura_Looney_SD
             frmCustomerMenu frm = (frmCustomerMenu)Application.OpenForms["frmCustomerMenu"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmCustomerMenu();
                 frm.Show();
             }

@@ -271,6 +271,7 @@
             this.Controls.Add(this.lblDeleteStockType);
             this.Name = "frmDeleteType";
             this.Text = "Delete Type";
+            this.Load += new System.EventHandler(this.frmDeleteType_Load);
             this.mnuOrderMenu.ResumeLayout(false);
             this.mnuOrderMenu.PerformLayout();
             this.grpStockType.ResumeLayout(false);

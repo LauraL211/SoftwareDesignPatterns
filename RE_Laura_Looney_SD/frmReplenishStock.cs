@@ -63,12 +63,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuManager frm = (frmMainMenuManager)Application.OpenForms["frmMainMenuManager"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuManager(this);
                 frm.Show();
             }
@@ -80,12 +78,10 @@ namespace RE_Laura_Looney_SD
             frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmStockMenu(this);
                 frm.Show();
             }
@@ -99,7 +95,6 @@ namespace RE_Laura_Looney_SD
             {
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
                 Application.Exit();
             }
         }
@@ -127,7 +122,6 @@ namespace RE_Laura_Looney_SD
 
                 foreach (DataGridViewRow row in DGVReplenish.Rows)
                 {
-                    // Check if the row is not a new row or a header row
                     if (!row.IsNewRow)
                     {
                         int stockId = Convert.ToInt32(row.Cells["ID"].Value);
@@ -148,7 +142,6 @@ namespace RE_Laura_Looney_SD
                                 , "Stock Items Replenished", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
 
 
-                //Refreshing the page
           
                 cboSearch.Clear();
                 DGVReplenish.Rows.Clear();
@@ -160,7 +153,6 @@ namespace RE_Laura_Looney_SD
             {
                 MessageBox.Show("The Stock Items have not been replenished", "Replenish Stock Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //Refreshing the page
                
                 cboSearch.Clear();
                 DGVReplenish.Rows.Clear();

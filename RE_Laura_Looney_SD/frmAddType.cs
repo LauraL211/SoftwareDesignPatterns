@@ -26,7 +26,6 @@ namespace RE_Laura_Looney_SD
             {
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
                 Application.Exit();
             }
         }
@@ -37,12 +36,10 @@ namespace RE_Laura_Looney_SD
             frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmStockMenu(this);
                 frm.Show();
             }
@@ -54,12 +51,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuManager frm = (frmMainMenuManager)Application.OpenForms["frmMainMenuManager"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuManager(this);
                 frm.Show();
             }
@@ -86,17 +81,13 @@ namespace RE_Laura_Looney_SD
 
                 if (Result == DialogResult.Yes)
                 {
-                    //Create an instance of Stock and instantiate with values from form controls
                     Type aType = new Type(cboTypeCode.Text, cboDescription.Text, cboStatus.Text);
 
-                    //invoke the method to add the data to the Stock table
                     aType.addType();
 
-                    //display confirmation message
                     MessageBox.Show("Stock Type added successfully", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //reset UI
                     cboTypeCode.Clear();
                     cboDescription.Clear();
                     cboTypeCode.Focus();
@@ -106,7 +97,6 @@ namespace RE_Laura_Looney_SD
                 {
                     MessageBox.Show("The Stock Type has not been added to the system", "Stock Type Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //Refreshing the page
                     cboTypeCode.Clear();
                     cboDescription.Clear();
                     cboTypeCode.Focus();
@@ -126,6 +116,11 @@ namespace RE_Laura_Looney_SD
                 cboDescription.Focus();
                 cboDescription.Clear();
             }
+        }
+
+        private void frmAddType_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

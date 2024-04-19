@@ -42,48 +42,39 @@ namespace RE_Laura_Looney_SD
 
         public void GetType(String TypeCode)
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "SELECT * FROM TYPES WHERE TYPECODE = '" + TypeCode + "'";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
             dr.Read();
 
-            //set the instance variables with values from data reader
 
             setTypecode(dr.GetString(0));
             setDescription(dr.GetString(1));
             setStatus(dr.GetString(2));
 
-            //close DB
             conn.Close();
         }
 
         public void addType()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "INSERT INTO Types(Typecode, Description, Status) Values('" +
                 this.typecode + "','" +
                 this.description + "','" +
                 this.status +
                 "')";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            //Close db connection
             conn.Close();
         }
 

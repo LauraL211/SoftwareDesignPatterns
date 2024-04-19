@@ -8,6 +8,6 @@ namespace RE_Laura_Looney_SD
 {
     class DBConnect
     {
-        public const String oraDB = "Data Source = studentoracle:1521/orcl; User ID = ; Password = ;";
+        public const String oraDB = "Data Source = studentoracle:1521/orcl; User ID = T00223553; Password = ice79jnjt*L9;";
     }
 }

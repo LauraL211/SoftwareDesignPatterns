@@ -70,14 +70,11 @@ namespace RE_Laura_Looney_SD
 
         public static DataSet getAllStock()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "SELECT StockID, Name, Price, Quantity " +
                 "FROM Stock ORDER BY Name";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -85,21 +82,17 @@ namespace RE_Laura_Looney_SD
             DataSet ds = new DataSet();
             da.Fill(ds, "stock");
 
-            //Close db connection
             conn.Close();
 
             return ds;
         }
         public static DataSet getAllStock(String Type)
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "SELECT StockID, Name, Price, Quantity " +
                 "FROM Stock WHERE Type = '" + Type + "' ORDER BY Name";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -107,7 +100,6 @@ namespace RE_Laura_Looney_SD
             DataSet ds = new DataSet();
             da.Fill(ds, "stock");
 
-            //Close db connection
             conn.Close();
 
             return ds;
@@ -115,20 +107,16 @@ namespace RE_Laura_Looney_SD
 
         public void getStock( int stockId)
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "SELECT * FROM Stock WHERE StockID = " + stockId;
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
             dr.Read();
 
-            //set the instance variables with values from data reader
             setStockID(dr.GetInt32(0));
             setName(dr.GetString(1));
             setDescription(dr.GetString(2));
@@ -138,15 +126,12 @@ namespace RE_Laura_Looney_SD
             setReorderLvl(dr.GetInt32(6));
             setStatus(dr.GetString(7));
 
-            //close DB
             conn.Close();
         }
         public void addStock()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "INSERT INTO STOCK(STOCKID, NAME, DESCRIPTION, TYPE, PRICE, QUANTITY, REORDERLVL, STATUS) Values('" +
                 this.stockid + "','" +
                 this.name.ToLower() + "','" +
@@ -158,22 +143,18 @@ namespace RE_Laura_Looney_SD
                 this.status + 
                 "')";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            //Close db connection
             conn.Close();
         }
 
         public void updateStock()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "UPDATE STOCK SET " +
                 "StockId = " + this.stockid + "," +
                 "Name = '" + this.name + "'," +
@@ -185,26 +166,21 @@ namespace RE_Laura_Looney_SD
                 "Status = '" + this.status + "'" +
                 "WHERE StockID = " + this.stockid;
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            //Close db connection
             conn.Close();
         }
 
         public static DataSet findStock(String StockName)
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "SELECT StockId, Name, Type FROM Stock " +
                 "WHERE Name LIKE '%" + StockName + "%' ORDER BY Name";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -212,26 +188,21 @@ namespace RE_Laura_Looney_SD
             DataSet ds = new DataSet();
             da.Fill(ds, "stock");
 
-            //Close db connection
             conn.Close();
 
             return ds;
         }
         public static int getNextStockID()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "SELECT MAX(StockID) FROM STOCK";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
 
-            //Does dr contain a value or NULL?
             int nextId;
             dr.Read();
 
@@ -242,7 +213,6 @@ namespace RE_Laura_Looney_SD
                 nextId = dr.GetInt32(0) + 1;
             }
 
-            //Close db connection
             conn.Close();
 
             return nextId;
@@ -276,14 +246,12 @@ namespace RE_Laura_Looney_SD
             OracleDataReader dr = cmd.ExecuteReader();
             dr.Read();
 
-            //set the instance variables with values from data reader
             setStockID(dr.GetInt32(0));
             setName(dr.GetString(1));
             setDescription(dr.GetString(2));
             setQuantity(dr.GetInt32(3));
             setPrice(dr.GetInt32(4));
 
-            //close DB
             conn.Close();
 
         }
@@ -337,24 +305,37 @@ namespace RE_Laura_Looney_SD
 
         public void Replenish(int orderquantity)
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "UPDATE STOCK SET " +
                               "QUANTITY = '" + orderquantity + "' " +
                               "WHERE STOCKID = '" + this.stockid + "'";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            //Close db connection
             conn.Close();
         }
 
+        public int StockQuantity(int stockId)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT QUANTITY FROM STOCK WHERE StockID = " + stockId;
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            setQuantity(dr.GetInt32(0));
+
+            return this.quantity;
+            conn.Close();
+
+        }
         public void updatestockquantity(int orderquantity)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
@@ -363,6 +344,11 @@ namespace RE_Laura_Looney_SD
             String sqlQuery = "SELECT QUANTITY" +
                               " FROM STOCK " +
                               " WHERE STOCKID = '" + this.stockid + "'";
+
+            Stock stock = new Stock();
+            stock.setStockID(this.stockid);
+            currentquantity = stock.StockQuantity(this.stockid);
+            
 
             int newquantity = currentquantity - orderquantity;
             String sqlQuery2 = "UPDATE STOCK SET " +
@@ -375,7 +361,7 @@ namespace RE_Laura_Looney_SD
             OracleDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                currentquantity = reader.GetInt32(0); // Assuming QUANTITY is of type INT in the database
+                currentquantity = reader.GetInt32(0);
             }
             reader.Close();
 
@@ -387,6 +373,44 @@ namespace RE_Laura_Looney_SD
             //Close db connection
             conn.Close();
             
+        }
+
+        public void updateCancelOrder(int orderquantity)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            int currentquantity = 0;
+            String sqlQuery = "SELECT QUANTITY" +
+                              " FROM STOCK " +
+                              " WHERE STOCKID = '" + this.stockid + "'";
+
+            Stock stock = new Stock();
+            stock.setStockID(this.stockid);
+            currentquantity = stock.StockQuantity(this.stockid);
+
+
+            int newquantity = currentquantity + orderquantity;
+            String sqlQuery2 = "UPDATE STOCK SET " +
+                              "QUANTITY = '" + newquantity + "' " +
+                              "WHERE STOCKID = '" + this.stockid + "'";
+
+            conn.Open();
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                currentquantity = reader.GetInt32(0); 
+            }
+            reader.Close();
+
+            cmd.ExecuteNonQuery();
+
+            OracleCommand cmd1 = new OracleCommand(sqlQuery2, conn);
+            cmd1.ExecuteNonQuery();
+
+            conn.Close();
+
         }
 
     }

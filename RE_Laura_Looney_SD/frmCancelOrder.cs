@@ -15,10 +15,6 @@ namespace RE_Laura_Looney_SD
         public frmCancelOrder()
         {
             InitializeComponent();
-
-            cboChooseOrder.Items.Add("50314");
-            cboChooseOrder.Items.Add("32145");
-            cboChooseOrder.Items.Add("22222");
         }
 
         private void mnuMainMenu_Click(object sender, EventArgs e)
@@ -27,12 +23,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuCustomer frm = (frmMainMenuCustomer)Application.OpenForms["frmMainMenuCustomer"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuCustomer(this);
                 frm.Show();
             }
@@ -44,12 +38,10 @@ namespace RE_Laura_Looney_SD
             frmOrderMenuCustomer frm = (frmOrderMenuCustomer)Application.OpenForms["frmOrderMenuCustomer"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmOrderMenuCustomer(this);
                 frm.Show();
             }
@@ -63,62 +55,116 @@ namespace RE_Laura_Looney_SD
             {
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
                 Application.Exit();
             }
         }
 
-        private void cboChooseOrder_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            if(cboChooseOrder.SelectedIndex == 0)
+            DGVStock.Rows.Clear();
             {
-                cboListBox.Items.Clear();
-                cboListBox.Items.Add("Jameson,    Whiskey,        35");
-                cboListBox.Items.Add("Smirnoff,   Fruity Passion, 21");
-                cboListBox.Items.Add("Hennessey,  Cognak,         21");
-                cboListBox.Items.Add("Bailey's,   Original,       69");
-                cboListBox.Items.Add("Grey Goose, Original        10");
-                cboTotal.Text = "£999.00";
-            }
 
-            if (cboChooseOrder.SelectedIndex == 1)
-            {
-                cboListBox.Items.Clear();
-                cboListBox.Items.Add("Carlsberg,  Beer,      35");
-                cboListBox.Items.Add("Guiness,    Beer,      21");
-                cboListBox.Items.Add("Hennessey,  Cognak,    21");
-                cboListBox.Items.Add("Red Breast, Whiskey,   69");
-                cboListBox.Items.Add("Grey Goose, Original   10");
-                cboTotal.Text = "£10000.00";
-            }
+                DataSet order = Order.GetAnOrder(cboSearch.Text);
 
-            if (cboChooseOrder.SelectedIndex == 2)
-            {
-                cboListBox.Items.Clear();
-                cboListBox.Items.Add("Jameson,    Whiskey,        35");
-                cboListBox.Items.Add("Smirnoff,   Fruity Passion, 21");
-                cboListBox.Items.Add("Hennessey,  Cognak,         21");
-                cboListBox.Items.Add("Red Breast, Whiskey,        69");
-                cboListBox.Items.Add("Grey Goose, Original        10");
-                cboTotal.Text = "£6969.00";
+                for (int i = 0; i < order.Tables[0].Rows.Count; i++)
+                {
+                    DGVStock.Rows.Add(
+                        order.Tables[0].Rows[i][0],
+                        order.Tables[0].Rows[i][1],
+                        order.Tables[0].Rows[i][2]
+                        );
+                }
             }
         }
 
-        private void btnCancel_Order_Click(object sender, EventArgs e)
+        private void DGVStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DialogResult Result = (MessageBox.Show("Are you sure you want to cancel your order?", "Cancel Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+            int custid = Convert.ToInt32(DGVStock.Rows[e.RowIndex].Cells["CustID"].Value);
+            cboCustID.Text = custid.ToString();
+
+            Customer cust = new Customer();
+            cust.getCustomerID(custid);
+            cboFName.Text = cust.getForename();
+            cboLName.Text = cust.getSurname();
+
+            Order order = new Order();
+            order.GetOrder(cboSearch.Text);
+            cboPrice.Text = order.getTotalPrice().ToString();
+
+            DGVStock.Rows.Clear();
+            {
+
+                DataSet orderitems = OrderItem.GetOrder(cboSearch.Text);
+
+                for (int i = 0; i < orderitems.Tables[0].Rows.Count; i++)
+                {
+                    DGVCart.Rows.Add(
+                        orderitems.Tables[0].Rows[i][0],
+                        orderitems.Tables[0].Rows[i][1],
+                        orderitems.Tables[0].Rows[i][2]
+                        );
+                }
+            }
+        }
+
+        private void btnCancelOrder_Click(object sender, EventArgs e)
+        {
+            DialogResult Result = (MessageBox.Show("Are you sure you want to cancel this order?", "Cancel Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
 
             if (Result == DialogResult.Yes)
             {
+                //update order status
+                Order order = new Order();
+                order.setOrderID(int.Parse(cboSearch.Text));
+                order.setStatus("C");
+                order.updateStatus();
 
-                MessageBox.Show("Your order has been cancelled."
-                                , "Order Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //update stock
+                foreach (DataGridViewRow row in DGVCart.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        int stockId = Convert.ToInt32(row.Cells["SID"].Value);
+
+                        int quantity = Convert.ToInt32(row.Cells["SQuantity"].Value);
+                        int price = Convert.ToInt32(row.Cells["Price"].Value);
+
+                        //Update stock quantity
+                        Stock stock = new Stock();
+                        stock.setStockID(stockId);
+                        stock.updateCancelOrder(quantity);
+
+                    }
+                }
+
+                //display confirmation message
+                MessageBox.Show("Order Cancelled", "Order Cancelation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //reset UI
+                cboPrice.Clear();
+                cboFName.Clear();
+                cboLName.Clear();
+                cboSearch.Clear();
+                cboCustID.Clear();
+                DGVStock.Rows.Clear();
+                DGVCart.Rows.Clear();
+                cboSearch.Focus();
+
             }
 
             if (Result == DialogResult.No)
             {
-                MessageBox.Show("The order has not been cancelled", "Order Not Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("The order has not been cancelled", "Order Cancelation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                cboPrice.Clear();
+                cboFName.Clear();
+                cboLName.Clear();
+                cboSearch.Clear();
+                cboCustID.Clear();
+                DGVStock.Rows.Clear();
+                DGVCart.Rows.Clear();
+                cboSearch.Focus();
             }
         }
     }

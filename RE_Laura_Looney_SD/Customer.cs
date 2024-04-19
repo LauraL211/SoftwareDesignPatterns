@@ -61,84 +61,27 @@ namespace RE_Laura_Looney_SD
         public void setPhone(String Phone) { phone = Phone; }
         public void setStatus(String Status) { status = Status; }
 
-        public static DataSet getAllCustomers()
+        public void getCustomerID(int Id)
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
-            String sqlQuery = "SELECT CustID, Forename, Surname, Phone " +
-                "FROM Customers ORDER BY Surname";
+            String sqlQuery = "SELECT FORENAME, SURNAME FROM CUSTOMERS WHERE CustID = " + Id;
 
-            //Execute the SQL query (OracleCommand)
-            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-
-            OracleDataAdapter da = new OracleDataAdapter(cmd);
-
-            DataSet ds = new DataSet();
-            da.Fill(ds, "stock");
-
-            //Close db connection
-            conn.Close();
-
-            return ds;
-        }
-        public static DataSet getAllCustomers(String Status)
-        {
-            //Open a db connection
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
-
-            //Define the SQL query to be executed
-            String sqlQuery = "SELECT CustID, Forename, Surname, Phone " +
-                "FROM Customers WHERE Status = '" + Status + "' ORDER BY Surname";
-
-            //Execute the SQL query (OracleCommand)
-            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-
-            OracleDataAdapter da = new OracleDataAdapter(cmd);
-
-            DataSet ds = new DataSet();
-            da.Fill(ds, "customers");
-
-            //Close db connection
-            conn.Close();
-
-            return ds;
-        }
-
-        public void getCustomer(int Id)
-        {
-            //Open a db connection
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
-
-            //Define the SQL query to be executed
-            String sqlQuery = "SELECT * FROM Customers WHERE CustID = " + Id;
-
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
             dr.Read();
 
-            //set the instance variables with values from data reader
-            setCustID(dr.GetInt32(0));
-            setUsername(dr.GetString(1));
-            setPassword(dr.GetString(2));
-            setForename(dr.GetString(3));
-            setSurname(dr.GetString(4));
-            setPhone(dr.GetString(5));
-            setStatus(dr.GetString(7));
+            setForename(dr.GetString(0));
+            setSurname(dr.GetString(1));
 
-            //close DB
             conn.Close();
         }
         public void addCustomer()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "INSERT INTO CUSTOMERS(CustID, Username, Password, Forename, Surname, Phone, Status) Values('" +
                 this.custid + "','" +
                 this.username + "','" +
@@ -149,96 +92,59 @@ namespace RE_Laura_Looney_SD
                 this.status +
                 "')";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            //Close db connection
             conn.Close();
         }
 
         public void updateCustomer()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "UPDATE CUSTOMERS SET " +
                               "FORENAME = '" + this.forename + "', " +
                               "SURNAME = '" + this.surname + "', " +
                               "PHONE = '" + this.phone + "' " +
                               "WHERE CUSTID = '" + this.custid +"'";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            //Close db connection
             conn.Close();
         }
 
         public void deleteCustomer() 
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "UPDATE CUSTOMERS SET " +
                               "STATUS = 'C'" +
                               "WHERE CUSTID = '" + this.custid + "'";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            //Close db connection
             conn.Close();
-        }
-
-        public static DataSet findCustomer(String CustomerName)
-        {
-            //Open a db connection
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
-
-            //Define the SQL query to be executed
-            String sqlQuery = "SELECT CustId, Forename, Surname, Phone FROM Customers " +
-                "WHERE Forename LIKE '%" + CustomerName + "%' ORDER BY Surname";
-
-            //Execute the SQL query (OracleCommand)
-            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-
-            OracleDataAdapter da = new OracleDataAdapter(cmd);
-
-            DataSet ds = new DataSet();
-            da.Fill(ds, "customers");
-
-            //Close db connection
-            conn.Close();
-
-            return ds;
         }
 
         public static int getNextCustID()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "SELECT MAX(CustID) FROM CUSTOMERS";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
 
-            //Does dr contain a value or NULL?
             int nextId;
             dr.Read();
 
@@ -249,7 +155,6 @@ namespace RE_Laura_Looney_SD
                 nextId = dr.GetInt32(0) + 1;
             }
 
-            //Close db connection
             conn.Close();
 
             return nextId;
@@ -291,20 +196,18 @@ namespace RE_Laura_Looney_SD
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             String sqlQuery = "SELECT CUSTID, FORENAME, SURNAME, PHONE FROM CUSTOMERS WHERE USERNAME = '" + name + "' ";
-            //Execute the SQL query (OracleCommand)
+
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
             dr.Read();
 
-            //set the instance variables with values from data reader
             setCustID(dr.GetInt32(0));
             setForename(dr.GetString(1));
             setSurname(dr.GetString(2));
             setPhone(dr.GetString(3));
 
-            //close DB
             conn.Close();
 
         }

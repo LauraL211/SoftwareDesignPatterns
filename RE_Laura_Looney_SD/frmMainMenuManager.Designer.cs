@@ -34,6 +34,7 @@
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
             this.btnType = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
             this.mnuMainM.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +70,7 @@
             // 
             this.btnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdmin.Location = new System.Drawing.Point(423, 125);
-            this.btnAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(148, 79);
             this.btnAdmin.TabIndex = 2;
@@ -81,7 +82,7 @@
             // 
             this.btnStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStock.Location = new System.Drawing.Point(200, 125);
-            this.btnStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStock.Margin = new System.Windows.Forms.Padding(2);
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(148, 76);
             this.btnStock.TabIndex = 1;
@@ -92,7 +93,7 @@
             // btnType
             // 
             this.btnType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnType.Location = new System.Drawing.Point(302, 238);
+            this.btnType.Location = new System.Drawing.Point(200, 237);
             this.btnType.Margin = new System.Windows.Forms.Padding(2);
             this.btnType.Name = "btnType";
             this.btnType.Size = new System.Drawing.Size(148, 76);
@@ -101,11 +102,24 @@
             this.btnType.UseVisualStyleBackColor = true;
             this.btnType.Click += new System.EventHandler(this.btnType_Click);
             // 
+            // btnOrder
+            // 
+            this.btnOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrder.Location = new System.Drawing.Point(423, 237);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(148, 76);
+            this.btnOrder.TabIndex = 6;
+            this.btnOrder.Text = "Order";
+            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
             // frmMainMenuManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.btnType);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnStock);
@@ -127,5 +141,6 @@
         private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.ToolStripMenuItem mnuHomePage;
         private System.Windows.Forms.Button btnType;
+        private System.Windows.Forms.Button btnOrder;
     }
 }

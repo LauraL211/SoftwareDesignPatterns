@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grpStockType = new System.Windows.Forms.GroupBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.cboStatus = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnAddStockType = new System.Windows.Forms.Button();
@@ -39,8 +41,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStockmnu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnubtnExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.cboStatus = new System.Windows.Forms.TextBox();
             this.grpStockType.SuspendLayout();
             this.mnuOrderMenu.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,29 @@
             this.grpStockType.TabIndex = 45;
             this.grpStockType.TabStop = false;
             this.grpStockType.Text = "Enter Stock Type Details";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblStatus.Location = new System.Drawing.Point(45, 97);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(44, 15);
+            this.lblStatus.TabIndex = 39;
+            this.lblStatus.Text = "Status:";
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.Enabled = false;
+            this.cboStatus.Location = new System.Drawing.Point(153, 99);
+            this.cboStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.cboStatus.MaxLength = 3;
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.ReadOnly = true;
+            this.cboStatus.Size = new System.Drawing.Size(48, 20);
+            this.cboStatus.TabIndex = 38;
+            this.cboStatus.Text = "A";
             // 
             // lblName
             // 
@@ -161,29 +184,6 @@
             this.mnubtnExit.Text = "Exit";
             this.mnubtnExit.Click += new System.EventHandler(this.mnubtnExit_Click);
             // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblStatus.Location = new System.Drawing.Point(45, 97);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(44, 15);
-            this.lblStatus.TabIndex = 39;
-            this.lblStatus.Text = "Status:";
-            // 
-            // cboStatus
-            // 
-            this.cboStatus.Enabled = false;
-            this.cboStatus.Location = new System.Drawing.Point(153, 99);
-            this.cboStatus.Margin = new System.Windows.Forms.Padding(2);
-            this.cboStatus.MaxLength = 3;
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.ReadOnly = true;
-            this.cboStatus.Size = new System.Drawing.Size(48, 20);
-            this.cboStatus.TabIndex = 38;
-            this.cboStatus.Text = "A";
-            // 
             // frmAddType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,6 +194,7 @@
             this.Controls.Add(this.lblAddStockType);
             this.Name = "frmAddType";
             this.Text = "Add Type";
+            this.Load += new System.EventHandler(this.frmAddType_Load);
             this.grpStockType.ResumeLayout(false);
             this.grpStockType.PerformLayout();
             this.mnuOrderMenu.ResumeLayout(false);

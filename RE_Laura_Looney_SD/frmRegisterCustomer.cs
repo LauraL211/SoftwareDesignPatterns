@@ -63,7 +63,6 @@ namespace RE_Laura_Looney_SD
                                     , "Customer Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                    //Refreshing the page
                     cboForename.Clear();
                     cboSurname.Clear();
                     cboPhone.Clear();
@@ -72,12 +71,10 @@ namespace RE_Laura_Looney_SD
                     frmLoginPage frm = (frmLoginPage)Application.OpenForms["frmLoginPage"];
                     if (frm != null)
                     {
-                        // The form is already open, so just bring it to the front
                         frm.BringToFront();
                     }
                     else
                     {
-                        // The form is not open, create a new instance and show it
                         frm = new frmLoginPage(this);
                         frm.Show();
                     }
@@ -87,7 +84,6 @@ namespace RE_Laura_Looney_SD
                 {
                     MessageBox.Show("TheCustomer has not been registered to the system", "Registeration Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //Refreshing the page
                     cboForename.Clear();
                     cboSurname.Clear();
                     cboPhone.Clear();
@@ -96,12 +92,10 @@ namespace RE_Laura_Looney_SD
                     frmLoginPage frm = (frmLoginPage)Application.OpenForms["frmLoginPage"];
                     if (frm != null)
                     {
-                        // The form is already open, so just bring it to the front
                         frm.BringToFront();
                     }
                     else
                     {
-                        // The form is not open, create a new instance and show it
                         frm = new frmLoginPage(this);
                         frm.Show();
                     }
@@ -191,7 +185,6 @@ namespace RE_Laura_Looney_SD
 
         private void frmRegisterCustomer_Load(object sender, EventArgs e)
         {
-            //get next Customer ID
             cboCustID.Text = Customer.getNextCustID().ToString("0000");
         }
 
@@ -239,20 +232,16 @@ namespace RE_Laura_Looney_SD
                                 , "Customer Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                    //Create an instance of Stock and instantiate with values from form controls
                     Customer aCustomer = new Customer(Convert.ToInt32(cboCustID.Text), cboUsername.Text, cboPassword.Text,
                             cboForename.Text, cboSurname.Text, cboPhone.Text,
                             cboStatus.Text
                            );
 
-                    //invoke the method to add the data to the Stock table
                     aCustomer.addCustomer();
 
-                    //display confirmation message
                     MessageBox.Show("Customer " + cboCustID.Text + " added successfully", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //reset UI
                     cboCustID.Text = Customer.getNextCustID().ToString("0000");
                     cboUsername.Clear();
                     cboPassword.Clear();
@@ -264,12 +253,10 @@ namespace RE_Laura_Looney_SD
                     frmLoginPage frm = (frmLoginPage)Application.OpenForms["frmLoginPage"];
                     if (frm != null)
                     {
-                        // The form is already open, so just bring it to the front
                         frm.BringToFront();
                     }
                     else
                     {
-                        // The form is not open, create a new instance and show it
                         frm = new frmLoginPage(this);
                         frm.Show();
                     }
@@ -279,7 +266,6 @@ namespace RE_Laura_Looney_SD
                 {
                     MessageBox.Show("TheCustomer has not been registered to the system", "Registeration Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //Refreshing the page
                     cboUsername.Clear();
                     cboPassword.Clear();
                     cboForename.Clear();
@@ -290,12 +276,10 @@ namespace RE_Laura_Looney_SD
                     frmLoginPage frm = (frmLoginPage)Application.OpenForms["frmLoginPage"];
                     if (frm != null)
                     {
-                        // The form is already open, so just bring it to the front
                         frm.BringToFront();
                     }
                     else
                     {
-                        // The form is not open, create a new instance and show it
                         frm = new frmLoginPage(this);
                         frm.Show();
                     }

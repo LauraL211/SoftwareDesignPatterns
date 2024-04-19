@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,19 +51,15 @@ namespace RE_Laura_Looney_SD
         
         public static int getNextOrderID()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
-            //Define the SQL query to be executed
             String sqlQuery = "SELECT MAX(ORDERID) FROM ORDERS";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
 
-            //Does dr contain a value or NULL?
             int nextId;
             dr.Read();
 
@@ -73,20 +70,32 @@ namespace RE_Laura_Looney_SD
                 nextId = dr.GetInt32(0) + 1;
             }
 
-            //Close db connection
             conn.Close();
 
             return nextId;
         }
 
+        public void updateStatus()
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "UPDATE ORDERS SET " +
+                "Status = '" + this.status + "'" +
+                "WHERE ORDERID = " + this.orderid;
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
         public void addOrder()
         {
-            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
             string formattedDate = this.orderdate.ToString("yyyy-MM-dd");
 
-            //Define the SQL query to be executed
             String sqlQuery = "INSERT INTO ORDERS(ORDERID, STATUS, ORDERDATE, TOTALPRICE, CUSTID) VALUES('" +
                                this.orderid + "','" +
                                this.status + "', TO_DATE('" +
@@ -95,13 +104,45 @@ namespace RE_Laura_Looney_SD
                                this.custid +
                                 "')";
 
-            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            //Close db connection
+            conn.Close();
+        }
+
+        public static DataSet GetAnOrder(String Search)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT ORDERID, TOTALPRICE, CUSTID FROM ORDERS WHERE ORDERID = '" + Search + "' AND STATUS = 'O' ";
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "StockID");
+
+            conn.Close();
+
+            return ds;
+        }
+
+        public void GetOrder(String Search)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+
+            String sqlQuery = "SELECT TOTALPRICE FROM ORDERS WHERE ORDERID = '" + Search + "'";
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            setPrice(dr.GetInt32(0));
+
             conn.Close();
         }
     }

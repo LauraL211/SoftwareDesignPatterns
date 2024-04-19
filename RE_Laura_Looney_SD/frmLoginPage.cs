@@ -47,7 +47,7 @@ namespace RE_Laura_Looney_SD
                 Customer customer = new Customer();
                bool isValid = customer.CheckCustomer(cboUsername.Text, cboPassword.Text);
 
-                if (cboUsername.Text.Equals("m") && cboPassword.Text.Equals("m"))
+                if (cboUsername.Text.Equals("Manager") && cboPassword.Text.Equals("Manager"))
                 {
                     //manager view
                     this.Close();

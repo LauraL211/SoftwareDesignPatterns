@@ -23,12 +23,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuManager frm = (frmMainMenuManager)Application.OpenForms["frmMainMenuManager"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuManager(this);
                 frm.Show();
             }
@@ -52,12 +50,10 @@ namespace RE_Laura_Looney_SD
             frmAddType frm = (frmAddType)Application.OpenForms["frmAddType"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmAddType(this);
                 frm.Show();
             }
@@ -69,12 +65,10 @@ namespace RE_Laura_Looney_SD
             frmDeleteType frm = (frmDeleteType)Application.OpenForms["frmUpdateType"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmDeleteType(this);
                 frm.Show();
             }
@@ -86,12 +80,10 @@ namespace RE_Laura_Looney_SD
             frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmStockMenu(this);
                 frm.Show();
             }

@@ -27,12 +27,10 @@ namespace RE_Laura_Looney_SD
             frmMainMenuManager frm = (frmMainMenuManager)Application.OpenForms["frmMainMenuManager"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmMainMenuManager(this);
                 frm.Show();
             }
@@ -44,12 +42,10 @@ namespace RE_Laura_Looney_SD
             frmStockMenu frm = (frmStockMenu)Application.OpenForms["frmStockMenu"];
             if (frm != null)
             {
-                // The form is already open, so just bring it to the front
                 frm.BringToFront();
             }
             else
             {
-                // The form is not open, create a new instance and show it
                 frm = new frmStockMenu(this);
                 frm.Show();
             }
@@ -63,7 +59,6 @@ namespace RE_Laura_Looney_SD
             {
 
                 MessageBox.Show("Goodbye!", "Exit Looney's Liquer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
                 Application.Exit();
             }
         }
@@ -126,7 +121,6 @@ namespace RE_Laura_Looney_SD
                                     , "Stock Item Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                    //Refreshing the page
                     cboName.Clear();
                     cboDescription.Clear();
                     cboType.SelectedIndex = -1;
@@ -140,7 +134,6 @@ namespace RE_Laura_Looney_SD
                 {
                     MessageBox.Show("The Stock Item has not been updated in the system", "Update Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //Refreshing the page
                     cboName.Clear();
                     cboDescription.Clear();
                     cboType.SelectedIndex = -1;
@@ -357,11 +350,9 @@ namespace RE_Laura_Looney_SD
                     stock.setStatus("A");
                     stock.updateStock();
 
-                    //display confirmation message
                     MessageBox.Show("Stock " + cboStockID.Text + " updated successfully", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //reset UI
                     cboStockID.Clear();
                     cboName.Clear();
                     cboDescription.Clear();
@@ -378,7 +369,6 @@ namespace RE_Laura_Looney_SD
                 {
                     MessageBox.Show("The Stock Item has not been updated to the system", "Stock Item Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //Refreshing the page
                     cboName.Clear();
                     cboDescription.Clear();
                     cboType.SelectedIndex = -1;

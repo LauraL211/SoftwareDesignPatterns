@@ -28,202 +28,301 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.cboTotal = new System.Windows.Forms.TextBox();
-            this.cboListBox = new System.Windows.Forms.ListBox();
             this.lblCollectOrder = new System.Windows.Forms.Label();
-            this.btnCollectOrder = new System.Windows.Forms.Button();
-            this.lblChoose_Order = new System.Windows.Forms.Label();
-            this.lblShopping_Cart = new System.Windows.Forms.Label();
-            this.cboChooseOrder = new System.Windows.Forms.ComboBox();
             this.mnuOrderMenu = new System.Windows.Forms.MenuStrip();
             this.mnuMainMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExxit = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblCustID = new System.Windows.Forms.Label();
+            this.DGVStock = new System.Windows.Forms.DataGridView();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.cboSearch = new System.Windows.Forms.TextBox();
+            this.lblOrderID = new System.Windows.Forms.Label();
             this.cboCustID = new System.Windows.Forms.TextBox();
+            this.lblCustID = new System.Windows.Forms.Label();
+            this.OrderDeatilsbx = new System.Windows.Forms.GroupBox();
+            this.lblFName = new System.Windows.Forms.Label();
+            this.lblLName = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.btnCollectOrder = new System.Windows.Forms.Button();
+            this.cboLName = new System.Windows.Forms.TextBox();
+            this.cboPrice = new System.Windows.Forms.TextBox();
+            this.cboFName = new System.Windows.Forms.TextBox();
+            this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnuOrderMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVStock)).BeginInit();
+            this.OrderDeatilsbx.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblTotal.Location = new System.Drawing.Point(467, 288);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(56, 22);
-            this.lblTotal.TabIndex = 99;
-            this.lblTotal.Text = "Total:";
-            this.lblTotal.Visible = false;
-            // 
-            // cboTotal
-            // 
-            this.cboTotal.Location = new System.Drawing.Point(471, 313);
-            this.cboTotal.Name = "cboTotal";
-            this.cboTotal.ReadOnly = true;
-            this.cboTotal.Size = new System.Drawing.Size(71, 22);
-            this.cboTotal.TabIndex = 94;
-            this.cboTotal.Visible = false;
-            // 
-            // cboListBox
-            // 
-            this.cboListBox.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboListBox.FormattingEnabled = true;
-            this.cboListBox.ItemHeight = 18;
-            this.cboListBox.Location = new System.Drawing.Point(471, 172);
-            this.cboListBox.Name = "cboListBox";
-            this.cboListBox.Size = new System.Drawing.Size(269, 94);
-            this.cboListBox.TabIndex = 91;
-            this.cboListBox.Visible = false;
             // 
             // lblCollectOrder
             // 
             this.lblCollectOrder.AutoSize = true;
             this.lblCollectOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCollectOrder.Location = new System.Drawing.Point(298, 53);
+            this.lblCollectOrder.Location = new System.Drawing.Point(250, 34);
+            this.lblCollectOrder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCollectOrder.Name = "lblCollectOrder";
-            this.lblCollectOrder.Size = new System.Drawing.Size(250, 42);
+            this.lblCollectOrder.Size = new System.Drawing.Size(202, 36);
             this.lblCollectOrder.TabIndex = 98;
             this.lblCollectOrder.Text = "Collect Order";
-            // 
-            // btnCollectOrder
-            // 
-            this.btnCollectOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCollectOrder.Location = new System.Drawing.Point(471, 376);
-            this.btnCollectOrder.Name = "btnCollectOrder";
-            this.btnCollectOrder.Size = new System.Drawing.Size(181, 57);
-            this.btnCollectOrder.TabIndex = 95;
-            this.btnCollectOrder.Text = "Collect Order";
-            this.btnCollectOrder.UseVisualStyleBackColor = true;
-            this.btnCollectOrder.Visible = false;
-            this.btnCollectOrder.Click += new System.EventHandler(this.btnCollectOrder_Click);
-            // 
-            // lblChoose_Order
-            // 
-            this.lblChoose_Order.AutoSize = true;
-            this.lblChoose_Order.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblChoose_Order.Location = new System.Drawing.Point(60, 172);
-            this.lblChoose_Order.Name = "lblChoose_Order";
-            this.lblChoose_Order.Size = new System.Drawing.Size(128, 22);
-            this.lblChoose_Order.TabIndex = 97;
-            this.lblChoose_Order.Text = "Choose Order:";
-            this.lblChoose_Order.Visible = false;
-            // 
-            // lblShopping_Cart
-            // 
-            this.lblShopping_Cart.AutoSize = true;
-            this.lblShopping_Cart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblShopping_Cart.Location = new System.Drawing.Point(467, 143);
-            this.lblShopping_Cart.Name = "lblShopping_Cart";
-            this.lblShopping_Cart.Size = new System.Drawing.Size(125, 22);
-            this.lblShopping_Cart.TabIndex = 96;
-            this.lblShopping_Cart.Text = "Shopping Cart";
-            this.lblShopping_Cart.Visible = false;
-            // 
-            // cboChooseOrder
-            // 
-            this.cboChooseOrder.FormattingEnabled = true;
-            this.cboChooseOrder.Location = new System.Drawing.Point(64, 191);
-            this.cboChooseOrder.Name = "cboChooseOrder";
-            this.cboChooseOrder.Size = new System.Drawing.Size(255, 24);
-            this.cboChooseOrder.TabIndex = 90;
-            this.cboChooseOrder.Visible = false;
-            this.cboChooseOrder.SelectedIndexChanged += new System.EventHandler(this.cboChooseOrder_SelectedIndexChanged);
             // 
             // mnuOrderMenu
             // 
             this.mnuOrderMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuOrderMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuMainMenu,
-            this.mnuOrder,
             this.mnuExxit});
             this.mnuOrderMenu.Location = new System.Drawing.Point(0, 0);
             this.mnuOrderMenu.Name = "mnuOrderMenu";
-            this.mnuOrderMenu.Size = new System.Drawing.Size(800, 28);
+            this.mnuOrderMenu.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.mnuOrderMenu.Size = new System.Drawing.Size(751, 24);
             this.mnuOrderMenu.TabIndex = 93;
             this.mnuOrderMenu.Text = "menuStrip1";
             // 
             // mnuMainMenu
             // 
             this.mnuMainMenu.Name = "mnuMainMenu";
-            this.mnuMainMenu.Size = new System.Drawing.Size(97, 24);
+            this.mnuMainMenu.Size = new System.Drawing.Size(80, 20);
             this.mnuMainMenu.Text = "Main Menu";
-            // 
-            // mnuOrder
-            // 
-            this.mnuOrder.Name = "mnuOrder";
-            this.mnuOrder.Size = new System.Drawing.Size(102, 24);
-            this.mnuOrder.Text = "Order Menu";
-            this.mnuOrder.Click += new System.EventHandler(this.mnuOrder_Click);
+            this.mnuMainMenu.Click += new System.EventHandler(this.mnuMainMenu_Click);
             // 
             // mnuExxit
             // 
             this.mnuExxit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.mnuExxit.Name = "mnuExxit";
-            this.mnuExxit.Size = new System.Drawing.Size(47, 24);
+            this.mnuExxit.Size = new System.Drawing.Size(38, 20);
             this.mnuExxit.Text = "Exit";
             this.mnuExxit.Click += new System.EventHandler(this.mnuExxit_Click);
+            // 
+            // DGVStock
+            // 
+            this.DGVStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StockID,
+            this.Total,
+            this.CustID});
+            this.DGVStock.Location = new System.Drawing.Point(27, 178);
+            this.DGVStock.Name = "DGVStock";
+            this.DGVStock.ReadOnly = true;
+            this.DGVStock.Size = new System.Drawing.Size(225, 153);
+            this.DGVStock.TabIndex = 105;
+            this.DGVStock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStock_CellContentClick);
+            this.DGVStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStock_CellContentClick);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnSearch.Location = new System.Drawing.Point(27, 133);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(92, 35);
+            this.btnSearch.TabIndex = 99;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // cboSearch
+            // 
+            this.cboSearch.Location = new System.Drawing.Point(27, 113);
+            this.cboSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.cboSearch.Name = "cboSearch";
+            this.cboSearch.Size = new System.Drawing.Size(137, 20);
+            this.cboSearch.TabIndex = 103;
+            // 
+            // lblOrderID
+            // 
+            this.lblOrderID.AutoSize = true;
+            this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblOrderID.Location = new System.Drawing.Point(24, 96);
+            this.lblOrderID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOrderID.Name = "lblOrderID";
+            this.lblOrderID.Size = new System.Drawing.Size(88, 15);
+            this.lblOrderID.TabIndex = 104;
+            this.lblOrderID.Text = "Enter Order ID:";
+            // 
+            // cboCustID
+            // 
+            this.cboCustID.Enabled = false;
+            this.cboCustID.Location = new System.Drawing.Point(439, 88);
+            this.cboCustID.Margin = new System.Windows.Forms.Padding(2);
+            this.cboCustID.MaxLength = 20;
+            this.cboCustID.Name = "cboCustID";
+            this.cboCustID.ReadOnly = true;
+            this.cboCustID.Size = new System.Drawing.Size(46, 20);
+            this.cboCustID.TabIndex = 100;
             // 
             // lblCustID
             // 
             this.lblCustID.AutoSize = true;
-            this.lblCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblCustID.Location = new System.Drawing.Point(60, 109);
+            this.lblCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCustID.Location = new System.Drawing.Point(388, 88);
+            this.lblCustID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCustID.Name = "lblCustID";
-            this.lblCustID.Size = new System.Drawing.Size(114, 22);
-            this.lblCustID.TabIndex = 100;
-            this.lblCustID.Text = "Customer ID:";
+            this.lblCustID.Size = new System.Drawing.Size(46, 15);
+            this.lblCustID.TabIndex = 102;
+            this.lblCustID.Text = "CustID:";
             // 
-            // cboCustID
+            // OrderDeatilsbx
             // 
-            this.cboCustID.Location = new System.Drawing.Point(64, 134);
-            this.cboCustID.Name = "cboCustID";
-            this.cboCustID.Size = new System.Drawing.Size(100, 22);
-            this.cboCustID.TabIndex = 101;
-            this.cboCustID.TextChanged += new System.EventHandler(this.cboCustID_TextChanged);
+            this.OrderDeatilsbx.Controls.Add(this.lblFName);
+            this.OrderDeatilsbx.Controls.Add(this.lblLName);
+            this.OrderDeatilsbx.Controls.Add(this.lblPrice);
+            this.OrderDeatilsbx.Controls.Add(this.btnCollectOrder);
+            this.OrderDeatilsbx.Controls.Add(this.cboLName);
+            this.OrderDeatilsbx.Controls.Add(this.cboPrice);
+            this.OrderDeatilsbx.Controls.Add(this.cboFName);
+            this.OrderDeatilsbx.Location = new System.Drawing.Point(391, 113);
+            this.OrderDeatilsbx.Name = "OrderDeatilsbx";
+            this.OrderDeatilsbx.Size = new System.Drawing.Size(314, 202);
+            this.OrderDeatilsbx.TabIndex = 101;
+            this.OrderDeatilsbx.TabStop = false;
+            this.OrderDeatilsbx.Text = "Order Details";
+            // 
+            // lblFName
+            // 
+            this.lblFName.AutoSize = true;
+            this.lblFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblFName.Location = new System.Drawing.Point(47, 39);
+            this.lblFName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFName.Name = "lblFName";
+            this.lblFName.Size = new System.Drawing.Size(68, 15);
+            this.lblFName.TabIndex = 30;
+            this.lblFName.Text = "First name:";
+            // 
+            // lblLName
+            // 
+            this.lblLName.AutoSize = true;
+            this.lblLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLName.Location = new System.Drawing.Point(45, 65);
+            this.lblLName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLName.Name = "lblLName";
+            this.lblLName.Size = new System.Drawing.Size(68, 15);
+            this.lblLName.TabIndex = 31;
+            this.lblLName.Text = "Last name:";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblPrice.Location = new System.Drawing.Point(45, 93);
+            this.lblPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(68, 15);
+            this.lblPrice.TabIndex = 33;
+            this.lblPrice.Text = "Total Price:";
+            // 
+            // btnCollectOrder
+            // 
+            this.btnCollectOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCollectOrder.Location = new System.Drawing.Point(114, 137);
+            this.btnCollectOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCollectOrder.Name = "btnCollectOrder";
+            this.btnCollectOrder.Size = new System.Drawing.Size(100, 43);
+            this.btnCollectOrder.TabIndex = 8;
+            this.btnCollectOrder.Text = "Collect Order";
+            this.btnCollectOrder.UseVisualStyleBackColor = true;
+            this.btnCollectOrder.Click += new System.EventHandler(this.btnCollectOrder_Click_1);
+            // 
+            // cboLName
+            // 
+            this.cboLName.Location = new System.Drawing.Point(153, 65);
+            this.cboLName.Margin = new System.Windows.Forms.Padding(2);
+            this.cboLName.MaxLength = 30;
+            this.cboLName.Name = "cboLName";
+            this.cboLName.ReadOnly = true;
+            this.cboLName.Size = new System.Drawing.Size(138, 20);
+            this.cboLName.TabIndex = 2;
+            // 
+            // cboPrice
+            // 
+            this.cboPrice.Location = new System.Drawing.Point(153, 95);
+            this.cboPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.cboPrice.MaxLength = 5;
+            this.cboPrice.Name = "cboPrice";
+            this.cboPrice.ReadOnly = true;
+            this.cboPrice.Size = new System.Drawing.Size(48, 20);
+            this.cboPrice.TabIndex = 4;
+            // 
+            // cboFName
+            // 
+            this.cboFName.Location = new System.Drawing.Point(153, 34);
+            this.cboFName.Margin = new System.Windows.Forms.Padding(2);
+            this.cboFName.MaxLength = 20;
+            this.cboFName.Name = "cboFName";
+            this.cboFName.ReadOnly = true;
+            this.cboFName.Size = new System.Drawing.Size(120, 20);
+            this.cboFName.TabIndex = 1;
+            // 
+            // StockID
+            // 
+            this.StockID.HeaderText = "Stock ID";
+            this.StockID.Name = "StockID";
+            this.StockID.ReadOnly = true;
+            this.StockID.Width = 50;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total Price";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 80;
+            // 
+            // CustID
+            // 
+            this.CustID.HeaderText = "Cust ID";
+            this.CustID.Name = "CustID";
+            this.CustID.ReadOnly = true;
+            this.CustID.Width = 50;
             // 
             // frmCollectOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(751, 388);
+            this.Controls.Add(this.DGVStock);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.cboSearch);
+            this.Controls.Add(this.lblOrderID);
             this.Controls.Add(this.cboCustID);
             this.Controls.Add(this.lblCustID);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.cboTotal);
-            this.Controls.Add(this.cboListBox);
+            this.Controls.Add(this.OrderDeatilsbx);
             this.Controls.Add(this.lblCollectOrder);
-            this.Controls.Add(this.btnCollectOrder);
-            this.Controls.Add(this.lblChoose_Order);
-            this.Controls.Add(this.lblShopping_Cart);
-            this.Controls.Add(this.cboChooseOrder);
             this.Controls.Add(this.mnuOrderMenu);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCollectOrder";
             this.Text = "Looney\'s Liquer - [Collect Order]";
             this.Load += new System.EventHandler(this.frmCollectOrder_Load);
             this.mnuOrderMenu.ResumeLayout(false);
             this.mnuOrderMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVStock)).EndInit();
+            this.OrderDeatilsbx.ResumeLayout(false);
+            this.OrderDeatilsbx.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.TextBox cboTotal;
-        private System.Windows.Forms.ListBox cboListBox;
         private System.Windows.Forms.Label lblCollectOrder;
-        private System.Windows.Forms.Button btnCollectOrder;
-        private System.Windows.Forms.Label lblChoose_Order;
-        private System.Windows.Forms.Label lblShopping_Cart;
-        private System.Windows.Forms.ComboBox cboChooseOrder;
         private System.Windows.Forms.MenuStrip mnuOrderMenu;
         private System.Windows.Forms.ToolStripMenuItem mnuMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem mnuOrder;
         private System.Windows.Forms.ToolStripMenuItem mnuExxit;
-        private System.Windows.Forms.Label lblCustID;
+        private System.Windows.Forms.DataGridView DGVStock;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox cboSearch;
+        private System.Windows.Forms.Label lblOrderID;
         private System.Windows.Forms.TextBox cboCustID;
+        private System.Windows.Forms.Label lblCustID;
+        private System.Windows.Forms.GroupBox OrderDeatilsbx;
+        private System.Windows.Forms.Label lblFName;
+        private System.Windows.Forms.Label lblLName;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Button btnCollectOrder;
+        private System.Windows.Forms.TextBox cboLName;
+        private System.Windows.Forms.TextBox cboPrice;
+        private System.Windows.Forms.TextBox cboFName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustID;
     }
 }
