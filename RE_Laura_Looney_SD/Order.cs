@@ -84,14 +84,16 @@ namespace RE_Laura_Looney_SD
             //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oraDB);
 
+            string formattedDate = this.orderdate.ToString("yyyy-MM-dd");
+
             //Define the SQL query to be executed
-            String sqlQuery = "INSERT INTO ORDERS(ORDERID, STATUS, ORDERDATE, TOTALPRICE, CUSTID) Values('" +
-                this.orderid + "','" +
-                this.status + "','" +
-                this.orderdate + "','" +
-                this.totalprice + "','" +
-                this.custid + "'" +
-                ")";
+            String sqlQuery = "INSERT INTO ORDERS(ORDERID, STATUS, ORDERDATE, TOTALPRICE, CUSTID) VALUES('" +
+                               this.orderid + "','" +
+                               this.status + "', TO_DATE('" +
+                               formattedDate + "', 'YYYY-MM-DD'), '" +
+                               this.totalprice + "','" +
+                               this.custid +
+                                "')";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);

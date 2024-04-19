@@ -150,12 +150,18 @@ namespace RE_Laura_Looney_SD
                 Order anOrder = new Order(OrderId, status, currentdate, totalCost, custId);
                 anOrder.addOrder();
 
+                MessageBox.Show("The order details have been saved "
+                                , "Order Placed", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+
+                int orderId = anOrder.getOrderID();
+
                 foreach (DataGridViewRow row in DGVCart.Rows)
                 {
                     if (!row.IsNewRow)
                     {
+                        int orderitemid = OrderItem.getNextOrderItemID();
                         int stockId = Convert.ToInt32(row.Cells["ID"].Value);
-                        int orderId = Convert.ToInt32(cboOrderID.Text);
+                        
                         string name = row.Cells["SName"].Value.ToString();
                         string description = row.Cells["SDescription"].Value.ToString();
                         int quantity = Convert.ToInt32(row.Cells["SQuantity"].Value);
@@ -168,7 +174,12 @@ namespace RE_Laura_Looney_SD
 
                         //loop through dgv and add info to order items
                         OrderItem item = new OrderItem();
-                        OrderItem anItem = new OrderItem(stockId,orderId, price, quantity);
+                        OrderItem anItem = new OrderItem(orderitemid,stockId,orderId, price, quantity);
+                        item.setOrderID(orderId); 
+                        item.setStockID(stockId);
+                        item.setPrice(price);
+                        item.setQuantity(quantity);
+                        item.addItem();
                         anItem.addItem();
 
                     }
