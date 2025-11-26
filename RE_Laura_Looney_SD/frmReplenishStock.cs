@@ -14,6 +14,7 @@ namespace RE_Laura_Looney_SD
 {
     public partial class frmReplenishStock : Form
     {
+        private readonly StockFacade _stockFacade = new StockFacade();
         public frmReplenishStock(frmStockMenu frmStockMenu)
         {
             InitializeComponent();
@@ -125,14 +126,9 @@ namespace RE_Laura_Looney_SD
                     if (!row.IsNewRow)
                     {
                         int stockId = Convert.ToInt32(row.Cells["ID"].Value);
-                        string name = row.Cells["SName"].Value.ToString();
-                        string description = row.Cells["SDescription"].Value.ToString();
                         int quantity = Convert.ToInt32(row.Cells["SQuantity"].Value);
 
-                        Stock stock = new Stock();
-                        stock.setStockID(stockId);
-                        stock.setQuantity(quantity);
-                        stock.Replenish(quantity);
+                        _stockFacade.ReplenishStock(stockId, quantity);
                     }
                 }
 
@@ -170,7 +166,7 @@ namespace RE_Laura_Looney_SD
                     DGVStock.Rows.Clear();
                     {
 
-                        DataSet StockItem = Stock.GetLowStock(cboSearch.Text.ToLower());
+                        DataSet StockItem = _stockFacade.GetLowStockItems(cboSearch.Text.ToLower());
 
                         for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
                         {
@@ -191,7 +187,7 @@ namespace RE_Laura_Looney_SD
                     DGVStock.Rows.Clear();
                     {
 
-                        DataSet StockItem = Stock.GetStock(cboSearch.Text.ToLower());
+                        DataSet StockItem = _stockFacade.GetStock(cboSearch.Text.ToLower());
 
                         for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
                         {
@@ -225,18 +221,17 @@ namespace RE_Laura_Looney_SD
 
                 int currentquantity = stock.getQuantity();
                 int orderquantity = currentquantity + quantity;
-                
+
                 int rowIndex = DGVReplenish.Rows.Add();
                 DGVReplenish.Rows[rowIndex].Cells["ID"].Value = stockId;
                 DGVReplenish.Rows[rowIndex].Cells["SName"].Value = stock.getName();
                 DGVReplenish.Rows[rowIndex].Cells["SDescription"].Value = stock.getDescription();
-                DGVReplenish.Rows[rowIndex].Cells["SQuantity"].Value = orderquantity; 
+                DGVReplenish.Rows[rowIndex].Cells["SQuantity"].Value = orderquantity;
             }
             else
             {
                 MessageBox.Show("Invalid input. Please enter a valid number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
         }
 
         private void DGVReplenish_CellContentClick(object sender, DataGridViewCellEventArgs e)
