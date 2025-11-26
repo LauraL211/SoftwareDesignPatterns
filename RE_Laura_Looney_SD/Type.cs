@@ -42,12 +42,11 @@ namespace RE_Laura_Looney_SD
 
         public void GetType(String TypeCode)
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT * FROM TYPES WHERE TYPECODE = '" + TypeCode + "'";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
             dr.Read();
@@ -57,12 +56,12 @@ namespace RE_Laura_Looney_SD
             setDescription(dr.GetString(1));
             setStatus(dr.GetString(2));
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
 
         public void addType()
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "INSERT INTO Types(Typecode, Description, Status) Values('" +
                 this.typecode + "','" +
@@ -71,16 +70,15 @@ namespace RE_Laura_Looney_SD
                 "')";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
 
         public static DataSet GetStockType(String Search)
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT TYPECODE, DESCRIPTION, STATUS FROM TYPES WHERE DESCRIPTION LIKE '%" + Search + "%' ORDER BY TYPECODE";
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -89,7 +87,7 @@ namespace RE_Laura_Looney_SD
             DataSet ds = new DataSet();
             da.Fill(ds, "Typecode");
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
 
             return ds;
         }
@@ -97,12 +95,10 @@ namespace RE_Laura_Looney_SD
         public void  CheckData(String stocktype)
         {
           
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT COUNT(*) FROM STOCK WHERE TYPE = '" + stocktype + "'";
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-
-            conn.Open();
 
             int resultCount = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -120,7 +116,7 @@ namespace RE_Laura_Looney_SD
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
 
 
         }

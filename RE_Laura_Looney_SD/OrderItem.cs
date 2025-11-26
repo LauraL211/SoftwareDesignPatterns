@@ -51,12 +51,11 @@ namespace RE_Laura_Looney_SD
 
         public static int getNextOrderItemID()
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT MAX(OrderItemID) FROM ORDERITEMS";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
 
@@ -70,13 +69,13 @@ namespace RE_Laura_Looney_SD
                 nextId = dr.GetInt32(0) + 1;
             }
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
 
             return nextId;
         }
         public void addItem()
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "INSERT INTO ORDERITEMS(ORDERITEMID, STOCKID, ORDERID, PRICE, QUANTITY) VALUES ('" +
                                 this.orderitemid + "','" +
@@ -87,16 +86,15 @@ namespace RE_Laura_Looney_SD
                                 ")";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
 
         public static DataSet GetOrder(String Search)
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT STOCKID, PRICE, QUANTITY FROM ORDERITEMS WHERE ORDERID = '" + Search + "' ORDER BY STOCKID";
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -105,7 +103,7 @@ namespace RE_Laura_Looney_SD
             DataSet ds = new DataSet();
             da.Fill(ds, "StockID");
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
 
             return ds;
         }

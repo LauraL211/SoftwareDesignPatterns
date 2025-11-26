@@ -63,12 +63,11 @@ namespace RE_Laura_Looney_SD
 
         public void getCustomerID(int Id)
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT FORENAME, SURNAME FROM CUSTOMERS WHERE CustID = " + Id;
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
             dr.Read();
@@ -76,11 +75,11 @@ namespace RE_Laura_Looney_SD
             setForename(dr.GetString(0));
             setSurname(dr.GetString(1));
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
         public void addCustomer()
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "INSERT INTO CUSTOMERS(CustID, Username, Password, Forename, Surname, Phone, Status) Values('" +
                 this.custid + "','" +
@@ -93,16 +92,15 @@ namespace RE_Laura_Looney_SD
                 "')";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
 
         public void updateCustomer()
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "UPDATE CUSTOMERS SET " +
                               "FORENAME = '" + this.forename + "', " +
@@ -111,37 +109,34 @@ namespace RE_Laura_Looney_SD
                               "WHERE CUSTID = '" + this.custid +"'";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
 
         public void deleteCustomer() 
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "UPDATE CUSTOMERS SET " +
                               "STATUS = 'C'" +
                               "WHERE CUSTID = '" + this.custid + "'";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
 
         public static int getNextCustID()
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT MAX(CustID) FROM CUSTOMERS";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
 
@@ -155,7 +150,7 @@ namespace RE_Laura_Looney_SD
                 nextId = dr.GetInt32(0) + 1;
             }
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
 
             return nextId;
         }
@@ -164,12 +159,10 @@ namespace RE_Laura_Looney_SD
         public bool CheckCustomer(String username, String password)
         {
             bool valid = false;
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT COUNT(*) FROM CUSTOMERS WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password + "' AND STATUS = 'O'";
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-
-            conn.Open();
 
             int resultCount = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -187,18 +180,17 @@ namespace RE_Laura_Looney_SD
                valid = false;
             }
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
             return valid;
         }
 
         public void FindingCustomer(String name)
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT CUSTID, FORENAME, SURNAME, PHONE FROM CUSTOMERS WHERE USERNAME = '" + name + "' ";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
             dr.Read();
@@ -208,7 +200,7 @@ namespace RE_Laura_Looney_SD
             setSurname(dr.GetString(2));
             setPhone(dr.GetString(3));
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
 
         }
     }

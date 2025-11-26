@@ -12,6 +12,11 @@ namespace RE_Laura_Looney_SD
 {
     public partial class frmAdminMenu : Form
     {
+        public frmAdminMenu()
+        {
+            InitializeComponent();
+        }
+
         public frmAdminMenu(Form mainMenuManager)
         {
             InitializeComponent();

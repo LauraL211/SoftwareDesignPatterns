@@ -101,9 +101,8 @@ namespace RE_Laura_Looney_SD
 
         private void frmDeleteStock_Load(object sender, EventArgs e)
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
             OracleCommand cmd = new OracleCommand("SELECT DESCRIPTION FROM TYPES", conn);
-            conn.Open();
             OracleDataReader Reader = cmd.ExecuteReader();
             while (Reader.Read())
             {
@@ -111,7 +110,7 @@ namespace RE_Laura_Looney_SD
                 String Type = Reader.GetString(0);
                 cboType.Items.Add(Type);
             }
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
 
         private void btnDeleteStock_Click_1(object sender, EventArgs e)

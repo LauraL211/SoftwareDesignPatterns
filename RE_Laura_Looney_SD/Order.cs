@@ -51,12 +51,11 @@ namespace RE_Laura_Looney_SD
         
         public static int getNextOrderID()
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT MAX(ORDERID) FROM ORDERS";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
 
@@ -70,29 +69,28 @@ namespace RE_Laura_Looney_SD
                 nextId = dr.GetInt32(0) + 1;
             }
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
 
             return nextId;
         }
 
         public void updateStatus()
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "UPDATE ORDERS SET " +
                 "Status = '" + this.status + "'" +
                 "WHERE ORDERID = " + this.orderid;
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
         public void addOrder()
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             string formattedDate = this.orderdate.ToString("yyyy-MM-dd");
 
@@ -105,16 +103,15 @@ namespace RE_Laura_Looney_SD
                                 "')";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
 
             cmd.ExecuteNonQuery();
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
 
         public static DataSet GetAnOrder(String Search)
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT ORDERID, TOTALPRICE, CUSTID FROM ORDERS WHERE ORDERID = '" + Search + "' AND STATUS = 'O' ";
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -123,27 +120,25 @@ namespace RE_Laura_Looney_SD
             DataSet ds = new DataSet();
             da.Fill(ds, "StockID");
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
 
             return ds;
         }
 
         public void GetOrder(String Search)
         {
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
 
             String sqlQuery = "SELECT TOTALPRICE FROM ORDERS WHERE ORDERID = '" + Search + "'";
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             OracleDataAdapter da = new OracleDataAdapter(cmd);
-
-            conn.Open();
 
             OracleDataReader dr = cmd.ExecuteReader();
             dr.Read();
 
             setPrice(dr.GetInt32(0));
 
-            conn.Close();
+            DBManager.Instance.CloseConnection();
         }
     }
 

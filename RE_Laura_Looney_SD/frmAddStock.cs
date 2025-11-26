@@ -63,9 +63,8 @@ namespace RE_Laura_Looney_SD
         {
             cboStockID.Text = Stock.getNextStockID().ToString("0000");
 
-            OracleConnection conn = new OracleConnection(DBConnect.oraDB);
+            OracleConnection conn = DBManager.Instance.GetConnection();
             OracleCommand cmd = new OracleCommand("SELECT DESCRIPTION FROM TYPES", conn);
-            conn.Open();
             OracleDataReader Reader = cmd.ExecuteReader();
             while(Reader.Read())
             {
@@ -73,7 +72,7 @@ namespace RE_Laura_Looney_SD
                 String Type = Reader.GetString(0);
                 cboType.Items.Add(Type);
             }
-            conn.Close();
+            DBManager.Instance.CloseConnection();
 
 
 
@@ -168,12 +167,25 @@ namespace RE_Laura_Looney_SD
 
                 if (Result == DialogResult.Yes)
                 {
-                    Stock aStock = new Stock(Convert.ToInt32(cboStockID.Text), cboName.Text.ToLower(), cboDescription.Text,
-                        cboType.Text, Convert.ToDecimal(cboPrice.Text), Convert.ToInt32(cboQuantity.Text), Convert.ToInt32(cboReorderLVL.Text),
-                        cboStatus.Text
-                        );
+                    //Starting Factory Method Pattern
+                    
+                    StockCreator creator = new AlcoholicStockFactory();
+
+                    string status = string.IsNullOrWhiteSpace(cboStatus.Text) ? "A" : cboStatus.Text;
+
+                    Stock aStock = creator.CreateStock(
+                       Convert.ToInt32(cboStockID.Text),
+                       cboName.Text.ToLower(),
+                       cboDescription.Text,
+                       cboType.Text,
+                       Convert.ToDecimal(cboPrice.Text),
+                       Convert.ToInt32(cboQuantity.Text),
+                       Convert.ToInt32(cboReorderLVL.Text),
+                       status);
 
                     aStock.addStock();
+
+                    //Factory Method End
 
                     MessageBox.Show("Stock " + cboStockID.Text + " added successfully", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
