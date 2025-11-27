@@ -10,11 +10,15 @@ namespace RE_Laura_Looney_SD
     class StockFacade
     {
         private readonly StockCreator _stockCreator;
+        private readonly StockSubject _stockSubject;
 
         public StockFacade()
         {
             _stockCreator = new AlcoholicStockFactory();
+            _stockSubject = new StockSubject();
         }
+
+        public ISubject Subject => _stockSubject;
 
         //Create
         public void AddStock(
@@ -37,6 +41,7 @@ namespace RE_Laura_Looney_SD
                 reorderLevel,
                 status);
             stock.addStock();
+            _stockSubject.OnStockChanged(stock);
         }
 
         //Update
@@ -60,6 +65,7 @@ namespace RE_Laura_Looney_SD
                 reorderLevel,
                 status);
             stock.updateStock();
+            _stockSubject.OnStockChanged(stock);
         }
 
         //Delete
@@ -83,6 +89,7 @@ namespace RE_Laura_Looney_SD
                 reorderLevel,
                 "U");
             stock.updateStock();
+            _stockSubject.OnStockChanged(stock);
         }
 
         //Searches
@@ -116,6 +123,9 @@ namespace RE_Laura_Looney_SD
             Stock stock = new Stock();
             stock.setStockID(stockID);
             stock.Replenish(quantity);
+
+            stock.getStock(stockID);
+            _stockSubject.OnStockChanged(stock);
         }
     }
 }

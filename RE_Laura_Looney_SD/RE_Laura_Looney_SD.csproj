@@ -98,6 +98,7 @@
     <Compile Include="frmDeleteType.Designer.cs">
       <DependentUpon>frmDeleteType.cs</DependentUpon>
     </Compile>
+    <Compile Include="LowStockObserver.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="frmAddType.cs">
@@ -249,6 +250,7 @@
     <Compile Include="Stock.cs" />
     <Compile Include="StockFacade.cs" />
     <Compile Include="StockFactory.cs" />
+    <Compile Include="StockObserver.cs" />
     <Compile Include="StockType.cs" />
     <Compile Include="Type.cs" />
     <EmbeddedResource Include="frmAddStock.resx">

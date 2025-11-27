@@ -18,6 +18,7 @@ namespace RE_Laura_Looney_SD
         public frmReplenishStock(frmStockMenu frmStockMenu)
         {
             InitializeComponent();
+            _stockFacade.Subject.Attach(new LowStockObserver());
 
         }
 
@@ -245,6 +246,11 @@ namespace RE_Laura_Looney_SD
                     DGVReplenish.Rows.RemoveAt(e.RowIndex);
                 }
             }
+        }
+
+        private void frmReplenishStock_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

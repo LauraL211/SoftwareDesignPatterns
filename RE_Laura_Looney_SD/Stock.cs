@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace RE_Laura_Looney_SD
 {
-    class Stock
+    public class Stock
     {
         private int stockid;
         private String name;

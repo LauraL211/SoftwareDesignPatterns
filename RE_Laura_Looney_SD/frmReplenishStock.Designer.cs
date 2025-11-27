@@ -38,7 +38,7 @@
             this.lblReplenishStock = new System.Windows.Forms.Label();
             this.DGVStock = new System.Windows.Forms.DataGridView();
             this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cboSearch = new System.Windows.Forms.TextBox();
@@ -85,7 +85,7 @@
             // 
             this.mnuExxit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.mnuExxit.Name = "mnuExxit";
-            this.mnuExxit.Size = new System.Drawing.Size(38, 20);
+            this.mnuExxit.Size = new System.Drawing.Size(37, 20);
             this.mnuExxit.Text = "Exit";
             this.mnuExxit.Click += new System.EventHandler(this.mnuExxit_Click);
             // 
@@ -141,7 +141,7 @@
             this.DGVStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StockID,
-            this.Name,
+            this.StockNameColumn,
             this.Description});
             this.DGVStock.Location = new System.Drawing.Point(30, 204);
             this.DGVStock.Name = "DGVStock";
@@ -160,9 +160,9 @@
             // 
             // Name
             // 
-            this.Name.HeaderText = "Stock Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
+            this.StockNameColumn.HeaderText = "Stock Name";
+            this.StockNameColumn.Name = "Name";
+            this.StockNameColumn.ReadOnly = true;
             // 
             // Description
             // 
@@ -260,7 +260,9 @@
             this.Controls.Add(this.lblReplenishStock);
             this.Controls.Add(this.mnuStockMenu);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "frmReplenishStock";
             this.Text = "Looney\'s Liquer - [Replenish Stock]";
+            this.Load += new System.EventHandler(this.frmReplenishStock_Load);
             this.mnuStockMenu.ResumeLayout(false);
             this.mnuStockMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVStock)).EndInit();
@@ -285,7 +287,7 @@
         private System.Windows.Forms.TextBox cboSearch;
         private System.Windows.Forms.Label lblStock_List;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridView DGVReplenish;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;

@@ -14,11 +14,12 @@ namespace RE_Laura_Looney_SD
 {
     public partial class frmUpdateStock : Form
     {
+        private readonly StockFacade _stockFacade = new StockFacade();
         int Stock_ID;
         public frmUpdateStock(frmStockMenu frmStockMenu)
         {
             InitializeComponent();
-
+            _stockFacade.Subject.Attach(new LowStockObserver());
         }
 
         private void mnuMainMenu_Click(object sender, EventArgs e)
@@ -338,16 +339,16 @@ namespace RE_Laura_Looney_SD
 
                 if (Result == DialogResult.Yes)
                 {
-                    Stock stock = new Stock();
-                    stock.setStockID(int.Parse(cboStockID.Text));
-                    stock.setName(cboName.Text);
-                    stock.setDescription(cboDescription.Text);
-                    stock.setType(cboType.Text);
-                    stock.setPrice(decimal.Parse(cboPrice.Text));
-                    stock.setQuantity(int.Parse(cboQuantity.Text));
-                    stock.setReorderLvl(int.Parse(cboReorderLVL.Text)); 
-                    stock.setStatus("A");
-                    stock.updateStock();
+                    _stockFacade.UpdateStock(
+                        int.Parse(cboStockID.Text),
+                        cboName.Text,
+                        cboDescription.Text,
+                        cboType.Text,
+                        decimal.Parse(cboPrice.Text),
+                        int.Parse(cboQuantity.Text),
+                        int.Parse(cboReorderLVL.Text),
+                        "A"
+                        );
 
                     MessageBox.Show("Stock " + cboStockID.Text + " updated successfully", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
