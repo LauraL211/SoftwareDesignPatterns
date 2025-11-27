@@ -14,6 +14,7 @@ namespace RE_Laura_Looney_SD
     public partial class frmDeleteStock : Form
     {
         int Stock_ID = 69;
+        private readonly StockFacade _stockFacade = new StockFacade();
         public frmDeleteStock(frmStockMenu frmStockMenu)
         {
             InitializeComponent();
@@ -69,7 +70,7 @@ namespace RE_Laura_Looney_SD
                 DGVStock.Rows.Clear();
                 {
 
-                    DataSet StockItem = Stock.GetAvailableStock(cboSearch.Text.ToLower());
+                    DataSet StockItem = _stockFacade.GetAvailableStock(cboSearch.Text.ToLower());
 
                     for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
                     {
@@ -101,16 +102,14 @@ namespace RE_Laura_Looney_SD
 
         private void frmDeleteStock_Load(object sender, EventArgs e)
         {
-            OracleConnection conn = DBManager.Instance.GetConnection();
-            OracleCommand cmd = new OracleCommand("SELECT DESCRIPTION FROM TYPES", conn);
-            OracleDataReader Reader = cmd.ExecuteReader();
-            while (Reader.Read())
-            {
+            cboStockID.Text = Stock.getNextStockID().ToString("0000");
 
-                String Type = Reader.GetString(0);
-                cboType.Items.Add(Type);
+            cboType.Items.Clear();
+            var types = _stockFacade.GetAllTypes();
+            foreach (string type in types)
+            {
+                cboType.Items.Add(type);
             }
-            DBManager.Instance.CloseConnection();
         }
 
         private void btnDeleteStock_Click_1(object sender, EventArgs e)

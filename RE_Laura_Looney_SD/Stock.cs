@@ -280,6 +280,27 @@ namespace RE_Laura_Looney_SD
 
             return ds;
         }
+
+        public static List<string> GetAllTypes()
+        {
+            var types = new List<string>();
+
+            OracleConnection conn = DBManager.Instance.GetConnection();
+            string sqlQuery = "SELECT DESCRIPTION FROM TYPES";
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                types.Add(reader.GetString(0));
+            }
+
+            reader.Close();
+            DBManager.Instance.CloseConnection();
+
+            return types;
+        }
+
         public static DataSet CheckStock()
         {
             OracleConnection conn = DBManager.Instance.GetConnection();

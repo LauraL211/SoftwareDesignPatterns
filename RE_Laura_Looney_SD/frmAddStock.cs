@@ -13,6 +13,7 @@ namespace RE_Laura_Looney_SD
 {
     public partial class frmAddStock : Form
     {
+        private readonly StockFacade _stockFacade = new StockFacade();
         public frmAddStock(frmStockMenu frmStockMenu)
         {
             InitializeComponent();
@@ -63,19 +64,12 @@ namespace RE_Laura_Looney_SD
         {
             cboStockID.Text = Stock.getNextStockID().ToString("0000");
 
-            OracleConnection conn = DBManager.Instance.GetConnection();
-            OracleCommand cmd = new OracleCommand("SELECT DESCRIPTION FROM TYPES", conn);
-            OracleDataReader Reader = cmd.ExecuteReader();
-            while(Reader.Read())
+            cboType.Items.Clear();
+            var types = _stockFacade.GetAllTypes();
+            foreach (string type in types)
             {
-
-                String Type = Reader.GetString(0);
-                cboType.Items.Add(Type);
+                cboType.Items.Add(type);
             }
-            DBManager.Instance.CloseConnection();
-
-
-
         }
 
         private void mnubtnExit_Click(object sender, EventArgs e)

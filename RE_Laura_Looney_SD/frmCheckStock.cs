@@ -13,13 +13,15 @@ namespace RE_Laura_Looney_SD
 {
     public partial class frmCheckStock : Form
     {
+        private readonly StockFacade _stockFacade = new StockFacade();
+
         public frmCheckStock(frmStockMenu frmStockMenu)
         {
             InitializeComponent();
 
             dgvLowStock.Rows.Clear();
             {
-                DataSet StockItem = Stock.CheckStock();
+                DataSet StockItem = _stockFacade.CheckStock();
 
                 for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
                 {

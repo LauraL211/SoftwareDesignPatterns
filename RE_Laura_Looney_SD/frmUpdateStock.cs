@@ -248,7 +248,7 @@ namespace RE_Laura_Looney_SD
                 DGVStock.Rows.Clear();
                 {
 
-                    DataSet StockItem = Stock.GetStock(cboSearch.Text.ToLower());
+                    DataSet StockItem = _stockFacade.GetStock(cboSearch.Text.ToLower());
 
                     for (int i = 0; i < StockItem.Tables[0].Rows.Count; i++)
                     {
@@ -281,16 +281,12 @@ namespace RE_Laura_Looney_SD
 
         private void frmUpdateStock_Load(object sender, EventArgs e)
         {
-            OracleConnection conn = DBManager.Instance.GetConnection();
-            OracleCommand cmd = new OracleCommand("SELECT DESCRIPTION FROM TYPES", conn);
-            OracleDataReader Reader = cmd.ExecuteReader();
-            while (Reader.Read())
+            cboType.Items.Clear();
+            var types = _stockFacade.GetAllTypes();
+            foreach (string type in types)
             {
-
-                String Type = Reader.GetString(0);
-                cboType.Items.Add(Type);
+                cboType.Items.Add(type);
             }
-            DBManager.Instance.CloseConnection();
         }
 
         private void btnUpdateStock_Click_1(object sender, EventArgs e)

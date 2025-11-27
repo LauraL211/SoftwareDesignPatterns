@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -115,6 +116,15 @@ namespace RE_Laura_Looney_SD
         public DataSet GetLowStockItems(string searchTerm)
         {
             return Stock.GetLowStock(searchTerm);
+        }
+        public DataSet CheckStock()
+        {
+            return Stock.CheckStock();
+        }
+
+        public List<string> GetAllTypes()
+        {
+            return Stock.GetAllTypes();
         }
 
         //Replenish Stock
