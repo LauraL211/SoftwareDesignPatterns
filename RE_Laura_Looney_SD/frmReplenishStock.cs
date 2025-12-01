@@ -207,7 +207,7 @@ namespace RE_Laura_Looney_SD
         {
             int stockId = Convert.ToInt32(DGVStock.Rows[e.RowIndex].Cells["StockID"].Value);
             int quantity = 0;
-            bool valid=false;
+            //bool valid=false;
 
             Stock stock = new Stock();
             stock.replenishStock(stockId);

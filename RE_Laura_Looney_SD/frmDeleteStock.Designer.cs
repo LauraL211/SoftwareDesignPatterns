@@ -35,7 +35,7 @@
             this.lblDeleteStock = new System.Windows.Forms.Label();
             this.DGVStock = new System.Windows.Forms.DataGridView();
             this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cboSearch = new System.Windows.Forms.TextBox();
@@ -116,7 +116,7 @@
             this.DGVStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StockID,
-            this.Name,
+            this.StockName,
             this.Description});
             this.DGVStock.Location = new System.Drawing.Point(31, 223);
             this.DGVStock.Name = "DGVStock";
@@ -134,9 +134,9 @@
             // 
             // Name
             // 
-            this.Name.HeaderText = "Stock Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
+            this.StockName.HeaderText = "Stock Name";
+            this.StockName.Name = "Name";
+            this.StockName.ReadOnly = true;
             // 
             // Description
             // 
@@ -416,7 +416,7 @@
         private System.Windows.Forms.Label lblDeleteStock;
         private System.Windows.Forms.DataGridView DGVStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox cboSearch;

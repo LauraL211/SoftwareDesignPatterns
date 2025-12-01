@@ -13,7 +13,6 @@ namespace RE_Laura_Looney_SD
 {
     public partial class frmDeleteStock : Form
     {
-        int Stock_ID = 69;
         private readonly StockFacade _stockFacade = new StockFacade();
         public frmDeleteStock(frmStockMenu frmStockMenu)
         {

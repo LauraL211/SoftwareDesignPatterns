@@ -36,7 +36,7 @@
             this.lblCheckLowStock = new System.Windows.Forms.Label();
             this.dgvLowStock = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,7 +111,7 @@
             this.dgvLowStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLowStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Name,
+            this.StockName,
             this.Description,
             this.Type,
             this.Price,
@@ -134,9 +134,9 @@
             // 
             // Name
             // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
+            this.StockName.HeaderText = "Name";
+            this.StockName.Name = "Name";
+            this.StockName.ReadOnly = true;
             // 
             // Description
             // 
@@ -201,7 +201,7 @@
         private System.Windows.Forms.Label lblCheckLowStock;
         private System.Windows.Forms.DataGridView dgvLowStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;

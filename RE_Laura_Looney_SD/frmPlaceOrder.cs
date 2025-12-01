@@ -14,7 +14,6 @@ namespace RE_Laura_Looney_SD
 {
     public partial class frmPlaceOrder : Form
     {
-        int valueAsInt;
         public frmPlaceOrder()
         {
             InitializeComponent();
@@ -226,7 +225,7 @@ namespace RE_Laura_Looney_SD
         {
             int stockId = Convert.ToInt32(DGVStock.Rows[e.RowIndex].Cells["StockID"].Value);
             int quantity = 0;
-            bool valid = false;
+            //bool valid = false;
             int total = 0;
             
             Stock stock = new Stock();
