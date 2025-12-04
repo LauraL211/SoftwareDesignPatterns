@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace RE_Laura_Looney_SD
 {
-    class WhiskeyStock : Stock
+    public class WhiskeyStock : Stock
     {
     }
 
-    class VodkaStock : Stock
+    public class VodkaStock : Stock
     {
     }
-    class RumStock : Stock
+    public class RumStock : Stock
     {
     }
-    class RedWineStock : Stock
+    public class RedWineStock : Stock
     {
     }
-    class WhiteWineStock : Stock
+    public class WhiteWineStock : Stock
     {
     }
 }

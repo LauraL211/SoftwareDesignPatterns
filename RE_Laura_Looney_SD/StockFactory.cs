@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RE_Laura_Looney_SD
 {
-    abstract class StockCreator
+    public abstract class StockCreator
     {
         public abstract Stock CreateStock(
             int stockID,
@@ -19,7 +19,7 @@ namespace RE_Laura_Looney_SD
             string status);
     }
 
-    class AlcoholicStockFactory : StockCreator
+    public class AlcoholicStockFactory : StockCreator
     {
         public override Stock CreateStock(
             int stockID,

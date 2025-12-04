@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RE_Laura_Looney_SD
 {
-    class StockFacade
+    public class StockFacade
     {
         private readonly StockCreator _stockCreator;
         private readonly StockSubject _stockSubject;
